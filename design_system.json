@@ -1,0 +1,562 @@
+{
+  "designSystem": {
+    "name": "Ben Levy Portfolio",
+    "version": "1.0",
+    "description": "Warm editorial minimalism with technical precision. Inspired by Anthropic's human-centered warmth and World Labs' spatial elegance.",
+    "aesthetic": {
+      "tone": "Refined, warm, confident, editorial",
+      "influences": ["Anthropic", "World Labs", "Apple", "Awwwards editorial portfolios"],
+      "keywords": ["human-machine interface", "elegant simplicity", "warm minimalism", "technical sophistication"],
+      "avoidances": ["generic tech aesthetic", "cold corporate", "over-decoration", "flashy animations", "dark mode"]
+    }
+  },
+
+  "colors": {
+    "palette": {
+      "background": {
+        "primary": {
+          "value": "#FDFCFB",
+          "usage": "Main page background"
+        },
+        "warm": {
+          "value": "#F8F6F3",
+          "usage": "Section backgrounds, featured cards, about section"
+        },
+        "card": {
+          "value": "#FFFFFF",
+          "usage": "Elevated card surfaces"
+        }
+      },
+      "text": {
+        "primary": {
+          "value": "#1B1B1B",
+          "usage": "Headlines, primary body text"
+        },
+        "secondary": {
+          "value": "#6B6B6B",
+          "usage": "Descriptions, supporting text"
+        },
+        "tertiary": {
+          "value": "#9B9B9B",
+          "usage": "Labels, metadata, dates"
+        }
+      },
+      "accent": {
+        "primary": {
+          "value": "#C17F59",
+          "usage": "Links, highlights, decorative lines, interactive states"
+        },
+        "soft": {
+          "value": "rgba(193, 127, 89, 0.08)",
+          "usage": "Subtle backgrounds, hover states"
+        },
+        "hover": {
+          "value": "rgba(193, 127, 89, 0.12)",
+          "usage": "Interactive hover backgrounds"
+        }
+      },
+      "border": {
+        "default": {
+          "value": "rgba(0, 0, 0, 0.06)",
+          "usage": "Subtle dividers, decorative circles"
+        },
+        "hover": {
+          "value": "rgba(0, 0, 0, 0.12)",
+          "usage": "Hover state borders"
+        }
+      }
+    },
+    "gradients": {
+      "accentOrb": {
+        "value": "radial-gradient(circle, rgba(193, 127, 89, 0.08) 0%, transparent 70%)",
+        "usage": "Soft background glow behind hero visual"
+      },
+      "sectionFade": {
+        "value": "linear-gradient(135deg, rgba(193, 127, 89, 0.08), rgba(193, 127, 89, 0.02))",
+        "usage": "Featured project visual backgrounds"
+      },
+      "navFade": {
+        "value": "linear-gradient(to bottom, #FDFCFB, transparent)",
+        "usage": "Navigation background fade"
+      }
+    }
+  },
+
+  "typography": {
+    "fontFamilies": {
+      "serif": {
+        "name": "Gilda Display",
+        "fallback": "Georgia, serif",
+        "source": "Google Fonts",
+        "usage": "Headlines, titles, decorative text, stats"
+      },
+      "sans": {
+        "name": "Inter",
+        "fallback": "-apple-system, BlinkMacSystemFont, sans-serif",
+        "source": "Google Fonts",
+        "weights": [300, 400, 500],
+        "usage": "Body text, labels, navigation, descriptions"
+      }
+    },
+    "scale": {
+      "hero": {
+        "size": "clamp(2.75rem, 5vw, 4rem)",
+        "lineHeight": 1.15,
+        "letterSpacing": "-0.01em",
+        "font": "serif",
+        "weight": 400
+      },
+      "sectionTitle": {
+        "size": "clamp(1.75rem, 3vw, 2.5rem)",
+        "lineHeight": 1.3,
+        "letterSpacing": "-0.01em",
+        "font": "serif",
+        "weight": 400
+      },
+      "featuredTitle": {
+        "size": "clamp(2rem, 3.5vw, 3rem)",
+        "lineHeight": 1.2,
+        "letterSpacing": "0",
+        "font": "serif",
+        "weight": 400
+      },
+      "projectTitle": {
+        "size": "clamp(1.25rem, 2vw, 1.75rem)",
+        "lineHeight": 1.3,
+        "letterSpacing": "0",
+        "font": "serif",
+        "weight": 400
+      },
+      "bodyLarge": {
+        "size": "1.0625rem",
+        "lineHeight": 1.7,
+        "letterSpacing": "0",
+        "font": "sans",
+        "weight": 400
+      },
+      "body": {
+        "size": "1rem",
+        "lineHeight": 1.7,
+        "letterSpacing": "0",
+        "font": "sans",
+        "weight": 400
+      },
+      "bodySmall": {
+        "size": "0.875rem",
+        "lineHeight": 1.6,
+        "letterSpacing": "0",
+        "font": "sans",
+        "weight": 400
+      },
+      "label": {
+        "size": "0.75rem",
+        "lineHeight": 1.4,
+        "letterSpacing": "0.2em",
+        "textTransform": "uppercase",
+        "font": "sans",
+        "weight": 500
+      },
+      "labelSmall": {
+        "size": "0.6875rem",
+        "lineHeight": 1.4,
+        "letterSpacing": "0.15em",
+        "textTransform": "uppercase",
+        "font": "sans",
+        "weight": 500
+      },
+      "nav": {
+        "size": "0.8125rem",
+        "lineHeight": 1.4,
+        "letterSpacing": "0.02em",
+        "font": "sans",
+        "weight": 400
+      },
+      "stat": {
+        "size": "1.5rem",
+        "lineHeight": 1.2,
+        "letterSpacing": "0",
+        "font": "serif",
+        "weight": 400
+      }
+    },
+    "styles": {
+      "italic": {
+        "usage": "Emphasis within headlines, decorative accents, project hover states",
+        "font": "serif"
+      }
+    }
+  },
+
+  "spacing": {
+    "scale": {
+      "xs": "0.5rem",
+      "sm": "1rem",
+      "md": "2rem",
+      "lg": "4rem",
+      "xl": "8rem",
+      "2xl": "12rem"
+    },
+    "layout": {
+      "pagePadding": "5vw",
+      "maxWidth": {
+        "content": "1400px",
+        "narrow": "1200px",
+        "text": "600px"
+      },
+      "sectionPadding": {
+        "vertical": "12rem",
+        "horizontal": "5vw"
+      },
+      "gridGap": {
+        "large": "8vw",
+        "medium": "6vw",
+        "small": "2rem"
+      }
+    }
+  },
+
+  "borders": {
+    "radius": {
+      "none": "0",
+      "small": "4px",
+      "medium": "8px",
+      "large": "16px",
+      "xl": "24px"
+    },
+    "width": {
+      "thin": "1px"
+    },
+    "style": {
+      "solid": "solid",
+      "dashed": "dashed"
+    }
+  },
+
+  "shadows": {
+    "none": "Used intentionally - design relies on color and spacing for depth",
+    "philosophy": "Avoid drop shadows. Use subtle background colors, borders, and spacing to create hierarchy."
+  },
+
+  "animation": {
+    "easing": {
+      "smooth": {
+        "value": "cubic-bezier(0.23, 1, 0.32, 1)",
+        "usage": "Primary easing for most animations - Apple-inspired smooth deceleration"
+      },
+      "ease": {
+        "value": "ease",
+        "usage": "Simple transitions"
+      },
+      "easeInOut": {
+        "value": "ease-in-out",
+        "usage": "Looping animations"
+      }
+    },
+    "duration": {
+      "fast": "0.15s",
+      "normal": "0.3s",
+      "medium": "0.4s",
+      "slow": "0.5s",
+      "slower": "0.8s",
+      "slowest": "1s"
+    },
+    "types": {
+      "fadeUp": {
+        "from": { "opacity": 0, "transform": "translateY(20px)" },
+        "to": { "opacity": 1, "transform": "translateY(0)" },
+        "duration": "0.8s",
+        "easing": "smooth"
+      },
+      "revealText": {
+        "from": { "opacity": 0, "transform": "translateY(100%)" },
+        "to": { "opacity": 1, "transform": "translateY(0)" },
+        "duration": "1s",
+        "easing": "smooth",
+        "staggerDelay": "0.1s"
+      },
+      "drawPath": {
+        "property": "stroke-dashoffset",
+        "from": 300,
+        "to": 0,
+        "duration": "2s",
+        "easing": "smooth"
+      },
+      "circleReveal": {
+        "from": { "opacity": 0, "scale": 0.9 },
+        "to": { "opacity": 1, "scale": 1 },
+        "duration": "1.2s",
+        "easing": "smooth"
+      },
+      "breathe": {
+        "keyframes": [
+          { "offset": 0, "scale": 1, "opacity": 0.6 },
+          { "offset": 0.5, "scale": 1.1, "opacity": 0.8 },
+          { "offset": 1, "scale": 1, "opacity": 0.6 }
+        ],
+        "duration": "6s",
+        "iteration": "infinite"
+      },
+      "pulse": {
+        "keyframes": [
+          { "offset": 0, "opacity": 1 },
+          { "offset": 0.5, "opacity": 0.4 },
+          { "offset": 1, "opacity": 1 }
+        ],
+        "duration": "2s",
+        "iteration": "infinite"
+      },
+      "scrollLine": {
+        "property": "left",
+        "keyframes": [
+          { "offset": 0, "left": "-100%" },
+          { "offset": 0.5, "left": "100%" },
+          { "offset": 1, "left": "100%" }
+        ],
+        "duration": "2.5s",
+        "iteration": "infinite"
+      },
+      "ecgScroll": {
+        "property": "transform",
+        "from": "translateX(0)",
+        "to": "translateX(-50%)",
+        "duration": "5s",
+        "iteration": "infinite",
+        "easing": "linear"
+      }
+    },
+    "delays": {
+      "stagger": {
+        "text": ["0.3s", "0.4s", "0.5s"],
+        "dots": ["1.5s", "1.65s", "1.8s", "1.95s", "2.1s"],
+        "paths": ["0s", "0.15s", "0.3s", "0.45s", "0.6s"]
+      }
+    }
+  },
+
+  "cursor": {
+    "custom": true,
+    "components": {
+      "dot": {
+        "size": "8px",
+        "color": "#FFFFFF",
+        "mixBlendMode": "difference",
+        "followSpeed": 0.2
+      },
+      "ring": {
+        "size": "40px",
+        "border": "1px solid rgba(255, 255, 255, 0.5)",
+        "mixBlendMode": "difference",
+        "followSpeed": 0.08,
+        "hoverState": {
+          "size": "60px",
+          "borderColor": "#C17F59",
+          "background": "rgba(193, 127, 89, 0.1)",
+          "mixBlendMode": "normal"
+        }
+      }
+    }
+  },
+
+  "components": {
+    "navigation": {
+      "position": "fixed",
+      "padding": "1.75rem 5vw",
+      "background": "gradient fade to transparent",
+      "logo": {
+        "font": "serif",
+        "size": "1.125rem"
+      },
+      "links": {
+        "gap": "2.5rem",
+        "hoverEffect": "underline grows from left"
+      }
+    },
+    "hero": {
+      "minHeight": "100vh",
+      "layout": "two-column grid",
+      "label": {
+        "hasLine": true,
+        "lineWidth": "40px",
+        "lineColor": "accent"
+      },
+      "visual": {
+        "elements": ["gradient orb", "decorative circles", "hand SVG illustration"],
+        "circleStyles": ["solid", "dashed"]
+      }
+    },
+    "sectionHeader": {
+      "label": {
+        "hasLine": true,
+        "lineWidth": "32px"
+      },
+      "titleMaxWidth": "600px"
+    },
+    "featuredProject": {
+      "background": "warm",
+      "borderRadius": "24px",
+      "margin": "0 5vw",
+      "layout": "two-column grid",
+      "visual": {
+        "aspectRatio": "4/3",
+        "borderRadius": "16px",
+        "animation": "ECG waveform scroll"
+      },
+      "stats": {
+        "layout": "horizontal flex",
+        "gap": "3rem",
+        "hasTopLine": true
+      }
+    },
+    "projectList": {
+      "layout": "grid",
+      "columns": "60px 1fr 160px 80px",
+      "rowPadding": "2rem 0",
+      "border": "top and bottom",
+      "hoverEffects": {
+        "backgroundSlide": true,
+        "backgroundColor": "accent-hover",
+        "paddingShift": "1rem left",
+        "titleItalic": true,
+        "descriptionReveal": true,
+        "arrowAppear": true
+      }
+    },
+    "aboutSection": {
+      "background": "warm",
+      "layout": "two-column grid",
+      "image": {
+        "aspectRatio": "4/5",
+        "hasOffsetFrame": true,
+        "frameOffset": "1.5rem"
+      },
+      "details": {
+        "layout": "horizontal flex",
+        "gap": "3rem",
+        "hasBorderTop": true
+      }
+    },
+    "footer": {
+      "layout": "flex space-between",
+      "cta": {
+        "titleMaxWidth": "480px"
+      },
+      "status": {
+        "hasPulsingDot": true,
+        "dotColor": "accent"
+      }
+    }
+  },
+
+  "decorativeElements": {
+    "lines": {
+      "sectionLabel": {
+        "width": "32-40px",
+        "height": "1px",
+        "color": "accent"
+      },
+      "statTop": {
+        "width": "24px",
+        "height": "1px",
+        "color": "accent"
+      },
+      "scrollHint": {
+        "width": "48px",
+        "hasAnimation": true
+      }
+    },
+    "circles": {
+      "heroVisual": {
+        "count": 2,
+        "styles": ["solid", "dashed"],
+        "sizes": ["100%", "75%"],
+        "color": "border"
+      }
+    },
+    "illustrations": {
+      "handSvg": {
+        "style": "line drawing",
+        "strokeWidth": 1,
+        "animation": "draw on load",
+        "accentDots": {
+          "count": 5,
+          "radius": "4px",
+          "color": "accent",
+          "animation": "fade in after path completes"
+        }
+      },
+      "ecgWaveform": {
+        "style": "continuous line",
+        "strokeWidth": 2,
+        "animation": "horizontal scroll loop",
+        "opacity": 0.7
+      }
+    },
+    "texture": {
+      "grain": {
+        "type": "SVG noise filter",
+        "opacity": 0.015,
+        "position": "fixed overlay",
+        "pointerEvents": "none"
+      }
+    }
+  },
+
+  "responsive": {
+    "breakpoints": {
+      "mobile": "600px",
+      "tablet": "900px",
+      "desktop": "1200px"
+    },
+    "adaptations": {
+      "tablet": {
+        "gridColumns": "1fr (single column)",
+        "projectColumns": "40px 1fr 60px",
+        "hideElements": ["project-category"]
+      }
+    }
+  },
+
+  "interactions": {
+    "links": {
+      "underlineGrow": {
+        "direction": "left to right",
+        "height": "1px",
+        "color": "accent"
+      }
+    },
+    "projectHover": {
+      "backgroundSlide": {
+        "direction": "left",
+        "duration": "0.5s",
+        "overshoot": "5vw on each side"
+      },
+      "textTransform": {
+        "fontStyle": "italic",
+        "letterSpacing": "0.02em"
+      }
+    },
+    "buttonHover": {
+      "gapIncrease": "0.75rem to 1.25rem",
+      "colorChange": "text to accent"
+    },
+    "scrollBehavior": "smooth"
+  },
+
+  "accessibility": {
+    "colorContrast": {
+      "primaryText": "AAA compliant on background",
+      "secondaryText": "AA compliant on background"
+    },
+    "focusStates": "Should add visible focus indicators for keyboard navigation",
+    "reducedMotion": "Should add prefers-reduced-motion media query"
+  },
+
+  "implementation": {
+    "cssVariables": true,
+    "methodology": "Component-based with utility classes where needed",
+    "frameworks": {
+      "recommended": ["Vanilla CSS", "Tailwind (customized)", "CSS Modules"],
+      "animations": ["CSS native", "GSAP for complex sequences"]
+    }
+  }
+}
