@@ -33,18 +33,26 @@
       </div>
     </div>
     <div class="hero-visual">
-      <!-- Placeholder: animated line-drawing of hand/sensor interface -->
-      <div class="placeholder placeholder--hero">
-        <svg class="placeholder-icon" viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="1.5">
-          <!-- Abstract hand/circuit line drawing -->
-          <path d="M40 70 V45 M40 45 Q30 40 25 30 M40 45 Q50 40 55 30 M25 30 Q22 22 28 15 M55 30 Q58 22 52 15 M40 45 V35 Q40 28 40 20" stroke-linecap="round" stroke-linejoin="round"/>
-          <circle cx="28" cy="15" r="3"/>
-          <circle cx="52" cy="15" r="3"/>
-          <circle cx="40" cy="20" r="3"/>
-          <circle cx="25" cy="30" r="2" class="dot-pulse"/>
-          <circle cx="55" cy="30" r="2" class="dot-pulse"/>
+      <div class="jammer-stage">
+        <svg class="jammer-svg" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="200" cy="200" r="150" class="jammer-glow" fill="var(--accent-light)" />
+          
+          <rect x="80" y="140" width="240" height="120" rx="12" class="membrane" stroke="var(--border)" stroke-width="1.5" fill="var(--white)" />
+          
+          <g class="layers-group">
+            <rect class="layer" x="100" y="155" width="200" height="4" rx="2" fill="var(--text-tertiary)" />
+            <rect class="layer" x="100" y="167" width="200" height="4" rx="2" fill="var(--text-tertiary)" />
+            <rect class="layer" x="100" y="179" width="200" height="4" rx="2" fill="var(--text-tertiary)" />
+            <rect class="layer" x="100" y="191" width="200" height="4" rx="2" fill="var(--text-tertiary)" />
+            <rect class="layer" x="100" y="203" width="200" height="4" rx="2" fill="var(--text-tertiary)" />
+            <rect class="layer" x="100" y="215" width="200" height="4" rx="2" fill="var(--text-tertiary)" />
+            <rect class="layer" x="100" y="227" width="200" height="4" rx="2" fill="var(--text-tertiary)" />
+            <rect class="layer" x="100" y="239" width="200" height="4" rx="2" fill="var(--text-tertiary)" />
+          </g>
+    
+          <path d="M320 200 H360" class="vacuum-line" stroke="var(--border)" stroke-width="2" stroke-linecap="round" />
         </svg>
-        <span class="placeholder-label">Animation: hand + sensor interface</span>
+        <div class="jammer-label">State: <span class="state-text">Transparency</span></div>
       </div>
     </div>
   </section>
