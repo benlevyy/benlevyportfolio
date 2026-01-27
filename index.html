@@ -33,54 +33,85 @@
       </div>
     </div>
     <div class="hero-visual">
-      <!-- Abstract layer jamming visualization -->
-      <svg class="hero-svg" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
-        <!-- Grid dots background -->
-        <defs>
-          <pattern id="dots" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
-            <circle cx="10" cy="10" r="0.75" fill="#E5E7EB"/>
-          </pattern>
-        </defs>
-        <rect width="400" height="400" fill="url(#dots)"/>
+      <!-- Interactive hand assembly — hover to compress -->
+      <div class="hand-assembly">
+        <svg class="hand-svg" viewBox="0 0 400 450" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <pattern id="dots" x="0" y="0" width="24" height="24" patternUnits="userSpaceOnUse">
+              <circle cx="12" cy="12" r="0.6" fill="#E5E7EB"/>
+            </pattern>
+          </defs>
+          <rect width="400" height="450" fill="url(#dots)"/>
 
-        <!-- Outer ring -->
-        <circle cx="200" cy="200" r="160" fill="none" stroke="#F3F4F6" stroke-width="1"/>
+          <!-- Hand outline — simplified glove silhouette -->
+          <g class="hand-outline">
+            <!-- Palm -->
+            <path d="M160,320 Q140,280 145,240 L148,220 Q150,200 160,185 L165,175
+                      Q170,165 175,160 L180,155 Q185,148 192,145
+                      L200,142 Q208,145 215,148 L220,155
+                      Q225,160 230,165 L235,175 Q240,185 242,195
+                      L245,220 Q248,240 255,260 Q260,280 240,320 Z"
+                  fill="none" stroke="#D1D5DB" stroke-width="1.5" stroke-linejoin="round"/>
 
-        <!-- Layer stack — the core visual -->
-        <g class="layer-stack">
-          <rect class="layer l1" x="120" y="152" width="160" height="5" rx="2.5"/>
-          <rect class="layer l2" x="120" y="165" width="160" height="5" rx="2.5"/>
-          <rect class="layer l3" x="120" y="178" width="160" height="5" rx="2.5"/>
-          <rect class="layer l4" x="120" y="191" width="160" height="5" rx="2.5"/>
-          <rect class="layer l5" x="120" y="204" width="160" height="5" rx="2.5"/>
-          <rect class="layer l6" x="120" y="217" width="160" height="5" rx="2.5"/>
-          <rect class="layer l7" x="120" y="230" width="160" height="5" rx="2.5"/>
-          <rect class="layer l8" x="120" y="243" width="160" height="5" rx="2.5"/>
-        </g>
+            <!-- Thumb -->
+            <path d="M155,240 Q135,225 125,205 Q120,190 128,178 Q136,170 145,178"
+                  fill="none" stroke="#D1D5DB" stroke-width="1.5" stroke-linecap="round"/>
 
-        <!-- Force arrow (top) -->
-        <line x1="200" y1="110" x2="200" y2="140" class="force-arrow" stroke="#3B82F6" stroke-width="2" stroke-linecap="round"/>
-        <polygon points="194,138 200,148 206,138" fill="#3B82F6" class="force-arrow"/>
+            <!-- Index finger -->
+            <path d="M170,170 Q168,140 170,110 Q172,90 180,80 Q188,90 190,110 Q192,135 190,165"
+                  fill="none" stroke="#D1D5DB" stroke-width="1.5" stroke-linecap="round"/>
 
-        <!-- Vacuum line (right side) -->
-        <line x1="290" y1="200" x2="340" y2="200" stroke="#E5E7EB" stroke-width="1.5" stroke-dasharray="4 3"/>
-        <circle cx="345" cy="200" r="5" fill="none" stroke="#3B82F6" stroke-width="1.5" class="vacuum-indicator"/>
+            <!-- Middle finger -->
+            <path d="M190,160 Q190,125 192,95 Q194,72 200,62 Q206,72 208,95 Q210,125 210,160"
+                  fill="none" stroke="#D1D5DB" stroke-width="1.5" stroke-linecap="round"/>
 
-        <!-- Pressure arrows (jammed state) -->
-        <g class="pressure-arrows">
-          <line x1="105" y1="170" x2="115" y2="170" stroke="#3B82F6" stroke-width="1" stroke-linecap="round" opacity="0"/>
-          <line x1="105" y1="195" x2="115" y2="195" stroke="#3B82F6" stroke-width="1" stroke-linecap="round" opacity="0"/>
-          <line x1="105" y1="220" x2="115" y2="220" stroke="#3B82F6" stroke-width="1" stroke-linecap="round" opacity="0"/>
-          <line x1="285" y1="170" x2="295" y2="170" stroke="#3B82F6" stroke-width="1" stroke-linecap="round" opacity="0"/>
-          <line x1="285" y1="195" x2="295" y2="195" stroke="#3B82F6" stroke-width="1" stroke-linecap="round" opacity="0"/>
-          <line x1="285" y1="220" x2="295" y2="220" stroke="#3B82F6" stroke-width="1" stroke-linecap="round" opacity="0"/>
-        </g>
+            <!-- Ring finger -->
+            <path d="M210,165 Q212,135 215,108 Q217,88 223,80 Q229,88 230,108 Q232,135 232,170"
+                  fill="none" stroke="#D1D5DB" stroke-width="1.5" stroke-linecap="round"/>
 
-        <!-- Labels -->
-        <text x="200" y="285" text-anchor="middle" class="svg-label" fill="#9CA3AF" font-size="10" font-family="Inter, sans-serif" letter-spacing="0.08em">LAYER JAMMING</text>
-        <text x="345" y="218" text-anchor="middle" class="svg-label-sm" fill="#9CA3AF" font-size="8" font-family="Inter, sans-serif">V</text>
-        <text x="200" y="105" text-anchor="middle" class="svg-label-sm" fill="#3B82F6" font-size="8" font-family="Inter, sans-serif">F</text>
-      </svg>
+            <!-- Pinky -->
+            <path d="M232,180 Q235,155 238,130 Q240,115 245,108 Q250,115 250,130 Q250,155 248,185"
+                  fill="none" stroke="#D1D5DB" stroke-width="1.5" stroke-linecap="round"/>
+          </g>
+
+          <!-- Components that explode/compress -->
+
+          <!-- Sensor nodes at fingertips -->
+          <circle class="comp comp-tip c1" cx="180" cy="76" r="5" fill="none" stroke="#3B82F6" stroke-width="1.2"/>
+          <circle class="comp comp-tip c2" cx="200" cy="58" r="5" fill="none" stroke="#3B82F6" stroke-width="1.2"/>
+          <circle class="comp comp-tip c3" cx="223" cy="76" r="5" fill="none" stroke="#3B82F6" stroke-width="1.2"/>
+          <circle class="comp comp-tip c4" cx="245" cy="104" r="4" fill="none" stroke="#3B82F6" stroke-width="1.2"/>
+          <circle class="comp comp-tip c5" cx="125" cy="200" r="4" fill="none" stroke="#3B82F6" stroke-width="1.2"/>
+
+          <!-- Joint nodes on fingers -->
+          <circle class="comp comp-joint j1" cx="172" cy="120" r="3" fill="#3B82F6" opacity="0.4"/>
+          <circle class="comp comp-joint j2" cx="195" cy="105" r="3" fill="#3B82F6" opacity="0.4"/>
+          <circle class="comp comp-joint j3" cx="220" cy="115" r="3" fill="#3B82F6" opacity="0.4"/>
+          <circle class="comp comp-joint j4" cx="244" cy="128" r="3" fill="#3B82F6" opacity="0.4"/>
+
+          <!-- PCB / sensor board on back of hand -->
+          <rect class="comp comp-pcb" x="178" y="195" width="44" height="28" rx="4" fill="none" stroke="#3B82F6" stroke-width="1" stroke-dasharray="3 2"/>
+          <!-- Chip on PCB -->
+          <rect class="comp comp-chip" x="192" y="203" width="16" height="12" rx="2" fill="rgba(59,130,246,0.08)" stroke="#3B82F6" stroke-width="0.8"/>
+
+          <!-- Wiring / traces -->
+          <line class="comp comp-wire w1" x1="180" y1="82" x2="178" y2="118" stroke="#3B82F6" stroke-width="0.6" stroke-dasharray="2 2" opacity="0.5"/>
+          <line class="comp comp-wire w2" x1="200" y1="64" x2="195" y2="103" stroke="#3B82F6" stroke-width="0.6" stroke-dasharray="2 2" opacity="0.5"/>
+          <line class="comp comp-wire w3" x1="223" y1="82" x2="220" y2="113" stroke="#3B82F6" stroke-width="0.6" stroke-dasharray="2 2" opacity="0.5"/>
+          <line class="comp comp-wire w4" x1="172" y1="123" x2="180" y2="195" stroke="#3B82F6" stroke-width="0.6" stroke-dasharray="2 2" opacity="0.3"/>
+          <line class="comp comp-wire w5" x1="195" y1="108" x2="195" y2="195" stroke="#3B82F6" stroke-width="0.6" stroke-dasharray="2 2" opacity="0.3"/>
+          <line class="comp comp-wire w6" x1="220" y1="118" x2="210" y2="195" stroke="#3B82F6" stroke-width="0.6" stroke-dasharray="2 2" opacity="0.3"/>
+
+          <!-- Small waveform near wrist -->
+          <polyline class="comp comp-signal" points="160,340 168,340 172,332 176,348 180,336 184,340 195,340" fill="none" stroke="#3B82F6" stroke-width="0.8" opacity="0.5"/>
+
+          <!-- Data flow arrow from palm to wrist -->
+          <line class="comp comp-data" x1="200" y1="225" x2="200" y2="310" stroke="#3B82F6" stroke-width="0.6" stroke-dasharray="4 4" opacity="0.3"/>
+          <polygon class="comp comp-data" points="196,308 200,318 204,308" fill="#3B82F6" opacity="0.3"/>
+
+        </svg>
+        <p class="hand-hint">Hover to assemble</p>
+      </div>
     </div>
   </section>
 
@@ -91,16 +122,30 @@
     <div class="featured-grid">
       <!-- S.E.S.H. Glove -->
       <div class="featured-card">
-        <div class="placeholder placeholder--media">
-          <svg class="placeholder-icon" viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="1.5">
-            <!-- Layer jamming diagram placeholder -->
-            <rect x="15" y="25" width="50" height="6" rx="1"/>
-            <rect x="15" y="33" width="50" height="6" rx="1"/>
-            <rect x="15" y="41" width="50" height="6" rx="1"/>
-            <path d="M10 35 L15 30 M10 35 L15 40" stroke-linecap="round"/>
-            <text x="40" y="62" text-anchor="middle" font-size="6" fill="currentColor" stroke="none">vacuum on → sheets lock</text>
+        <div class="sesh-visual">
+          <svg class="jammer-svg" viewBox="0 0 480 200" xmlns="http://www.w3.org/2000/svg">
+            <!-- Layer stack -->
+            <g class="jammer-layers">
+              <rect class="jlayer jl1" x="80" y="42" width="200" height="5" rx="2"/>
+              <rect class="jlayer jl2" x="80" y="55" width="200" height="5" rx="2"/>
+              <rect class="jlayer jl3" x="80" y="68" width="200" height="5" rx="2"/>
+              <rect class="jlayer jl4" x="80" y="81" width="200" height="5" rx="2"/>
+              <rect class="jlayer jl5" x="80" y="94" width="200" height="5" rx="2"/>
+              <rect class="jlayer jl6" x="80" y="107" width="200" height="5" rx="2"/>
+              <rect class="jlayer jl7" x="80" y="120" width="200" height="5" rx="2"/>
+              <rect class="jlayer jl8" x="80" y="133" width="200" height="5" rx="2"/>
+            </g>
+            <!-- Force arrow -->
+            <line x1="180" y1="10" x2="180" y2="32" stroke="#3B82F6" stroke-width="1.5" stroke-linecap="round" class="jforce"/>
+            <polygon points="176,30 180,38 184,30" fill="#3B82F6" class="jforce"/>
+            <!-- Vacuum line -->
+            <line x1="290" y1="88" x2="340" y2="88" stroke="#D1D5DB" stroke-width="1" stroke-dasharray="4 3"/>
+            <circle cx="348" cy="88" r="4" fill="none" stroke="#3B82F6" stroke-width="1.2" class="jvac"/>
+            <!-- Labels -->
+            <text x="180" y="170" text-anchor="middle" fill="#9CA3AF" font-size="9" font-family="Inter, sans-serif" letter-spacing="0.08em">LAYER JAMMING</text>
+            <text x="180" y="8" text-anchor="middle" fill="#3B82F6" font-size="7" font-family="Inter, sans-serif">F</text>
+            <text x="348" y="78" text-anchor="middle" fill="#9CA3AF" font-size="7" font-family="Inter, sans-serif">V</text>
           </svg>
-          <span class="placeholder-label">Demo video + layer jamming physics diagram</span>
         </div>
         <div class="featured-card-body">
           <span class="tag">Research · IEEE Haptics 2024</span>
