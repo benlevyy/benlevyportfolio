@@ -6,7 +6,7 @@
   <title>Ben Levy — Mechatronics Engineer</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Gilda+Display&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -24,158 +24,182 @@
   <section class="hero">
     <div class="hero-content">
       <p class="hero-label">Mechatronics Engineer</p>
-      <h1 class="hero-title">Building systems where hardware meets humans</h1>
-      <p class="hero-location">Bay Area ↔ Madison, WI</p>
+      <h1 class="hero-title">Building systems where hardware meets humans.</h1>
+      <p class="hero-sub">I design and build wearable devices, robotic systems, and intelligent tools — from published haptics research to medical devices to enterprise AI.</p>
       <div class="hero-links">
-        <a href="https://linkedin.com/in/ben-levy" target="_blank" rel="noopener">LinkedIn ↗</a>
-        <a href="https://github.com/benlevyy" target="_blank" rel="noopener">GitHub ↗</a>
-        <a href="mailto:benslevy@gmail.com">Email ↗</a>
+        <a href="https://linkedin.com/in/ben-levy" target="_blank" rel="noopener" class="btn">LinkedIn ↗</a>
+        <a href="https://github.com/benlevyy" target="_blank" rel="noopener" class="btn">GitHub ↗</a>
+        <a href="mailto:benslevy@gmail.com" class="btn">Email ↗</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <!-- Placeholder: animated line-drawing of hand/sensor interface -->
+      <div class="placeholder placeholder--hero">
+        <svg class="placeholder-icon" viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="1.5">
+          <!-- Abstract hand/circuit line drawing -->
+          <path d="M40 70 V45 M40 45 Q30 40 25 30 M40 45 Q50 40 55 30 M25 30 Q22 22 28 15 M55 30 Q58 22 52 15 M40 45 V35 Q40 28 40 20" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="28" cy="15" r="3"/>
+          <circle cx="52" cy="15" r="3"/>
+          <circle cx="40" cy="20" r="3"/>
+          <circle cx="25" cy="30" r="2" class="dot-pulse"/>
+          <circle cx="55" cy="30" r="2" class="dot-pulse"/>
+        </svg>
+        <span class="placeholder-label">Animation: hand + sensor interface</span>
       </div>
     </div>
   </section>
 
-  <!-- Featured Project: S.E.S.H. Glove -->
-  <section class="featured" id="projects">
-    <div class="section-label"><span class="label-line"></span> Featured Work</div>
-    <div class="featured-card">
-      <div class="featured-info">
-        <p class="featured-tag">Research · IEEE Haptics 2024</p>
-        <h2 class="featured-title">S.E.S.H. Glove</h2>
-        <p class="featured-subtitle">Wearable Haptic Interface for VR/AR</p>
-        <p class="featured-desc">First-author IEEE publication on a novel vacuum-based layer jammer wearable that delivers tunable stiffness feedback across the full hand. Designed, prototyped, and validated a system achieving 4N blocking force with a 28:1 transparency ratio at under $0.20 per actuator.</p>
-        <div class="featured-stats">
-          <div class="stat">
-            <span class="stat-line"></span>
-            <span class="stat-value">4N</span>
-            <span class="stat-label">Blocking Force</span>
+  <!-- Featured Projects -->
+  <section class="section" id="projects">
+    <h2 class="section-heading">Featured Work</h2>
+
+    <div class="featured-grid">
+      <!-- S.E.S.H. Glove -->
+      <div class="featured-card">
+        <div class="placeholder placeholder--media">
+          <svg class="placeholder-icon" viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="1.5">
+            <!-- Layer jamming diagram placeholder -->
+            <rect x="15" y="25" width="50" height="6" rx="1"/>
+            <rect x="15" y="33" width="50" height="6" rx="1"/>
+            <rect x="15" y="41" width="50" height="6" rx="1"/>
+            <path d="M10 35 L15 30 M10 35 L15 40" stroke-linecap="round"/>
+            <text x="40" y="62" text-anchor="middle" font-size="6" fill="currentColor" stroke="none">vacuum on → sheets lock</text>
+          </svg>
+          <span class="placeholder-label">Demo video + layer jamming physics diagram</span>
+        </div>
+        <div class="featured-card-body">
+          <span class="tag">Research · IEEE Haptics 2024</span>
+          <h3>S.E.S.H. Glove</h3>
+          <p>Novel vacuum-based layer jammer wearable for VR haptic feedback. First-author IEEE publication. Designed, prototyped, and validated the full system.</p>
+          <div class="stats">
+            <div class="stat"><span class="stat-val">4N</span> blocking force</div>
+            <div class="stat"><span class="stat-val">28:1</span> transparency ratio</div>
+            <div class="stat"><span class="stat-val">&lt;$0.20</span> per jammer</div>
           </div>
-          <div class="stat">
-            <span class="stat-line"></span>
-            <span class="stat-value">28:1</span>
-            <span class="stat-label">Transparency Ratio</span>
-          </div>
-          <div class="stat">
-            <span class="stat-line"></span>
-            <span class="stat-value">&lt;$0.20</span>
-            <span class="stat-label">Per Jammer</span>
+        </div>
+      </div>
+
+      <!-- BeatRite -->
+      <div class="featured-card">
+        <div class="placeholder placeholder--media">
+          <svg class="placeholder-icon" viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="1.5">
+            <!-- ECG waveform placeholder -->
+            <polyline points="5,45 15,45 20,45 23,45 25,20 27,60 29,40 32,45 45,45 50,45 53,45 55,20 57,60 59,40 62,45 75,45" stroke-linecap="round" stroke-linejoin="round" class="ecg-line"/>
+          </svg>
+          <span class="placeholder-label">System architecture + animated ECG waveform</span>
+        </div>
+        <div class="featured-card-body">
+          <span class="tag">Medical Device · Pre-Seed Startup</span>
+          <h3>BeatRite</h3>
+          <p>Lead engineer for a multi-sensor wearable predicting heart failure. Full pipeline from raw biosignals through BLE to a companion iOS app.</p>
+          <div class="stats">
+            <div class="stat"><span class="stat-val">5</span> sensor modalities</div>
+            <div class="stat"><span class="stat-val">BLE</span> data pipeline</div>
+            <div class="stat"><span class="stat-val">iOS</span> companion app</div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Featured Project: BeatRite -->
-  <section class="featured">
-    <div class="featured-card">
-      <div class="featured-info">
-        <p class="featured-tag">Medical Device · Pre-Seed Startup</p>
-        <h2 class="featured-title">BeatRite</h2>
-        <p class="featured-subtitle">Wearable Heart Failure Prediction Device</p>
-        <p class="featured-desc">Lead engineer for a multi-sensor wearable integrating PPG, ECG, temperature, and IMU data. Built a full signal processing pipeline using Pan-Tompkins R-peak detection, streaming data over BLE to a companion iOS app for real-time cardiac monitoring.</p>
-        <div class="featured-stats">
-          <div class="stat">
-            <span class="stat-line"></span>
-            <span class="stat-value">4</span>
-            <span class="stat-label">Sensor Modalities</span>
-          </div>
-          <div class="stat">
-            <span class="stat-line"></span>
-            <span class="stat-value">BLE</span>
-            <span class="stat-label">Data Pipeline</span>
-          </div>
-          <div class="stat">
-            <span class="stat-line"></span>
-            <span class="stat-value">iOS</span>
-            <span class="stat-label">Companion App</span>
-          </div>
+  <!-- Project Grid -->
+  <section class="section">
+    <h2 class="section-heading">All Projects</h2>
+
+    <div class="project-grid">
+
+      <div class="project-card">
+        <div class="placeholder placeholder--thumb">
+          <span class="placeholder-label">RAG architecture diagram</span>
         </div>
+        <span class="tag">Enterprise AI · GE HealthCare</span>
+        <h3>AI ARC OPS</h3>
+        <p>RAG system reducing workforce database queries from 45 min to &lt;10 sec. Won CTO's "3 Heartbeats" Award.</p>
       </div>
-    </div>
-  </section>
 
-  <!-- Project List -->
-  <section class="project-list">
-    <div class="section-label"><span class="label-line"></span> All Projects</div>
+      <div class="project-card">
+        <div class="placeholder placeholder--thumb">
+          <span class="placeholder-label">Test cycle loop diagram</span>
+        </div>
+        <span class="tag">Robotics · GE HealthCare</span>
+        <h3>Monte Carlo Testing Robot</h3>
+        <p>24/7 automated anesthesia stress testing. 100k+ simulated breathing cycles with 3D-printed physical interfaces.</p>
+      </div>
 
-    <div class="project-row">
-      <span class="project-number">01</span>
-      <span class="project-name">GE HealthCare — AI ARC OPS</span>
-      <span class="project-category">Enterprise AI</span>
-      <span class="project-arrow">↗</span>
-    </div>
-    <div class="project-detail">RAG system reducing query time from 45 min to &lt;10 sec. Won CTO's "3 Heartbeats" Award.</div>
+      <div class="project-card">
+        <div class="placeholder placeholder--thumb">
+          <span class="placeholder-label">Modular system diagram</span>
+        </div>
+        <span class="tag">Automation · Glass Imaging</span>
+        <h3>Autonomous Optical Testing</h3>
+        <p>Modular robotic positioning system. RP2040 + MicroPython. Reduced experiment duration by 30%.</p>
+      </div>
 
-    <div class="project-row">
-      <span class="project-number">02</span>
-      <span class="project-name">GE HealthCare — Monte Carlo Testing Robot</span>
-      <span class="project-category">Robotics</span>
-      <span class="project-arrow">↗</span>
-    </div>
-    <div class="project-detail">24/7 anesthesia stress testing robot running 100k+ simulated breathing cycles.</div>
+      <div class="project-card">
+        <div class="placeholder placeholder--thumb">
+          <span class="placeholder-label">SEM images + confusion matrix</span>
+        </div>
+        <span class="tag">Machine Learning</span>
+        <h3>ML Fracture Classification</h3>
+        <p>ResNet transfer learning for SEM image classification. 98% accuracy, pruned to 10 filters at 97.8%.</p>
+      </div>
 
-    <div class="project-row">
-      <span class="project-number">03</span>
-      <span class="project-name">Glass Imaging — Autonomous Optical Testing</span>
-      <span class="project-category">Automation</span>
-      <span class="project-arrow">↗</span>
-    </div>
-    <div class="project-detail">Modular robotic positioning system with RP2040 + MicroPython. 30% experiment duration reduction.</div>
+      <div class="project-card">
+        <div class="placeholder placeholder--thumb">
+          <span class="placeholder-label">CAD render / concept sketch</span>
+        </div>
+        <span class="tag">Mechatronics · Senior Design</span>
+        <h3>BERR EXO</h3>
+        <p>Resistive arm exoskeleton with BLDC motor control and real-time Python loops. $3,000 Brogden Competition winner.</p>
+      </div>
 
-    <div class="project-row">
-      <span class="project-number">04</span>
-      <span class="project-name">ML Fracture Classification</span>
-      <span class="project-category">Machine Learning</span>
-      <span class="project-arrow">↗</span>
-    </div>
-    <div class="project-detail">ResNet transfer learning for SEM image classification — 98% accuracy, pruned to 10 filters at 97.8%.</div>
+      <div class="project-card">
+        <div class="placeholder placeholder--thumb">
+          <span class="placeholder-label">App screenshot mockup</span>
+        </div>
+        <span class="tag">Full-Stack iOS</span>
+        <h3>Us4Her</h3>
+        <p>Solo-built Swift iOS app for global incident reporting. Frontend, backend, and database — built in high school.</p>
+      </div>
 
-    <div class="project-row">
-      <span class="project-number">05</span>
-      <span class="project-name">BERR EXO — Resistive Arm Exoskeleton</span>
-      <span class="project-category">Mechatronics</span>
-      <span class="project-arrow">↗</span>
-    </div>
-    <div class="project-detail">Senior design project — BLDC motor control with real-time Python loops. $3,000 Brogden Competition winner.</div>
+      <div class="project-card">
+        <div class="placeholder placeholder--thumb">
+          <span class="placeholder-label">Video still / prototype photo</span>
+        </div>
+        <span class="tag">Hardware · Origin Story</span>
+        <h3>Robotic Hand</h3>
+        <p>Potentiometer glove controlling a servo-driven hand. First Arduino and PCB experience — the project that started it all.</p>
+      </div>
 
-    <div class="project-row">
-      <span class="project-number">06</span>
-      <span class="project-name">Us4Her — Incident Reporting App</span>
-      <span class="project-category">Full-Stack iOS</span>
-      <span class="project-arrow">↗</span>
     </div>
-    <div class="project-detail">Solo-built Swift iOS app with frontend, backend, and database — built in high school.</div>
-
-    <div class="project-row">
-      <span class="project-number">07</span>
-      <span class="project-name">Robotic Hand — Origin Story</span>
-      <span class="project-category">Hardware</span>
-      <span class="project-arrow">↗</span>
-    </div>
-    <div class="project-detail">Potentiometer glove controlling a servo-driven robotic hand. First Arduino and PCB experience.</div>
   </section>
 
   <!-- About -->
-  <section class="about" id="about">
-    <div class="section-label"><span class="label-line"></span> About</div>
-    <div class="about-content">
-      <div class="about-text">
-        <h2 class="about-title">I build at the intersection of mechanical systems and intelligent software.</h2>
-        <p>I'm a mechatronics engineer drawn to problems that live between hardware and software — wearable haptics, medical devices, robotic testing systems, and machine learning for physical systems.</p>
-        <p>Originally from the Bay Area, I spent three years surfing Half Moon Bay and Pacifica before heading to the University of Wisconsin–Madison for my BS in Mechanical Engineering (graduating December 2026).</p>
-        <p>I've published research at IEEE, built medical devices at a pre-seed startup, shipped enterprise AI tools at GE HealthCare, and led corporate sponsorship for my engineering fraternity Theta Tau.</p>
+  <section class="section section--about" id="about">
+    <h2 class="section-heading">About</h2>
+    <div class="about-grid">
+      <div class="about-photo">
+        <div class="placeholder placeholder--portrait">
+          <span class="placeholder-label">Headshot photo</span>
+        </div>
       </div>
-      <div class="about-details">
-        <div class="detail-item">
-          <span class="detail-label">Education</span>
-          <span class="detail-value">BS Mechanical Engineering, UW–Madison (Dec 2026)</span>
-        </div>
-        <div class="detail-item">
-          <span class="detail-label">Location</span>
-          <span class="detail-value">Bay Area ↔ Madison, WI</span>
-        </div>
-        <div class="detail-item">
-          <span class="detail-label">Leadership</span>
-          <span class="detail-value">Theta Tau Xi Chapter — Executive Board, $4,000+ in sponsorships</span>
+      <div class="about-text">
+        <p class="about-lead">Mechatronics engineer bridging hardware and software to build systems that interface with humans.</p>
+        <p>From a robotic hand in high school to published haptics research to leading medical device development — I'm drawn to problems that live between mechanical systems and intelligent software.</p>
+        <p>Currently finishing my BS in Mechanical Engineering at UW–Madison (Dec 2026). Originally from the Bay Area.</p>
+        <div class="about-details">
+          <div class="detail">
+            <span class="detail-label">Education</span>
+            <span>BS Mechanical Engineering, UW–Madison</span>
+          </div>
+          <div class="detail">
+            <span class="detail-label">Location</span>
+            <span>Bay Area ↔ Madison, WI</span>
+          </div>
+          <div class="detail">
+            <span class="detail-label">Leadership</span>
+            <span>Theta Tau Xi — Exec Board, $4,000+ sponsorships secured</span>
+          </div>
         </div>
       </div>
     </div>
@@ -183,10 +207,8 @@
 
   <!-- Footer -->
   <footer class="footer">
-    <div class="footer-left">
-      <span class="footer-status"><span class="status-dot"></span> Available for opportunities</span>
-    </div>
-    <div class="footer-right">
+    <span class="footer-name">Ben Levy · 2025</span>
+    <div class="footer-links">
       <a href="https://linkedin.com/in/ben-levy" target="_blank" rel="noopener">LinkedIn</a>
       <a href="https://github.com/benlevyy" target="_blank" rel="noopener">GitHub</a>
       <a href="mailto:benslevy@gmail.com">Email</a>
