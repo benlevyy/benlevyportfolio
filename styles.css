@@ -167,7 +167,95 @@ img { display: block; max-width: 100%; }
 }
 
 /* ============================================
-   Placeholders (for images/animations)
+   Hero SVG — Layer Jamming Visualization
+   ============================================ */
+.hero-visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-svg {
+  width: 100%;
+  max-width: 400px;
+}
+
+/* Layers — base state (transparent/loose) */
+.layer {
+  fill: #D1D5DB;
+  transition: all 4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* Animate layers: stagger offsets to simulate loose sliding */
+.l1 { animation: layerSlide 6s ease-in-out infinite; }
+.l2 { animation: layerSlide 6s ease-in-out infinite 0.15s; }
+.l3 { animation: layerSlide 6s ease-in-out infinite 0.3s; }
+.l4 { animation: layerSlide 6s ease-in-out infinite 0.45s; }
+.l5 { animation: layerSlide 6s ease-in-out infinite 0.6s; }
+.l6 { animation: layerSlide 6s ease-in-out infinite 0.75s; }
+.l7 { animation: layerSlide 6s ease-in-out infinite 0.9s; }
+.l8 { animation: layerSlide 6s ease-in-out infinite 1.05s; }
+
+@keyframes layerSlide {
+  0%, 100% {
+    transform: translateX(0);
+    fill: #D1D5DB;
+  }
+  /* Loose / transparent — layers drift apart */
+  25% {
+    transform: translateX(8px);
+    fill: #D1D5DB;
+  }
+  /* Jammed — layers snap together, turn accent */
+  50% {
+    transform: translateX(0);
+    fill: #3B82F6;
+  }
+  75% {
+    transform: translateX(-4px);
+    fill: #D1D5DB;
+  }
+}
+
+/* Vacuum indicator pulses when "active" */
+.vacuum-indicator {
+  animation: vacuumPulse 6s ease-in-out infinite;
+}
+
+@keyframes vacuumPulse {
+  0%, 30%, 70%, 100% {
+    stroke: #E5E7EB;
+    r: 5;
+  }
+  45%, 55% {
+    stroke: #3B82F6;
+    r: 7;
+    fill: rgba(59, 130, 246, 0.1);
+  }
+}
+
+/* Force arrow bobs */
+.force-arrow {
+  animation: forceBob 6s ease-in-out infinite;
+}
+
+@keyframes forceBob {
+  0%, 100% { opacity: 0.3; transform: translateY(0); }
+  45%, 55% { opacity: 1; transform: translateY(4px); }
+}
+
+/* Pressure arrows appear during jammed state */
+.pressure-arrows line {
+  animation: pressureFade 6s ease-in-out infinite;
+}
+
+@keyframes pressureFade {
+  0%, 35%, 65%, 100% { opacity: 0; }
+  45%, 55% { opacity: 0.6; }
+}
+
+/* ============================================
+   Placeholders (for project images)
    ============================================ */
 .placeholder {
   display: flex;
@@ -194,13 +282,6 @@ img { display: block; max-width: 100%; }
   padding: 0 1rem;
 }
 
-.placeholder--hero {
-  width: 100%;
-  aspect-ratio: 1;
-  max-width: 400px;
-  justify-self: center;
-}
-
 .placeholder--media {
   width: 100%;
   aspect-ratio: 16 / 10;
@@ -218,20 +299,11 @@ img { display: block; max-width: 100%; }
   max-width: 300px;
 }
 
-/* Placeholder animations */
-.dot-pulse {
-  animation: pulse 2s ease-in-out infinite;
-}
-
+/* ECG line draw animation */
 .ecg-line {
   stroke-dasharray: 300;
   stroke-dashoffset: 300;
   animation: draw 2.5s linear infinite;
-}
-
-@keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.3; }
 }
 
 @keyframes draw {

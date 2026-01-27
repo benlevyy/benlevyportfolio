@@ -33,27 +33,54 @@
       </div>
     </div>
     <div class="hero-visual">
-      <div class="jammer-stage">
-        <svg class="jammer-svg" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="200" cy="200" r="150" class="jammer-glow" fill="var(--accent-light)" />
-          
-          <rect x="80" y="140" width="240" height="120" rx="12" class="membrane" stroke="var(--border)" stroke-width="1.5" fill="var(--white)" />
-          
-          <g class="layers-group">
-            <rect class="layer" x="100" y="155" width="200" height="4" rx="2" fill="var(--text-tertiary)" />
-            <rect class="layer" x="100" y="167" width="200" height="4" rx="2" fill="var(--text-tertiary)" />
-            <rect class="layer" x="100" y="179" width="200" height="4" rx="2" fill="var(--text-tertiary)" />
-            <rect class="layer" x="100" y="191" width="200" height="4" rx="2" fill="var(--text-tertiary)" />
-            <rect class="layer" x="100" y="203" width="200" height="4" rx="2" fill="var(--text-tertiary)" />
-            <rect class="layer" x="100" y="215" width="200" height="4" rx="2" fill="var(--text-tertiary)" />
-            <rect class="layer" x="100" y="227" width="200" height="4" rx="2" fill="var(--text-tertiary)" />
-            <rect class="layer" x="100" y="239" width="200" height="4" rx="2" fill="var(--text-tertiary)" />
-          </g>
-    
-          <path d="M320 200 H360" class="vacuum-line" stroke="var(--border)" stroke-width="2" stroke-linecap="round" />
-        </svg>
-        <div class="jammer-label">State: <span class="state-text">Transparency</span></div>
-      </div>
+      <!-- Abstract layer jamming visualization -->
+      <svg class="hero-svg" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+        <!-- Grid dots background -->
+        <defs>
+          <pattern id="dots" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+            <circle cx="10" cy="10" r="0.75" fill="#E5E7EB"/>
+          </pattern>
+        </defs>
+        <rect width="400" height="400" fill="url(#dots)"/>
+
+        <!-- Outer ring -->
+        <circle cx="200" cy="200" r="160" fill="none" stroke="#F3F4F6" stroke-width="1"/>
+
+        <!-- Layer stack — the core visual -->
+        <g class="layer-stack">
+          <rect class="layer l1" x="120" y="152" width="160" height="5" rx="2.5"/>
+          <rect class="layer l2" x="120" y="165" width="160" height="5" rx="2.5"/>
+          <rect class="layer l3" x="120" y="178" width="160" height="5" rx="2.5"/>
+          <rect class="layer l4" x="120" y="191" width="160" height="5" rx="2.5"/>
+          <rect class="layer l5" x="120" y="204" width="160" height="5" rx="2.5"/>
+          <rect class="layer l6" x="120" y="217" width="160" height="5" rx="2.5"/>
+          <rect class="layer l7" x="120" y="230" width="160" height="5" rx="2.5"/>
+          <rect class="layer l8" x="120" y="243" width="160" height="5" rx="2.5"/>
+        </g>
+
+        <!-- Force arrow (top) -->
+        <line x1="200" y1="110" x2="200" y2="140" class="force-arrow" stroke="#3B82F6" stroke-width="2" stroke-linecap="round"/>
+        <polygon points="194,138 200,148 206,138" fill="#3B82F6" class="force-arrow"/>
+
+        <!-- Vacuum line (right side) -->
+        <line x1="290" y1="200" x2="340" y2="200" stroke="#E5E7EB" stroke-width="1.5" stroke-dasharray="4 3"/>
+        <circle cx="345" cy="200" r="5" fill="none" stroke="#3B82F6" stroke-width="1.5" class="vacuum-indicator"/>
+
+        <!-- Pressure arrows (jammed state) -->
+        <g class="pressure-arrows">
+          <line x1="105" y1="170" x2="115" y2="170" stroke="#3B82F6" stroke-width="1" stroke-linecap="round" opacity="0"/>
+          <line x1="105" y1="195" x2="115" y2="195" stroke="#3B82F6" stroke-width="1" stroke-linecap="round" opacity="0"/>
+          <line x1="105" y1="220" x2="115" y2="220" stroke="#3B82F6" stroke-width="1" stroke-linecap="round" opacity="0"/>
+          <line x1="285" y1="170" x2="295" y2="170" stroke="#3B82F6" stroke-width="1" stroke-linecap="round" opacity="0"/>
+          <line x1="285" y1="195" x2="295" y2="195" stroke="#3B82F6" stroke-width="1" stroke-linecap="round" opacity="0"/>
+          <line x1="285" y1="220" x2="295" y2="220" stroke="#3B82F6" stroke-width="1" stroke-linecap="round" opacity="0"/>
+        </g>
+
+        <!-- Labels -->
+        <text x="200" y="285" text-anchor="middle" class="svg-label" fill="#9CA3AF" font-size="10" font-family="Inter, sans-serif" letter-spacing="0.08em">LAYER JAMMING</text>
+        <text x="345" y="218" text-anchor="middle" class="svg-label-sm" fill="#9CA3AF" font-size="8" font-family="Inter, sans-serif">V</text>
+        <text x="200" y="105" text-anchor="middle" class="svg-label-sm" fill="#3B82F6" font-size="8" font-family="Inter, sans-serif">F</text>
+      </svg>
     </div>
   </section>
 
