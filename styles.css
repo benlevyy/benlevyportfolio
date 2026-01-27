@@ -167,7 +167,7 @@ img { display: block; max-width: 100%; }
 }
 
 /* ============================================
-   Hero — Hand Assembly Visualization
+   Hero — 3D Robotic Hand
    ============================================ */
 .hero-visual {
   display: flex;
@@ -175,15 +175,21 @@ img { display: block; max-width: 100%; }
   justify-content: center;
 }
 
-.hand-assembly {
+.hand-3d-container {
   position: relative;
   width: 100%;
-  max-width: 440px;
-  cursor: default;
+  max-width: 500px;
+  aspect-ratio: 1 / 1;
+  cursor: grab;
 }
 
-.hand-svg {
+.hand-3d-container:active {
+  cursor: grabbing;
+}
+
+#hero-canvas {
   width: 100%;
+  height: 100%;
   display: block;
 }
 
@@ -194,96 +200,6 @@ img { display: block; max-width: 100%; }
   color: var(--text-tertiary);
   letter-spacing: 0.06em;
   margin-top: 0.5rem;
-  transition: opacity 0.8s ease;
-}
-
-/* Hand outline — default gray */
-.hand-path {
-  stroke: #D1D5DB;
-  transition: stroke 1s cubic-bezier(0.23, 1, 0.32, 1),
-              stroke-width 1s cubic-bezier(0.23, 1, 0.32, 1);
-}
-
-/* All components share base transition */
-.comp {
-  transition: transform 1.2s cubic-bezier(0.23, 1, 0.32, 1),
-              opacity 1.2s cubic-bezier(0.23, 1, 0.32, 1);
-}
-
-/* --- FAR ORBIT: big explosion, spread across canvas --- */
-.f1 { transform: translate(-60px, -50px); }
-.f2 { transform: translate(50px, -40px); }
-.f3 { transform: translate(-70px, 40px); }
-.f4 { transform: translate(55px, 45px); }
-.f5 { transform: translate(-65px, -10px); }
-.f6 { transform: translate(60px, -15px); }
-
-/* --- MID ORBIT: medium drift away from hand --- */
-.m1 { transform: translate(-20px, -30px); }
-.m2 { transform: translate(0, -35px); }
-.m3 { transform: translate(22px, -28px); }
-.m4 { transform: translate(30px, -18px); }
-.m5 { transform: translate(-32px, -10px); }
-.m6 { transform: translate(0, 28px); }
-.m7 { transform: translate(0, 28px); }
-.m8 { transform: translate(0, -25px); }
-
-/* --- CLOSE ORBIT: small drift --- */
-.n1 { transform: translate(-6px, -8px); }
-.n2 { transform: translate(0px, -10px); }
-.n3 { transform: translate(6px, -8px); }
-.n4 { transform: translate(10px, -6px); }
-.n5 { transform: translate(-12px, 14px); }
-.n6 { transform: translate(0, 16px); }
-
-/* Idle floating animation — staggered per orbit */
-.far { animation: floatFar 6s ease-in-out infinite; }
-.mid { animation: floatMid 5s ease-in-out infinite; }
-.close { animation: floatClose 4s ease-in-out infinite; }
-
-.f1, .m1, .n1 { animation-delay: 0s; }
-.f2, .m2, .n2 { animation-delay: 0.6s; }
-.f3, .m3, .n3 { animation-delay: 1.2s; }
-.f4, .m4, .n4 { animation-delay: 1.8s; }
-.f5, .m5, .n5 { animation-delay: 2.4s; }
-.f6, .m6, .n6 { animation-delay: 3s; }
-.m7 { animation-delay: 3.4s; }
-.m8 { animation-delay: 0.3s; }
-
-@keyframes floatFar {
-  0%, 100% { translate: 0 0; }
-  50% { translate: 4px -6px; }
-}
-
-@keyframes floatMid {
-  0%, 100% { translate: 0 0; }
-  50% { translate: -3px -4px; }
-}
-
-@keyframes floatClose {
-  0%, 100% { translate: 0 0; }
-  50% { translate: 1px -2px; }
-}
-
-/* ---- HOVER: Compress / Assemble ---- */
-.hand-assembly:hover .comp {
-  transform: translate(0, 0) !important;
-}
-
-/* Everything brightens and solidifies */
-.hand-assembly:hover .far { opacity: 0.7; animation: none; }
-.hand-assembly:hover .mid { opacity: 0.9; animation: none; }
-.hand-assembly:hover .close { opacity: 1; animation: none; }
-
-/* Hand turns blue — unified system */
-.hand-assembly:hover .hand-path {
-  stroke: #3B82F6;
-  stroke-width: 2;
-}
-
-/* Hint disappears */
-.hand-assembly:hover .hand-hint {
-  opacity: 0;
 }
 
 /* ============================================
