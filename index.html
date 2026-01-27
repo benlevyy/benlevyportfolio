@@ -33,81 +33,90 @@
       </div>
     </div>
     <div class="hero-visual">
-      <!-- Interactive hand assembly — hover to compress -->
       <div class="hand-assembly">
-        <svg class="hand-svg" viewBox="0 0 400 450" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <pattern id="dots" x="0" y="0" width="24" height="24" patternUnits="userSpaceOnUse">
-              <circle cx="12" cy="12" r="0.6" fill="#E5E7EB"/>
-            </pattern>
-          </defs>
-          <rect width="400" height="450" fill="url(#dots)"/>
+        <svg class="hand-svg" viewBox="0 0 500 520" xmlns="http://www.w3.org/2000/svg">
 
-          <!-- Hand outline — simplified glove silhouette -->
+          <!-- Hand silhouette — smooth, elegant, single stroke -->
           <g class="hand-outline">
-            <!-- Palm -->
-            <path d="M160,320 Q140,280 145,240 L148,220 Q150,200 160,185 L165,175
-                      Q170,165 175,160 L180,155 Q185,148 192,145
-                      L200,142 Q208,145 215,148 L220,155
-                      Q225,160 230,165 L235,175 Q240,185 242,195
-                      L245,220 Q248,240 255,260 Q260,280 240,320 Z"
-                  fill="none" stroke="#D1D5DB" stroke-width="1.5" stroke-linejoin="round"/>
+            <path d="M215,410 Q185,370 180,330 Q175,300 178,270 L180,250
+                      Q182,232 185,218 Q187,208 190,198
+                      L192,190 Q195,180 198,174 L200,168
+                      Q204,158 210,152 L214,148 Q220,142 228,138
+                      L236,135 Q244,133 252,135 L260,138
+                      Q268,142 274,148 L278,152 Q284,158 288,168
+                      L290,174 Q293,180 296,190 L298,198
+                      Q301,208 303,218 Q305,232 308,250
+                      L310,270 Q313,300 308,330 Q303,370 273,410 Z"
+                  fill="none" stroke-width="1.8" stroke-linejoin="round" class="hand-path"/>
 
-            <!-- Thumb -->
-            <path d="M155,240 Q135,225 125,205 Q120,190 128,178 Q136,170 145,178"
-                  fill="none" stroke="#D1D5DB" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M188,265 Q168,252 155,232 Q148,218 152,202 Q158,190 168,196 Q175,204 180,218"
+                  fill="none" stroke-width="1.8" stroke-linecap="round" class="hand-path"/>
 
-            <!-- Index finger -->
-            <path d="M170,170 Q168,140 170,110 Q172,90 180,80 Q188,90 190,110 Q192,135 190,165"
-                  fill="none" stroke="#D1D5DB" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M206,190 Q204,158 206,128 Q208,105 216,90 Q224,78 230,72
+                      Q236,78 240,90 Q246,105 246,128 Q246,155 244,185"
+                  fill="none" stroke-width="1.8" stroke-linecap="round" class="hand-path"/>
 
-            <!-- Middle finger -->
-            <path d="M190,160 Q190,125 192,95 Q194,72 200,62 Q206,72 208,95 Q210,125 210,160"
-                  fill="none" stroke="#D1D5DB" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M230,175 Q230,140 232,108 Q234,82 240,68 Q246,56 252,50
+                      Q258,56 262,68 Q266,82 268,108 Q270,140 268,175"
+                  fill="none" stroke-width="1.8" stroke-linecap="round" class="hand-path"/>
 
-            <!-- Ring finger -->
-            <path d="M210,165 Q212,135 215,108 Q217,88 223,80 Q229,88 230,108 Q232,135 232,170"
-                  fill="none" stroke="#D1D5DB" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M258,182 Q260,148 264,118 Q268,95 274,82 Q280,72 285,68
+                      Q290,72 294,82 Q298,95 298,118 Q298,148 296,185"
+                  fill="none" stroke-width="1.8" stroke-linecap="round" class="hand-path"/>
 
-            <!-- Pinky -->
-            <path d="M232,180 Q235,155 238,130 Q240,115 245,108 Q250,115 250,130 Q250,155 248,185"
-                  fill="none" stroke="#D1D5DB" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M286,198 Q290,170 294,145 Q297,128 302,118 Q306,110 310,106
+                      Q316,110 318,118 Q320,128 320,148 Q318,170 314,200"
+                  fill="none" stroke-width="1.8" stroke-linecap="round" class="hand-path"/>
           </g>
 
-          <!-- Components that explode/compress -->
+          <!-- === COMPONENTS — ~20 abstract geometric elements === -->
 
-          <!-- Sensor nodes at fingertips -->
-          <circle class="comp comp-tip c1" cx="180" cy="76" r="5" fill="none" stroke="#3B82F6" stroke-width="1.2"/>
-          <circle class="comp comp-tip c2" cx="200" cy="58" r="5" fill="none" stroke="#3B82F6" stroke-width="1.2"/>
-          <circle class="comp comp-tip c3" cx="223" cy="76" r="5" fill="none" stroke="#3B82F6" stroke-width="1.2"/>
-          <circle class="comp comp-tip c4" cx="245" cy="104" r="4" fill="none" stroke="#3B82F6" stroke-width="1.2"/>
-          <circle class="comp comp-tip c5" cx="125" cy="200" r="4" fill="none" stroke="#3B82F6" stroke-width="1.2"/>
+          <!-- FAR ORBIT — large shapes spread across canvas -->
+          <!-- Ring top-left -->
+          <circle class="comp far f1" cx="80" cy="60" r="18" fill="none" stroke="#3B82F6" stroke-width="1" opacity="0.25"/>
+          <!-- Arc top-right -->
+          <path class="comp far f2" d="M390,80 A 30 30 0 0 1 420,110" fill="none" stroke="#3B82F6" stroke-width="1" opacity="0.2"/>
+          <!-- Dashed arc bottom-left -->
+          <path class="comp far f3" d="M50,380 A 40 40 0 0 1 90,340" fill="none" stroke="#3B82F6" stroke-width="0.8" stroke-dasharray="4 3" opacity="0.2"/>
+          <!-- Rectangle bottom-right -->
+          <rect class="comp far f4" x="400" y="360" width="32" height="18" rx="3" fill="none" stroke="#3B82F6" stroke-width="0.8" opacity="0.2"/>
+          <!-- Dot cluster far left -->
+          <circle class="comp far f5" cx="40" cy="220" r="2" fill="#3B82F6" opacity="0.2"/>
+          <circle class="comp far f5" cx="50" cy="215" r="1.5" fill="#3B82F6" opacity="0.15"/>
+          <circle class="comp far f5" cx="46" cy="228" r="1" fill="#3B82F6" opacity="0.2"/>
+          <!-- Angled line far right -->
+          <line class="comp far f6" x1="440" y1="200" x2="465" y2="180" stroke="#3B82F6" stroke-width="0.8" opacity="0.2"/>
 
-          <!-- Joint nodes on fingers -->
-          <circle class="comp comp-joint j1" cx="172" cy="120" r="3" fill="#3B82F6" opacity="0.4"/>
-          <circle class="comp comp-joint j2" cx="195" cy="105" r="3" fill="#3B82F6" opacity="0.4"/>
-          <circle class="comp comp-joint j3" cx="220" cy="115" r="3" fill="#3B82F6" opacity="0.4"/>
-          <circle class="comp comp-joint j4" cx="244" cy="128" r="3" fill="#3B82F6" opacity="0.4"/>
+          <!-- MID ORBIT — medium shapes near the hand -->
+          <!-- Ring at index tip -->
+          <circle class="comp mid m1" cx="230" cy="65" r="9" fill="none" stroke="#3B82F6" stroke-width="1.2" opacity="0.4"/>
+          <!-- Ring at middle tip -->
+          <circle class="comp mid m2" cx="252" cy="42" r="9" fill="none" stroke="#3B82F6" stroke-width="1.2" opacity="0.4"/>
+          <!-- Ring at ring tip -->
+          <circle class="comp mid m3" cx="285" cy="60" r="8" fill="none" stroke="#3B82F6" stroke-width="1.2" opacity="0.4"/>
+          <!-- Ring at pinky tip -->
+          <circle class="comp mid m4" cx="310" cy="98" r="7" fill="none" stroke="#3B82F6" stroke-width="1.2" opacity="0.35"/>
+          <!-- Ring at thumb tip -->
+          <circle class="comp mid m5" cx="150" cy="225" r="7" fill="none" stroke="#3B82F6" stroke-width="1.2" opacity="0.35"/>
+          <!-- Small rect — PCB on palm -->
+          <rect class="comp mid m6" x="228" y="240" width="36" height="24" rx="4" fill="none" stroke="#3B82F6" stroke-width="1" stroke-dasharray="3 2" opacity="0.3"/>
+          <!-- Chip inside PCB -->
+          <rect class="comp mid m7" x="238" y="247" width="16" height="10" rx="2" fill="rgba(59,130,246,0.06)" stroke="#3B82F6" stroke-width="0.7" opacity="0.3"/>
+          <!-- Arc above hand — field/aura -->
+          <path class="comp mid m8" d="M190,55 A 65 30 0 0 1 310,55" fill="none" stroke="#3B82F6" stroke-width="0.8" stroke-dasharray="5 4" opacity="0.2"/>
 
-          <!-- PCB / sensor board on back of hand -->
-          <rect class="comp comp-pcb" x="178" y="195" width="44" height="28" rx="4" fill="none" stroke="#3B82F6" stroke-width="1" stroke-dasharray="3 2"/>
-          <!-- Chip on PCB -->
-          <rect class="comp comp-chip" x="192" y="203" width="16" height="12" rx="2" fill="rgba(59,130,246,0.08)" stroke="#3B82F6" stroke-width="0.8"/>
-
-          <!-- Wiring / traces -->
-          <line class="comp comp-wire w1" x1="180" y1="82" x2="178" y2="118" stroke="#3B82F6" stroke-width="0.6" stroke-dasharray="2 2" opacity="0.5"/>
-          <line class="comp comp-wire w2" x1="200" y1="64" x2="195" y2="103" stroke="#3B82F6" stroke-width="0.6" stroke-dasharray="2 2" opacity="0.5"/>
-          <line class="comp comp-wire w3" x1="223" y1="82" x2="220" y2="113" stroke="#3B82F6" stroke-width="0.6" stroke-dasharray="2 2" opacity="0.5"/>
-          <line class="comp comp-wire w4" x1="172" y1="123" x2="180" y2="195" stroke="#3B82F6" stroke-width="0.6" stroke-dasharray="2 2" opacity="0.3"/>
-          <line class="comp comp-wire w5" x1="195" y1="108" x2="195" y2="195" stroke="#3B82F6" stroke-width="0.6" stroke-dasharray="2 2" opacity="0.3"/>
-          <line class="comp comp-wire w6" x1="220" y1="118" x2="210" y2="195" stroke="#3B82F6" stroke-width="0.6" stroke-dasharray="2 2" opacity="0.3"/>
-
-          <!-- Small waveform near wrist -->
-          <polyline class="comp comp-signal" points="160,340 168,340 172,332 176,348 180,336 184,340 195,340" fill="none" stroke="#3B82F6" stroke-width="0.8" opacity="0.5"/>
-
-          <!-- Data flow arrow from palm to wrist -->
-          <line class="comp comp-data" x1="200" y1="225" x2="200" y2="310" stroke="#3B82F6" stroke-width="0.6" stroke-dasharray="4 4" opacity="0.3"/>
-          <polygon class="comp comp-data" points="196,308 200,318 204,308" fill="#3B82F6" opacity="0.3"/>
+          <!-- CLOSE ORBIT — small elements on/near fingers -->
+          <!-- Joint dots -->
+          <circle class="comp close n1" cx="222" cy="130" r="3" fill="#3B82F6" opacity="0.35"/>
+          <circle class="comp close n2" cx="248" cy="115" r="3" fill="#3B82F6" opacity="0.35"/>
+          <circle class="comp close n3" cx="278" cy="125" r="3" fill="#3B82F6" opacity="0.35"/>
+          <circle class="comp close n4" cx="304" cy="140" r="2.5" fill="#3B82F6" opacity="0.3"/>
+          <!-- Waveform at wrist -->
+          <polyline class="comp close n5" points="200,420 210,420 215,410 220,430 225,415 230,420 245,420"
+                    fill="none" stroke="#3B82F6" stroke-width="0.8" opacity="0.25"/>
+          <!-- Data flow line palm → wrist -->
+          <line class="comp close n6" x1="248" y1="270" x2="248" y2="380" stroke="#3B82F6" stroke-width="0.6" stroke-dasharray="4 4" opacity="0.15"/>
+          <polygon class="comp close n6" points="244,378 248,390 252,378" fill="#3B82F6" opacity="0.15"/>
 
         </svg>
         <p class="hand-hint">Hover to assemble</p>
