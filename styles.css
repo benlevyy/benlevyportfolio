@@ -167,7 +167,7 @@ img { display: block; max-width: 100%; }
 }
 
 /* ============================================
-   Hero SVG — Layer Jamming Visualization
+   Hero — Hand Assembly Visualization
    ============================================ */
 .hero-visual {
   display: flex;
@@ -175,83 +175,159 @@ img { display: block; max-width: 100%; }
   justify-content: center;
 }
 
-.hero-svg {
+.hand-assembly {
+  position: relative;
   width: 100%;
   max-width: 400px;
 }
 
-/* Layers — base state (transparent/loose) */
-.layer {
+.hand-svg {
+  width: 100%;
+  display: block;
+}
+
+.hand-hint {
+  text-align: center;
+  font-size: 0.6875rem;
+  font-weight: 500;
+  color: var(--text-tertiary);
+  letter-spacing: 0.04em;
+  margin-top: 0.75rem;
+  transition: opacity 0.6s ease;
+}
+
+/* Default: components exploded outward */
+.comp {
+  transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1),
+              opacity 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* Fingertip sensors — float outward */
+.c1 { transform: translate(-12px, -18px); }
+.c2 { transform: translate(0, -22px); }
+.c3 { transform: translate(12px, -18px); }
+.c4 { transform: translate(18px, -14px); }
+.c5 { transform: translate(-20px, -8px); }
+
+/* Joint nodes — drift slightly */
+.j1 { transform: translate(-6px, -10px); }
+.j2 { transform: translate(0, -12px); }
+.j3 { transform: translate(6px, -10px); }
+.j4 { transform: translate(12px, -8px); }
+
+/* PCB + chip — float down */
+.comp-pcb { transform: translate(0, 20px); opacity: 0.4; }
+.comp-chip { transform: translate(0, 20px); opacity: 0.3; }
+
+/* Wires — faded */
+.comp-wire { opacity: 0.15; }
+
+/* Signal — offset left */
+.comp-signal { transform: translate(-15px, 10px); opacity: 0.2; }
+
+/* Data flow — faded */
+.comp-data { opacity: 0.1; }
+
+/* Hand outline faded in default */
+.hand-outline path {
+  transition: stroke 0.8s ease;
+}
+
+/* ---- HOVER: Assemble ---- */
+.hand-assembly:hover .comp {
+  transform: translate(0, 0) !important;
+}
+
+.hand-assembly:hover .comp-tip { opacity: 1; }
+.hand-assembly:hover .comp-joint { opacity: 0.7; }
+.hand-assembly:hover .comp-pcb { opacity: 0.8; }
+.hand-assembly:hover .comp-chip { opacity: 0.6; }
+.hand-assembly:hover .comp-wire { opacity: 0.6; }
+.hand-assembly:hover .comp-signal { opacity: 0.7; }
+.hand-assembly:hover .comp-data { opacity: 0.5; }
+
+.hand-assembly:hover .hand-outline path {
+  stroke: #9CA3AF;
+}
+
+.hand-assembly:hover .hand-hint {
+  opacity: 0;
+}
+
+/* Subtle idle float on components */
+.comp-tip {
+  animation: idleFloat 4s ease-in-out infinite;
+}
+.c1 { animation-delay: 0s; }
+.c2 { animation-delay: 0.5s; }
+.c3 { animation-delay: 1s; }
+.c4 { animation-delay: 1.5s; }
+.c5 { animation-delay: 2s; }
+
+@keyframes idleFloat {
+  0%, 100% { translate: 0 0; }
+  50% { translate: 0 -3px; }
+}
+
+/* On hover, stop the idle float */
+.hand-assembly:hover .comp-tip {
+  animation: none;
+}
+
+/* ============================================
+   S.E.S.H. Glove — Layer Jamming Animation
+   ============================================ */
+.sesh-visual {
+  width: 100%;
+  background: var(--bg);
+  border-radius: var(--radius) var(--radius) 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.jammer-svg {
+  width: 100%;
+  max-width: 420px;
+}
+
+.jlayer {
   fill: #D1D5DB;
-  transition: all 4s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-/* Animate layers: stagger offsets to simulate loose sliding */
-.l1 { animation: layerSlide 6s ease-in-out infinite; }
-.l2 { animation: layerSlide 6s ease-in-out infinite 0.15s; }
-.l3 { animation: layerSlide 6s ease-in-out infinite 0.3s; }
-.l4 { animation: layerSlide 6s ease-in-out infinite 0.45s; }
-.l5 { animation: layerSlide 6s ease-in-out infinite 0.6s; }
-.l6 { animation: layerSlide 6s ease-in-out infinite 0.75s; }
-.l7 { animation: layerSlide 6s ease-in-out infinite 0.9s; }
-.l8 { animation: layerSlide 6s ease-in-out infinite 1.05s; }
+.jl1 { animation: jSlide 6s ease-in-out infinite; }
+.jl2 { animation: jSlide 6s ease-in-out infinite 0.12s; }
+.jl3 { animation: jSlide 6s ease-in-out infinite 0.24s; }
+.jl4 { animation: jSlide 6s ease-in-out infinite 0.36s; }
+.jl5 { animation: jSlide 6s ease-in-out infinite 0.48s; }
+.jl6 { animation: jSlide 6s ease-in-out infinite 0.6s; }
+.jl7 { animation: jSlide 6s ease-in-out infinite 0.72s; }
+.jl8 { animation: jSlide 6s ease-in-out infinite 0.84s; }
 
-@keyframes layerSlide {
-  0%, 100% {
-    transform: translateX(0);
-    fill: #D1D5DB;
-  }
-  /* Loose / transparent — layers drift apart */
-  25% {
-    transform: translateX(8px);
-    fill: #D1D5DB;
-  }
-  /* Jammed — layers snap together, turn accent */
-  50% {
-    transform: translateX(0);
-    fill: #3B82F6;
-  }
-  75% {
-    transform: translateX(-4px);
-    fill: #D1D5DB;
-  }
+@keyframes jSlide {
+  0%, 100% { transform: translateX(0); fill: #D1D5DB; }
+  25% { transform: translateX(6px); fill: #D1D5DB; }
+  50% { transform: translateX(0); fill: #3B82F6; }
+  75% { transform: translateX(-4px); fill: #D1D5DB; }
 }
 
-/* Vacuum indicator pulses when "active" */
-.vacuum-indicator {
-  animation: vacuumPulse 6s ease-in-out infinite;
+.jforce {
+  animation: jForceBob 6s ease-in-out infinite;
 }
 
-@keyframes vacuumPulse {
-  0%, 30%, 70%, 100% {
-    stroke: #E5E7EB;
-    r: 5;
-  }
-  45%, 55% {
-    stroke: #3B82F6;
-    r: 7;
-    fill: rgba(59, 130, 246, 0.1);
-  }
-}
-
-/* Force arrow bobs */
-.force-arrow {
-  animation: forceBob 6s ease-in-out infinite;
-}
-
-@keyframes forceBob {
+@keyframes jForceBob {
   0%, 100% { opacity: 0.3; transform: translateY(0); }
-  45%, 55% { opacity: 1; transform: translateY(4px); }
+  45%, 55% { opacity: 1; transform: translateY(3px); }
 }
 
-/* Pressure arrows appear during jammed state */
-.pressure-arrows line {
-  animation: pressureFade 6s ease-in-out infinite;
+.jvac {
+  animation: jVacPulse 6s ease-in-out infinite;
 }
 
-@keyframes pressureFade {
-  0%, 35%, 65%, 100% { opacity: 0; }
-  45%, 55% { opacity: 0.6; }
+@keyframes jVacPulse {
+  0%, 30%, 70%, 100% { stroke: #D1D5DB; }
+  45%, 55% { stroke: #3B82F6; fill: rgba(59,130,246,0.1); }
 }
 
 /* ============================================
