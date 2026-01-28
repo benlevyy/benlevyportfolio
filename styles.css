@@ -498,6 +498,15 @@ img { display: block; max-width: 100%; }
   align-items: start;
 }
 
+.about-photo .headshot {
+  width: 100%;
+  max-width: 280px;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+}
+
 .about-lead {
   font-size: 1.125rem;
   font-weight: 600;
