@@ -618,11 +618,11 @@ img { display: block; max-width: 100%; }
   background: var(--white);
   border-radius: var(--radius);
   border: 1px solid var(--border);
-  max-width: 580px;
+  max-width: 720px;
   width: 100%;
-  max-height: 85vh;
+  max-height: 90vh;
   overflow-y: auto;
-  padding: 2rem;
+  padding: 2.5rem;
   position: relative;
   transform: translateY(16px);
   transition: transform 0.25s var(--ease);
@@ -671,15 +671,134 @@ img { display: block; max-width: 100%; }
 
 .modal-images img {
   flex: 0 0 auto;
-  width: 85%;
-  max-height: 300px;
+  width: 80%;
+  max-height: 360px;
   object-fit: cover;
   border-radius: var(--radius);
   scroll-snap-align: start;
+  cursor: zoom-in;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.modal-images img:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
 }
 
 .modal-images img:only-child {
   width: 100%;
+  max-height: 400px;
+}
+
+/* ============================================
+   Image Lightbox
+   ============================================ */
+.lightbox-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  background: rgba(0, 0, 0, 0.92);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  cursor: zoom-out;
+}
+
+.lightbox-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.lightbox-content {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+  transform: scale(0.9);
+  transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.lightbox-overlay.active .lightbox-content {
+  transform: scale(1);
+}
+
+.lightbox-content img {
+  max-width: 90vw;
+  max-height: 85vh;
+  object-fit: contain;
+  border-radius: var(--radius);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.lightbox-close {
+  position: absolute;
+  top: -40px;
+  right: 0;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+  padding: 0.5rem;
+  line-height: 1;
+}
+
+.lightbox-close:hover {
+  opacity: 1;
+}
+
+.lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 1rem 0.75rem;
+  border-radius: 8px;
+  opacity: 0.7;
+  transition: opacity 0.2s ease, background 0.2s ease;
+}
+
+.lightbox-nav:hover {
+  opacity: 1;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.lightbox-prev {
+  left: -60px;
+}
+
+.lightbox-next {
+  right: -60px;
+}
+
+.lightbox-counter {
+  position: absolute;
+  bottom: -35px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .lightbox-nav {
+    display: none;
+  }
+
+  .lightbox-content img {
+    max-width: 95vw;
+    max-height: 80vh;
+  }
 }
 
 .modal-tag {
@@ -699,10 +818,11 @@ img { display: block; max-width: 100%; }
 }
 
 .modal-description {
-  font-size: 0.9375rem;
-  color: var(--text-secondary);
-  line-height: 1.7;
   margin-bottom: 1.5rem;
+}
+
+.modal-description:empty {
+  display: none;
 }
 
 .modal-skills-label,
@@ -757,6 +877,159 @@ img { display: block; max-width: 100%; }
 
 body.modal-open {
   overflow: hidden;
+}
+
+/* ============================================
+   Modal Sections (Structured Project Content)
+   ============================================ */
+.modal-section {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.modal-section:last-of-type {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.modal-section h4 {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-tertiary);
+  margin-bottom: 0.625rem;
+}
+
+.modal-section p {
+  font-size: 0.9375rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.modal-section blockquote {
+  font-size: 0.9375rem;
+  color: var(--text);
+  line-height: 1.7;
+  padding-left: 1rem;
+  border-left: 3px solid var(--accent);
+  font-style: italic;
+}
+
+.modal-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.modal-section li {
+  font-size: 0.9375rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  padding-left: 1.25rem;
+  position: relative;
+}
+
+.modal-section li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.65em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+/* Modal Stats Grid */
+.modal-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 0.75rem;
+}
+
+.modal-stat-box {
+  background: var(--accent-light);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  text-align: center;
+}
+
+.modal-stat-box .stat-value {
+  display: block;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1.2;
+}
+
+.modal-stat-box .stat-label {
+  display: block;
+  font-size: 0.6875rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-top: 0.25rem;
+}
+
+/* Modal Diagram Container */
+.modal-diagram {
+  background: var(--bg);
+  border-radius: var(--radius);
+  padding: 1rem;
+  overflow-x: auto;
+}
+
+.modal-diagram svg {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  min-height: 120px;
+}
+
+/* Modal Images Grid */
+.modal-section .modal-img {
+  width: 100%;
+  border-radius: var(--radius);
+  margin-top: 0.5rem;
+}
+
+/* Modal Comparison Table */
+.modal-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+.modal-table th,
+.modal-table td {
+  padding: 0.625rem 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.modal-table th {
+  font-weight: 600;
+  color: var(--text);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.modal-table td {
+  color: var(--text-secondary);
+}
+
+.modal-table tr:last-child td {
+  border-bottom: none;
+}
+
+.modal-table .highlight {
+  color: var(--accent);
+  font-weight: 600;
 }
 
 .featured-card,
