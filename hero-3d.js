@@ -215,7 +215,7 @@ scene.add(rimLight);
 
 const plane = new THREE.Mesh(
     new THREE.PlaneGeometry(100, 100),
-    new THREE.ShadowMaterial({ opacity: 0.1 }) 
+    new THREE.ShadowMaterial({ opacity: 0.04 })
 );
 plane.rotation.x = -Math.PI / 2;
 plane.position.y = -6;

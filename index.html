@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ben Levy — Mechatronics Engineer</title>
+  <title>Ben Levy | Full-Stack Hardware Engineer</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -16,26 +16,24 @@
     <div class="nav-links">
       <a href="#projects">Projects</a>
       <a href="#about">About</a>
-      <a href="mailto:benslevy@gmail.com">Contact</a>
+      <a href="mailto:blevy5@wisc.edu">Contact</a>
     </div>
   </nav>
 
   <!-- Hero -->
   <section class="hero">
     <div class="hero-content">
-      <p class="hero-label">Mechatronics Engineer</p>
-      <h1 class="hero-title">Building systems where hardware meets humans.</h1>
-      <p class="hero-sub">I design and build wearable devices, robotic systems, and intelligent tools — from published haptics research to medical devices to enterprise AI.</p>
+      <p class="hero-label">Full-Stack Hardware Engineer</p>
+      <h1 class="hero-title">Ben Levy</h1>
+      <p class="hero-sub">Mechanical design. Embedded firmware. iOS apps. ML models. I build complete systems, not just pieces, from first prototype to production.</p>
       <div class="hero-links">
         <a href="https://linkedin.com/in/go-ben" target="_blank" rel="noopener" class="btn">LinkedIn ↗</a>
-        <a href="https://github.com/benlevyy" target="_blank" rel="noopener" class="btn">GitHub ↗</a>
         <a href="mailto:blevy5@wisc.edu" class="btn">Email ↗</a>
       </div>
     </div>
     <div class="hero-visual">
       <div class="hand-3d-container">
         <canvas id="hero-canvas"></canvas>
-        <p class="hand-hint">Interactive exploded view</p>
       </div>
     </div>
   </section>
@@ -174,28 +172,22 @@
         <div class="svg-thumb">
           <svg viewBox="0 0 320 180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Automated stress testing robot">
             <title>24/7 automated stress testing</title>
-            <!-- Anesthesia machine simplified -->
-            <rect x="45" y="45" width="70" height="90" rx="6" fill="none" stroke="#9CA3AF" stroke-width="2"/>
-            <!-- Dial on machine -->
-            <circle cx="80" cy="75" r="15" fill="none" stroke="#9CA3AF" stroke-width="1.5"/>
-            <line x1="80" y1="75" x2="80" y2="64" stroke="#9CA3AF" stroke-width="2" stroke-linecap="round"/>
-            <!-- Display on machine -->
-            <rect x="55" y="100" width="30" height="20" rx="3" fill="none" stroke="#9CA3AF" stroke-width="1"/>
-            <!-- Robot arm actuating -->
-            <path d="M115 75 L145 75 L160 60" fill="none" stroke="#3B82F6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-            <circle cx="160" cy="60" r="8" fill="none" stroke="#3B82F6" stroke-width="2"/>
-            <circle cx="160" cy="60" r="3" fill="#3B82F6"/>
-            <!-- Motion arc -->
-            <path d="M150 45 A20 20 0 0 1 170 65" fill="none" stroke="#3B82F6" stroke-width="1.5" stroke-dasharray="4 2" opacity="0.6"/>
-            <!-- Cycle infinity symbol / continuous loop -->
-            <path d="M200 70 Q220 50 240 70 Q260 90 240 90 Q220 90 240 110 Q260 130 240 110 Q220 90 200 110 Q180 130 200 110 Q220 90 200 70" fill="none" stroke="#3B82F6" stroke-width="2"/>
-            <!-- Counter -->
-            <text x="220" y="90" text-anchor="middle" fill="#3B82F6" font-size="14" font-family="Inter, sans-serif" font-weight="700">∞</text>
-            <!-- FDA badge -->
-            <rect x="255" y="55" width="50" height="24" rx="4" fill="none" stroke="#3B82F6" stroke-width="1.5"/>
-            <text x="280" y="71" text-anchor="middle" fill="#3B82F6" font-size="8" font-family="Inter, sans-serif" font-weight="600">FDA V&V</text>
+            <!-- Circular progress/cycle indicator -->
+            <circle cx="160" cy="80" r="50" fill="none" stroke="#E5E7EB" stroke-width="8"/>
+            <circle cx="160" cy="80" r="50" fill="none" stroke="#3B82F6" stroke-width="8" stroke-linecap="round" stroke-dasharray="251" stroke-dashoffset="63" transform="rotate(-90 160 80)"/>
+            <!-- Center count -->
+            <text x="160" y="75" text-anchor="middle" fill="#3B82F6" font-size="22" font-family="Inter, sans-serif" font-weight="700">100K</text>
+            <text x="160" y="95" text-anchor="middle" fill="#9CA3AF" font-size="10" font-family="Inter, sans-serif">cycles</text>
+            <!-- Small robot icon top right -->
+            <rect x="240" y="40" width="40" height="35" rx="4" fill="none" stroke="#3B82F6" stroke-width="1.5"/>
+            <circle cx="252" cy="52" r="4" fill="#3B82F6" opacity="0.5"/>
+            <circle cx="268" cy="52" r="4" fill="#3B82F6" opacity="0.5"/>
+            <line x1="250" y1="64" x2="270" y2="64" stroke="#3B82F6" stroke-width="1.5" stroke-linecap="round"/>
+            <!-- 24/7 badge -->
+            <rect x="40" y="50" width="45" height="22" rx="4" fill="none" stroke="#3B82F6" stroke-width="1.5"/>
+            <text x="62" y="65" text-anchor="middle" fill="#3B82F6" font-size="10" font-family="Inter, sans-serif" font-weight="600">24/7</text>
             <!-- Bottom label -->
-            <text x="160" y="168" text-anchor="middle" fill="#9CA3AF" font-size="8" font-family="Inter, sans-serif" letter-spacing="0.08em">100K+ CYCLES · 24/7 TESTING</text>
+            <text x="160" y="165" text-anchor="middle" fill="#9CA3AF" font-size="8" font-family="Inter, sans-serif" letter-spacing="0.08em">AUTOMATED STRESS TESTING</text>
           </svg>
         </div>
         <span class="tag">Robotics · GE HealthCare</span>
@@ -310,7 +302,7 @@
         </div>
         <span class="tag">Full-Stack iOS</span>
         <h3>Us4Her</h3>
-        <p>Solo-built Swift iOS app for global incident reporting. Frontend, backend, and database — built in high school.</p>
+        <p>Solo-built Swift iOS app for global incident reporting. Frontend, backend, and database. Built in high school.</p>
       </div>
 
       <div class="project-card">
@@ -349,7 +341,7 @@
         </div>
         <span class="tag">Hardware · Origin Story</span>
         <h3>Robotic Hand</h3>
-        <p>Potentiometer glove controlling a servo-driven hand. First Arduino and PCB experience — the project that started it all.</p>
+        <p>Potentiometer glove controlling a servo-driven hand. First Arduino and PCB experience. The project that started it all.</p>
       </div>
 
     </div>
@@ -363,8 +355,8 @@
         <img src="assets/headshot.jpeg" alt="Ben Levy headshot" class="headshot">
       </div>
       <div class="about-text">
-        <p class="about-lead">Mechatronics engineer bridging hardware and software to build systems that interface with humans.</p>
-        <p>From a robotic hand in high school to published haptics research to leading medical device development — I'm drawn to problems that live between mechanical systems and intelligent software.</p>
+        <p class="about-lead">I build complete systems (mechanical, electrical, firmware, and software), not just individual pieces.</p>
+        <p>From a robotic hand in high school to IEEE-published haptics research to leading medical device development. I'm drawn to problems that require the full stack to solve.</p>
         <p>Currently finishing my BS in Mechanical Engineering at UW–Madison (Dec 2026). Originally from the Bay Area.</p>
         <div class="about-details">
           <div class="detail">
@@ -377,7 +369,7 @@
           </div>
           <div class="detail">
             <span class="detail-label">Leadership</span>
-            <span>Theta Tau Xi — Exec Board, $4,000+ sponsorships secured</span>
+            <span>Theta Tau Xi, Exec Board. $4,000+ sponsorships secured</span>
           </div>
         </div>
       </div>
@@ -435,7 +427,7 @@
         description: `
           <div class="modal-section">
             <h4>The Challenge</h4>
-            <blockquote>First application of layer jamming to wearable haptics — no prior work to build on</blockquote>
+            <blockquote>First application of layer jamming to wearable haptics. No prior work to build on.</blockquote>
           </div>
 
           <div class="modal-section">
@@ -484,7 +476,7 @@
 
           <div class="modal-section">
             <h4>Outcome</h4>
-            <p>IEEE Haptics Symposium 2024 — First Author. Led the full design cycle from concept through CAD, fabrication, electronics integration, Unity VR demo, and user validation.</p>
+            <p>IEEE Haptics Symposium 2024, First Author. Led the full design cycle from concept through CAD, fabrication, electronics integration, Unity VR demo, and user validation.</p>
           </div>
         `,
         skills: ["SolidWorks", "3D Printing", "Vacuum Systems", "Arduino", "C++", "Unity", "User Studies", "LaTeX", "IEEE Publishing", "Beam Theory", "Experimental Design"],
@@ -540,7 +532,7 @@
           <div class="modal-section">
             <h4>Technical Challenges</h4>
             <ul>
-              <li>Real-time signal quality — filtering noise from 5 sensors simultaneously</li>
+              <li>Real-time signal quality: filtering noise from 5 sensors simultaneously</li>
               <li>Multi-sensor time synchronization for accurate data fusion</li>
             </ul>
           </div>
@@ -599,7 +591,7 @@
 
           <div class="modal-section">
             <h4>The Build</h4>
-            <blockquote>Built entire system from scratch — started with spreadsheet, ended with production website</blockquote>
+            <blockquote>Built entire system from scratch. Started with spreadsheet, ended with production website.</blockquote>
           </div>
 
           <div class="modal-section">
@@ -676,8 +668,8 @@
           <div class="modal-section">
             <h4>Technical Challenges</h4>
             <ul>
-              <li>Mechanical precision — 3D parts must interface perfectly with machine geometry</li>
-              <li>Reliability at scale — 24/7 unattended operation without failures</li>
+              <li>Mechanical precision: 3D parts must interface perfectly with machine geometry</li>
+              <li>Reliability at scale: 24/7 unattended operation without failures</li>
               <li>Motor calibration for precise dial rotation across all test cycles</li>
             </ul>
           </div>
@@ -700,7 +692,7 @@
         description: `
           <div class="modal-section">
             <h4>The Goal</h4>
-            <blockquote>One automated system replacing multiple lab setups — programmable camera positioning eliminates need for separate rigs per test case</blockquote>
+            <blockquote>One automated system replacing multiple lab setups. Programmable camera positioning eliminates need for separate rigs per test case.</blockquote>
           </div>
 
           <div class="modal-section">
@@ -815,7 +807,7 @@
         description: `
           <div class="modal-section">
             <h4>The Application</h4>
-            <blockquote>Elbow exoskeleton for physical therapy and strength training — programmable position-based resistance</blockquote>
+            <blockquote>Elbow exoskeleton for physical therapy and strength training. Programmable position-based resistance.</blockquote>
           </div>
 
           <div class="modal-section">
@@ -874,8 +866,8 @@
             <h4>Features</h4>
             <ul>
               <li>Interactive map showing incidents in your area</li>
-              <li>Anonymous reporting — no identity required</li>
-              <li>Real-time updates — incidents appear instantly</li>
+              <li>Anonymous reporting: no identity required</li>
+              <li>Real-time updates: incidents appear instantly</li>
               <li>Location-based alerts for nearby incidents</li>
             </ul>
           </div>

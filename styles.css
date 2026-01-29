@@ -193,14 +193,6 @@ img { display: block; max-width: 100%; }
   display: block;
 }
 
-.hand-hint {
-  text-align: center;
-  font-size: 0.6875rem;
-  font-weight: 500;
-  color: var(--text-tertiary);
-  letter-spacing: 0.06em;
-  margin-top: 0.5rem;
-}
 
 /* ============================================
    S.E.S.H. Glove — Layer Jamming Animation
