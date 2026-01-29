@@ -773,7 +773,12 @@
       if (domains[domain].length > 0) {
         html += `
           <div class="skills-mobile-group" data-domain="${domain}">
-            <div class="skills-mobile-group-title">${domainLabels[domain]}</div>
+            <div class="skills-mobile-group-header">
+              <div class="skills-mobile-group-title">${domainLabels[domain]}</div>
+              <svg class="skills-mobile-group-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </div>
             <div class="skills-mobile-badges">
               ${domains[domain].map(skill =>
                 `<span class="skill-badge" data-skill="${skill.id}" data-projects='${JSON.stringify(skill.projects)}' data-classes='${JSON.stringify(skill.classes || [])}'>${skill.id}</span>`
@@ -786,7 +791,7 @@
 
     container.innerHTML = html;
 
-    // Create mobile tooltip
+    // Create mobile tooltip first (so it's available for accordion handlers)
     let mobileTooltip = document.getElementById('mobile-skill-tooltip');
     if (!mobileTooltip) {
       mobileTooltip = document.createElement('div');
@@ -795,7 +800,31 @@
       document.body.appendChild(mobileTooltip);
     }
 
-    // Add click handlers to badges
+    function hideMobileTooltip() {
+      mobileTooltip.classList.remove('visible');
+    }
+
+    // Add accordion toggle handlers
+    container.querySelectorAll('.skills-mobile-group-header').forEach(header => {
+      header.addEventListener('click', function() {
+        const group = this.closest('.skills-mobile-group');
+        const wasExpanded = group.classList.contains('expanded');
+
+        // Close all other groups, clear any selected badge, hide tooltip
+        container.querySelectorAll('.skills-mobile-group').forEach(g => {
+          g.classList.remove('expanded');
+        });
+        container.querySelectorAll('.skill-badge').forEach(b => b.classList.remove('selected'));
+        hideMobileTooltip();
+
+        // Toggle this group
+        if (!wasExpanded) {
+          group.classList.add('expanded');
+        }
+      });
+    });
+
+    // Track selected badge
     let selectedBadge = null;
 
     container.querySelectorAll('.skill-badge').forEach(badge => {
@@ -877,16 +906,10 @@
         });
       });
 
-      // Position tooltip below the badge
+      // Position tooltip below the badge (fixed positioning)
       const rect = badge.getBoundingClientRect();
-      mobileTooltip.style.top = (rect.bottom + window.scrollY + 8) + 'px';
-      mobileTooltip.style.left = '50%';
-      mobileTooltip.style.transform = 'translateX(-50%)';
+      mobileTooltip.style.top = (rect.bottom + 12) + 'px';
       mobileTooltip.classList.add('visible');
-    }
-
-    function hideMobileTooltip() {
-      mobileTooltip.classList.remove('visible');
     }
 
     // Register callback for search to select skills (mobile)
@@ -894,19 +917,28 @@
       const badge = container.querySelector(`.skill-badge[data-skill="${skillName}"]`);
       if (!badge) return;
 
-      // Deselect previous
+      // Collapse all accordions and clear selections
+      container.querySelectorAll('.skills-mobile-group').forEach(g => g.classList.remove('expanded'));
       container.querySelectorAll('.skill-badge').forEach(b => b.classList.remove('selected'));
       hideMobileTooltip();
 
-      // Select and show tooltip
-      selectedBadge = skillName;
-      badge.classList.add('selected');
-      const projects = JSON.parse(badge.dataset.projects);
-      const classes = JSON.parse(badge.dataset.classes || '[]');
-      showMobileTooltip(badge, skillName, classes, projects);
+      // Expand the accordion group containing this skill
+      const group = badge.closest('.skills-mobile-group');
+      if (group) {
+        group.classList.add('expanded');
+      }
 
-      // Scroll badge into view
-      badge.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      // Select and show tooltip after a brief delay (so accordion expands first)
+      setTimeout(() => {
+        selectedBadge = skillName;
+        badge.classList.add('selected');
+        const projects = JSON.parse(badge.dataset.projects);
+        const classes = JSON.parse(badge.dataset.classes || '[]');
+        showMobileTooltip(badge, skillName, classes, projects);
+
+        // Scroll badge into view
+        badge.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }, 50);
     });
   }
 
