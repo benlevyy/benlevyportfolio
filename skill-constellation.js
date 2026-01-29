@@ -43,7 +43,7 @@
     // ML/AI
     'ai': ['LangChain', 'RAG', 'OpenAI API', 'Enterprise AI', 'PyTorch', 'TensorFlow'],
     'artificial intelligence': ['LangChain', 'RAG', 'OpenAI API', 'Enterprise AI', 'PyTorch', 'TensorFlow'],
-    'machine learning': ['PyTorch', 'TensorFlow', 'Transfer Learning', 'ResNet', 'Image Classification', 'Model Pruning'],
+    'machine learning': ['PyTorch', 'TensorFlow', 'ResNet', 'Image Classification', 'Model Pruning'],
     'deep learning': ['PyTorch', 'TensorFlow', 'ResNet', 'Vision Transformers', 'CNN Support'],
     'neural network': ['PyTorch', 'TensorFlow', 'ResNet', 'Vision Transformers', 'CNN Support'],
     'nlp': ['LangChain', 'RAG', 'OpenAI API'],
@@ -54,17 +54,15 @@
     'cv': ['PyTorch', 'Image Classification', 'ResNet', 'Vision Transformers'],
 
     // Embedded/Electronics
-    'embedded': ['Arduino', 'RP2040', 'MicroPython', 'Firmware', 'Embedded Systems'],
-    'microcontroller': ['Arduino', 'RP2040', 'MicroPython'],
-    'mcu': ['Arduino', 'RP2040', 'MicroPython'],
-    'raspberry': ['RP2040'],
-    'pico': ['RP2040'],
+    'embedded': ['Arduino', 'Raspberry Pi', 'MicroPython', 'Firmware', 'Embedded Systems'],
+    'microcontroller': ['Arduino', 'Raspberry Pi', 'MicroPython'],
+    'mcu': ['Arduino', 'Raspberry Pi', 'MicroPython'],
     'electronics': ['PCB Design', 'Arduino', 'Soldering', 'Power Electronics'],
     'circuit': ['PCB Design', 'Power Electronics'],
     'pcb': ['PCB Design'],
     'bluetooth': ['BLE'],
     'wireless': ['BLE', 'MQTT'],
-    'iot': ['BLE', 'MQTT', 'Arduino', 'RP2040'],
+    'iot': ['BLE', 'MQTT', 'Arduino', 'Raspberry Pi'],
     'sensor': ['Biosensors', 'IMU', 'Signal Processing'],
     'motor': ['BLDC Motors', 'Servo Motors', 'Stepper Motors'],
     'actuator': ['BLDC Motors', 'Servo Motors', 'Stepper Motors'],
@@ -103,14 +101,14 @@
     'fea': ['FEA'],
     'finite element': ['FEA'],
     'analysis': ['FEA', 'Statistical Analysis', 'MATLAB'],
-    'gd&t': ['GD&T'],
-    'tolerancing': ['GD&T'],
-    'geometric': ['GD&T'],
     'cnc': ['CNC Machining'],
     'machining': ['CNC Machining'],
-    'manufacturing': ['CNC Machining', 'Injection Molding', '3D Printing'],
-    'injection': ['Injection Molding'],
-    'molding': ['Injection Molding'],
+    'manufacturing': ['CNC Machining', '3D Printing'],
+    'i2c': ['I2C'],
+    'linux': ['Linux'],
+    'raspberry': ['Raspberry Pi'],
+    'raspberry pi': ['Raspberry Pi'],
+    'rpi': ['Raspberry Pi'],
     'labview': ['LabVIEW'],
     'daq': ['DAQ'],
     'data acquisition': ['DAQ'],
@@ -147,9 +145,7 @@
     'Servo Motors': 'hardware',
     'Soldering': 'hardware',
     'Mechatronics': 'hardware',
-    'GD&T': 'hardware',
     'CNC Machining': 'hardware',
-    'Injection Molding': 'hardware',
     'Materials Science': 'hardware',
     'Fluid Mechanics': 'hardware',
     'Heat Transfer': 'hardware',
@@ -160,16 +156,16 @@
     'BLE': 'electrical',
     'Firmware': 'electrical',
     'Biosensors': 'electrical',
-    'RP2040': 'electrical',
     'MicroPython': 'electrical',
     'IMU': 'electrical',
     'BLDC Motors': 'electrical',
     'UART': 'electrical',
+    'I2C': 'electrical',
     'Power Electronics': 'electrical',
     'Embedded Systems': 'electrical',
     'MQTT': 'electrical',
-    'Pan-Tompkins': 'electrical',
     'Signal Processing': 'electrical',
+    'Raspberry Pi': 'electrical',
     'Control Systems': 'electrical',
     'Transfer Functions': 'electrical',
     'LabVIEW': 'electrical',
@@ -184,7 +180,7 @@
     'Firebase': 'software',
     'REST APIs': 'software',
     'Full-Stack': 'software',
-    'MapKit': 'software',
+    'Linux': 'software',
     'UI/UX Design': 'software',
     'Flask': 'software',
     'SQL': 'software',
@@ -214,13 +210,11 @@
     'Azure': 'ml',
     'PyTorch': 'ml',
     'TensorFlow': 'ml',
-    'Transfer Learning': 'ml',
     'ResNet': 'ml',
     'Image Classification': 'ml',
     'Model Pruning': 'ml',
     'SEM Imaging': 'ml',
     'Vision Transformers': 'ml',
-    '5-Fold CV': 'ml',
     'CNN Support': 'ml',
     'Pandas': 'ml',
     'NumPy': 'ml',
@@ -234,11 +228,9 @@
     // CAD/Design
     'SolidWorks': ['ME 231', 'ME 331'],
     '3D Printing': ['ME 231'],
-    'GD&T': ['ME 231'],
 
     // Manufacturing
     'CNC Machining': ['ME 311'],
-    'Injection Molding': ['ME 310'],
     'Materials Science': ['MSE 350'],
 
     // Analysis
@@ -794,19 +786,30 @@
 
     container.innerHTML = html;
 
+    // Create mobile tooltip
+    let mobileTooltip = document.getElementById('mobile-skill-tooltip');
+    if (!mobileTooltip) {
+      mobileTooltip = document.createElement('div');
+      mobileTooltip.id = 'mobile-skill-tooltip';
+      mobileTooltip.className = 'mobile-skill-tooltip';
+      document.body.appendChild(mobileTooltip);
+    }
+
     // Add click handlers to badges
     let selectedBadge = null;
 
     container.querySelectorAll('.skill-badge').forEach(badge => {
-      badge.addEventListener('click', function() {
+      badge.addEventListener('click', function(e) {
+        e.stopPropagation();
         const skill = this.dataset.skill;
         const projects = JSON.parse(this.dataset.projects);
+        const classes = JSON.parse(this.dataset.classes || '[]');
 
         if (selectedBadge === skill) {
           // Deselect
           selectedBadge = null;
           this.classList.remove('selected');
-          clearProjectHighlight();
+          hideMobileTooltip();
         } else {
           // Deselect previous
           container.querySelectorAll('.skill-badge').forEach(b => b.classList.remove('selected'));
@@ -814,40 +817,76 @@
           // Select new
           selectedBadge = skill;
           this.classList.add('selected');
-          highlightProjects(projects);
+          showMobileTooltip(this, skill, classes, projects);
         }
       });
     });
 
-    function highlightProjects(projects) {
-      const cards = document.querySelectorAll('.featured-card, .project-card');
-
-      cards.forEach(card => {
-        const title = card.querySelector('h3').textContent;
-        if (projects.includes(title)) {
-          card.classList.add('skill-match');
-          card.classList.remove('skill-dimmed');
-        } else {
-          card.classList.add('skill-dimmed');
-          card.classList.remove('skill-match');
+    // Close tooltip when clicking outside
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest('.skill-badge') && !e.target.closest('.mobile-skill-tooltip')) {
+        if (selectedBadge) {
+          selectedBadge = null;
+          container.querySelectorAll('.skill-badge').forEach(b => b.classList.remove('selected'));
+          hideMobileTooltip();
         }
-      });
-    }
-
-    function clearProjectHighlight() {
-      const cards = document.querySelectorAll('.featured-card, .project-card');
-      cards.forEach(card => {
-        card.classList.remove('skill-match', 'skill-dimmed');
-      });
-    }
-
-    function scrollToProjects() {
-      const projectsSection = document.getElementById('projects');
-      if (projectsSection) {
-        const offset = 100;
-        const top = projectsSection.getBoundingClientRect().top + window.pageYOffset - offset;
-        window.scrollTo({ top: top, behavior: 'smooth' });
       }
+    });
+
+    function showMobileTooltip(badge, skillName, classes, projects) {
+      // Build classes section
+      let classesHtml = '';
+      if (classes && classes.length > 0) {
+        classesHtml = `
+          <div class="mobile-tooltip-section">
+            <div class="mobile-tooltip-label">Classes</div>
+            <div class="mobile-tooltip-classes">${classes.join(', ')}</div>
+          </div>
+        `;
+      }
+
+      // Build projects section with clickable links
+      let projectsHtml = '';
+      if (projects && projects.length > 0) {
+        const projectList = projects.map(p =>
+          `<div class="mobile-tooltip-project" data-project="${p}">${p}</div>`
+        ).join('');
+        projectsHtml = `
+          <div class="mobile-tooltip-section">
+            <div class="mobile-tooltip-label">Projects</div>
+            ${projectList}
+          </div>
+        `;
+      }
+
+      mobileTooltip.innerHTML = `
+        <div class="mobile-tooltip-title">${skillName}</div>
+        ${classesHtml}
+        ${projectsHtml}
+      `;
+
+      // Add click handlers for project links
+      mobileTooltip.querySelectorAll('.mobile-tooltip-project').forEach(link => {
+        link.addEventListener('click', function(e) {
+          e.stopPropagation();
+          const projectName = this.dataset.project;
+          hideMobileTooltip();
+          selectedBadge = null;
+          container.querySelectorAll('.skill-badge').forEach(b => b.classList.remove('selected'));
+          triggerProjectModal(projectName);
+        });
+      });
+
+      // Position tooltip below the badge
+      const rect = badge.getBoundingClientRect();
+      mobileTooltip.style.top = (rect.bottom + window.scrollY + 8) + 'px';
+      mobileTooltip.style.left = '50%';
+      mobileTooltip.style.transform = 'translateX(-50%)';
+      mobileTooltip.classList.add('visible');
+    }
+
+    function hideMobileTooltip() {
+      mobileTooltip.classList.remove('visible');
     }
 
     // Register callback for search to select skills (mobile)
@@ -857,12 +896,14 @@
 
       // Deselect previous
       container.querySelectorAll('.skill-badge').forEach(b => b.classList.remove('selected'));
+      hideMobileTooltip();
 
-      // Select and highlight
+      // Select and show tooltip
       selectedBadge = skillName;
       badge.classList.add('selected');
       const projects = JSON.parse(badge.dataset.projects);
-      highlightProjects(projects);
+      const classes = JSON.parse(badge.dataset.classes || '[]');
+      showMobileTooltip(badge, skillName, classes, projects);
 
       // Scroll badge into view
       badge.scrollIntoView({ behavior: 'smooth', block: 'center' });
