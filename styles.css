@@ -660,6 +660,7 @@ img { display: block; max-width: 100%; }
   display: flex;
   gap: 0.75rem;
   overflow-x: auto;
+  overflow-y: hidden;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
   margin-bottom: 1.25rem;
@@ -687,8 +688,11 @@ img { display: block; max-width: 100%; }
 }
 
 .modal-images img:only-child {
-  width: 100%;
-  max-height: 400px;
+  width: auto;
+  max-width: 100%;
+  max-height: 450px;
+  object-fit: contain;
+  margin: 0 auto;
 }
 
 /* ============================================
@@ -1051,5 +1055,386 @@ body.modal-open {
 
   .hero-links {
     flex-wrap: wrap;
+  }
+}
+
+/* ============================================
+   Skills Constellation
+   ============================================ */
+
+/* Skill Search */
+.skill-search-container {
+  position: relative;
+  max-width: 400px;
+  margin: 0 auto 1.5rem;
+}
+
+.skill-search-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  padding-left: 2.5rem;
+  font-family: var(--font);
+  font-size: 0.9375rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--white);
+  color: var(--text);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%239CA3AF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'%3E%3C/circle%3E%3Cline x1='21' y1='21' x2='16.65' y2='16.65'%3E%3C/line%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: 0.875rem center;
+}
+
+.skill-search-input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-light);
+}
+
+.skill-search-input::placeholder {
+  color: var(--text-tertiary);
+}
+
+.skill-search-results {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  max-height: 280px;
+  overflow-y: auto;
+  z-index: 20;
+  display: none;
+}
+
+.skill-search-results.visible {
+  display: block;
+}
+
+.skill-search-result {
+  padding: 0.625rem 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  transition: background 0.15s ease;
+}
+
+.skill-search-result:hover,
+.skill-search-result.highlighted {
+  background: var(--accent-light);
+}
+
+.skill-search-result-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.skill-search-result-name {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.skill-search-result-name mark {
+  background: transparent;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.skill-search-result-domain {
+  font-size: 0.6875rem;
+  color: var(--text-tertiary);
+  margin-left: auto;
+}
+
+.skill-search-result-projects {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+.skill-search-no-results {
+  padding: 1rem;
+  text-align: center;
+  color: var(--text-tertiary);
+  font-size: 0.875rem;
+}
+
+.skill-search-hint {
+  padding: 0.5rem 1rem;
+  font-size: 0.75rem;
+  color: var(--text-tertiary);
+  border-top: 1px solid var(--border-light);
+  background: var(--bg);
+}
+
+.constellation-container {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  background: var(--bg);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+
+#skill-constellation {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Constellation nodes */
+.constellation-node {
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.constellation-node circle {
+  transition: r 0.2s ease, stroke-width 0.2s ease;
+}
+
+.constellation-node:hover circle {
+  stroke-width: 3px;
+}
+
+.constellation-node.dimmed {
+  opacity: 0.15;
+}
+
+.constellation-node.highlighted circle {
+  stroke-width: 3px;
+}
+
+.constellation-node.selected circle {
+  stroke-width: 4px;
+  stroke: var(--text);
+}
+
+/* Constellation links */
+.constellation-link {
+  stroke: var(--border);
+  stroke-opacity: 0.4;
+  transition: stroke-opacity 0.2s ease, stroke-width 0.2s ease;
+}
+
+.constellation-link.dimmed {
+  stroke-opacity: 0.05;
+}
+
+.constellation-link.highlighted {
+  stroke-opacity: 0.8;
+  stroke-width: 2px;
+}
+
+/* Constellation labels */
+.constellation-label {
+  font-size: 0.6875rem;
+  font-weight: 500;
+  fill: var(--text);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  text-anchor: middle;
+}
+
+.constellation-label.visible {
+  opacity: 1;
+}
+
+/* Constellation tooltip */
+.constellation-tooltip {
+  position: absolute;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  font-size: 0.8125rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  z-index: 10;
+  max-width: 280px;
+}
+
+.constellation-tooltip.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.constellation-tooltip-title {
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.375rem;
+}
+
+.constellation-tooltip-domain {
+  font-size: 0.6875rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.5rem;
+}
+
+.constellation-tooltip-section {
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--border-light);
+}
+
+.constellation-tooltip-section:first-of-type {
+  margin-top: 0.375rem;
+}
+
+.constellation-tooltip-section-label {
+  font-size: 0.625rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-tertiary);
+  margin-bottom: 0.25rem;
+}
+
+.constellation-tooltip-classes {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+.constellation-tooltip-projects {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+.constellation-tooltip-projects span {
+  display: block;
+  padding: 0.125rem 0;
+}
+
+.constellation-tooltip-project-link {
+  cursor: pointer;
+  transition: color 0.15s ease;
+}
+
+.constellation-tooltip-project-link:hover {
+  color: var(--accent);
+}
+
+/* Constellation legend */
+.constellation-legend {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+.legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+/* Project card highlighting when skill selected */
+.project-card.skill-match,
+.featured-card.skill-match {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-light);
+}
+
+.project-card.skill-dimmed,
+.featured-card.skill-dimmed {
+  opacity: 0.35;
+}
+
+/* Mobile fallback - skill badges grouped by domain */
+.skills-mobile-fallback {
+  display: none;
+}
+
+.skills-mobile-group {
+  margin-bottom: 1.5rem;
+}
+
+.skills-mobile-group-title {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.625rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.skills-mobile-group-title::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.skills-mobile-group[data-domain="hardware"] .skills-mobile-group-title::before { background: #10B981; }
+.skills-mobile-group[data-domain="electrical"] .skills-mobile-group-title::before { background: #F59E0B; }
+.skills-mobile-group[data-domain="software"] .skills-mobile-group-title::before { background: #3B82F6; }
+.skills-mobile-group[data-domain="ml"] .skills-mobile-group-title::before { background: #8B5CF6; }
+
+.skills-mobile-group-title { color: var(--text-tertiary); }
+
+.skills-mobile-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.375rem;
+}
+
+.skill-badge {
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 0.25rem 0.625rem;
+  border-radius: 999px;
+  background: var(--bg);
+  color: var(--text-secondary);
+  border: 1px solid var(--border);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.skill-badge:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--accent-light);
+}
+
+.skill-badge.selected {
+  background: var(--accent);
+  color: var(--white);
+  border-color: var(--accent);
+}
+
+@media (max-width: 600px) {
+  .constellation-container {
+    display: none;
+  }
+
+  .constellation-legend {
+    display: none;
+  }
+
+  .skills-mobile-fallback {
+    display: block;
   }
 }
