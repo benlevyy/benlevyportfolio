@@ -128,7 +128,6 @@ function buildFinger(x, y, scale, rotationZ, name) {
 
 // --- Assembly ---
 // 1. Palm (SMALLER)
-// Reduced Radius 1.8->1.6, Length 2.6->2.4
 const palmGeo = new THREE.CapsuleGeometry(1.6, 2.4, 4, 16); 
 const palm = new THREE.Mesh(palmGeo, gloveMaterial);
 palm.scale.set(1.0, 1.0, 0.4); 
@@ -138,7 +137,6 @@ palm.receiveShadow = true;
 handGroup.add(palm);
 
 // 2. Fingers
-// Adjusted X positions slightly for narrower palm
 const f_index  = buildFinger(-1.2, 1.25, 0.9, 0.2, 'index');
 const f_middle = buildFinger(-0.35, 1.55, 1.0, 0.05, 'middle');
 const f_ring   = buildFinger( 0.45, 1.45, 0.95, -0.05, 'ring');
@@ -154,14 +152,13 @@ const thumbGroup = new THREE.Group();
 thumbGroup.position.set(-1.7, -1.1, 0.2); 
 thumbGroup.rotation.z = Math.PI / 4; 
 thumbGroup.rotation.y = -0.3; 
-// Scale reduced to 0.88
 const t_build = buildFinger(0, 0, 0.88, 0, 'thumb');
 thumbGroup.add(t_build.fingerGroup);
 handGroup.add(thumbGroup);
 
 // 4. Manifold & HUD
 const manifold = new THREE.Mesh(new THREE.BoxGeometry(1.8, 0.7, 0.5), jammerHousingMat);
-manifold.position.set(0, -2.8, 0.8); // Adjusted Y for smaller palm
+manifold.position.set(0, -2.8, 0.8); 
 manifold.castShadow = true;
 handGroup.add(manifold);
 
@@ -180,7 +177,6 @@ function createTube(startObj, endObj) {
     const mesh = new THREE.Mesh(geo, tubeMat);
     handGroup.add(mesh);
     
-    // Pulse Mesh
     const pulseGeo = new THREE.TubeGeometry(path, 20, 0.08, 8, false); 
     const pulseMat = new THREE.MeshBasicMaterial({ color: 0x88ccff, transparent: true, opacity: 0 });
     const pulse = new THREE.Mesh(pulseGeo, pulseMat);
@@ -247,32 +243,24 @@ function animate() {
     requestAnimationFrame(animate);
     time += 0.015;
 
-    // 1. Lerp Explosion
     const target = isHovering ? 1.0 : 0.0;
     explosionState += (target - explosionState) * 0.1;
 
-    // 2. Animate Parts & HUD
     partsToExplode.forEach(group => {
         const origin = group.userData.origin;
         const vec = group.userData.explodeVec;
-
-        // Move group
         group.position.copy(origin).addScaledVector(vec, explosionState);
-
-        // Expand Layers
         group.children.forEach(child => {
             if (child.userData.isLayer) child.position.z = 0.18 + (explosionState * 0.15);
             if (child.userData.isShell) child.position.z = 0.35 + (explosionState * 0.4);
         });
     });
 
-    // 3. Animate Wrist HUD
     hudRing.rotation.z = time * 0.2;
     const hudScale = 1.0 + (explosionState * 0.2);
     hudRing.scale.setScalar(hudScale);
     hudRing.material.opacity = 0.2 + (explosionState * 0.3);
 
-    // 4. Update Tubes & Pulses
     handGroup.updateMatrixWorld();
     const worldStart = new THREE.Vector3();
     manifold.getWorldPosition(worldStart);
@@ -281,15 +269,11 @@ function animate() {
     tubeUpdateList.forEach((item, idx) => {
         const worldEnd = new THREE.Vector3();
         item.endObj.getWorldPosition(worldEnd);
-
         const mid = new THREE.Vector3().lerpVectors(worldStart, worldEnd, 0.5);
         mid.z += 1.5 + (explosionState * 0.5); 
         mid.x += (item.endObj.id % 2 === 0 ? 0.2 : -0.2); 
-
         const curve = new THREE.QuadraticBezierCurve3(worldStart, mid, worldEnd);
         const points = curve.getPoints(20);
-
-        // Update Tube Mesh
         const positions = item.mesh.geometry.attributes.position.array;
         let j = 0;
         for (let i = 0; i < points.length; i++) {
@@ -298,20 +282,14 @@ function animate() {
             positions[j++] = points[i].z;
         }
         item.mesh.geometry.attributes.position.needsUpdate = true;
-        
-        // Update Pulse (Slow Data)
         const pulseLoop = (time * 0.3 + (idx * 0.2)) % 1; 
-        const pulsePos = curve.getPoint(pulseLoop);
-        
-        item.pulse.position.copy(pulsePos);
+        item.pulse.position.copy(curve.getPoint(pulseLoop));
         item.pulse.material.opacity = isHovering ? 0.8 : 0; 
         item.pulse.scale.setScalar(0.2); 
     });
 
-    // 5. Rotation
     const idleX = Math.sin(time * 0.5) * 0.05;
     const idleY = Math.cos(time * 0.4) * 0.05;
-
     handGroup.rotation.y = mouseX + idleX;
     handGroup.rotation.x = -mouseY + idleY;
 

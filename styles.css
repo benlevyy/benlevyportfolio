@@ -115,7 +115,11 @@ img { display: block; max-width: 100%; }
   gap: 4rem;
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 6rem var(--page-padding) 4rem;
+  padding: 6rem var(--page-padding) 2.5rem;
+}
+
+.hero + .section {
+  padding-top: 3rem;
 }
 
 .hero-label {
@@ -446,7 +450,7 @@ img { display: block; max-width: 100%; }
    ============================================ */
 .project-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
 }
 
