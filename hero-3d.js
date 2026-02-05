@@ -224,6 +224,12 @@ let explosionState = 0;
 let isHovering = false;
 let time = 0;
 
+// Wave animation state
+let isWaving = true;
+let waveStartTime = null;
+const WAVE_DURATION = 2.0;      // Total wave duration in seconds
+const WAVE_DELAY = 0.3;         // Delay before wave starts
+
 canvas.addEventListener('mouseenter', () => isHovering = true);
 canvas.addEventListener('mouseleave', () => isHovering = false);
 canvas.addEventListener('touchstart', () => isHovering = true, {passive: true});
@@ -288,10 +294,29 @@ function animate() {
         item.pulse.scale.setScalar(0.2); 
     });
 
+    // Wave animation on startup
+    let waveRotationZ = 0;
+    if (isWaving) {
+        if (waveStartTime === null) waveStartTime = time;
+        const elapsed = (time - waveStartTime) * (1 / 0.015) / 60; // Convert to seconds
+
+        if (elapsed > WAVE_DELAY) {
+            const waveTime = elapsed - WAVE_DELAY;
+            const progress = Math.min(waveTime / WAVE_DURATION, 1.0);
+
+            // Damped sine wave: 3 oscillations that fade out
+            const damping = 1 - progress;
+            waveRotationZ = Math.sin(progress * Math.PI * 2 * 3) * damping * 0.25;
+
+            if (progress >= 1.0) isWaving = false;
+        }
+    }
+
     const idleX = Math.sin(time * 0.5) * 0.05;
     const idleY = Math.cos(time * 0.4) * 0.05;
     handGroup.rotation.y = mouseX + idleX;
     handGroup.rotation.x = -mouseY + idleY;
+    handGroup.rotation.z = waveRotationZ;
 
     renderer.render(scene, camera);
 }
