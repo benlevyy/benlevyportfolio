@@ -547,6 +547,81 @@ img { display: block; max-width: 100%; }
 }
 
 /* ============================================
+   Experience Timeline
+   ============================================ */
+.experience-timeline {
+  position: relative;
+  padding-left: 2rem;
+  border-left: 1px solid var(--border);
+}
+
+.experience-education {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-light);
+  padding-left: 2rem;
+  border-left: 1px solid var(--border);
+  position: relative;
+}
+
+.experience-item {
+  position: relative;
+  padding-bottom: 2.5rem;
+}
+
+.experience-item:last-child {
+  padding-bottom: 0;
+}
+
+.experience-item::before {
+  content: '';
+  position: absolute;
+  left: -2rem;
+  top: 0.375rem;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  transform: translateX(-50%);
+}
+
+.experience-date {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-tertiary);
+  margin-bottom: 0.375rem;
+}
+
+.experience-role {
+  font-size: 1.0625rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin: 0 0 0.125rem;
+}
+
+.experience-company {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--accent);
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.experience-desc {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin: 0;
+}
+
+.resume-download-btn {
+  margin-top: 2rem;
+  display: inline-flex;
+}
+
+/* ============================================
    Footer
    ============================================ */
 .footer {
@@ -598,6 +673,19 @@ img { display: block; max-width: 100%; }
 
   .about-photo {
     max-width: 240px;
+  }
+
+  .skills-glance {
+    grid-template-columns: 1fr;
+  }
+
+  .experience-timeline,
+  .experience-education {
+    padding-left: 1.5rem;
+  }
+
+  .experience-item::before {
+    left: -1.5rem;
   }
 }
 
@@ -1066,6 +1154,50 @@ body.modal-open {
   .hero-links {
     flex-wrap: wrap;
   }
+}
+
+/* ============================================
+   Skills at a Glance
+   ============================================ */
+.skills-glance-intro {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+}
+
+.skills-glance {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.skills-glance-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.skills-glance-label {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.skills-glance-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.skills-glance-tag {
+  font-size: 0.8125rem;
+  padding: 0.375rem 0.75rem;
+  border: 1px solid;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--text-primary);
 }
 
 /* ============================================

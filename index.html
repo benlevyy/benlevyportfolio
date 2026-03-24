@@ -17,6 +17,7 @@
     <div class="nav-links">
       <a href="#projects">Projects</a>
       <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
       <a href="#about">About</a>
       <a href="mailto:blevy5@wisc.edu">Contact</a>
     </div>
@@ -31,6 +32,7 @@
       <div class="hero-links">
         <a href="https://linkedin.com/in/go-ben" target="_blank" rel="noopener" class="btn">LinkedIn ↗</a>
         <a href="mailto:blevy5@wisc.edu" class="btn">Email ↗</a>
+        <a href="docs/Ben_Levy_Resume_1_22.pdf" target="_blank" rel="noopener" class="btn">Resume ↗</a>
       </div>
     </div>
     <div class="hero-visual">
@@ -333,6 +335,49 @@
   <!-- Skills Constellation -->
   <section class="section" id="skills">
     <h2 class="section-heading">Skills Network</h2>
+    <p class="skills-glance-intro">Core competencies across four engineering domains. Explore the interactive graph below for the full picture.</p>
+    <div class="skills-glance">
+      <div class="skills-glance-group">
+        <span class="skills-glance-label" style="color: #10B981;">Hardware / Mechanical</span>
+        <div class="skills-glance-tags">
+          <span class="skills-glance-tag" style="border-color: #10B981;">SolidWorks</span>
+          <span class="skills-glance-tag" style="border-color: #10B981;">DFM/DFA</span>
+          <span class="skills-glance-tag" style="border-color: #10B981;">3D Printing</span>
+          <span class="skills-glance-tag" style="border-color: #10B981;">FEA</span>
+          <span class="skills-glance-tag" style="border-color: #10B981;">CNC Machining</span>
+        </div>
+      </div>
+      <div class="skills-glance-group">
+        <span class="skills-glance-label" style="color: #F59E0B;">Electrical / Embedded</span>
+        <div class="skills-glance-tags">
+          <span class="skills-glance-tag" style="border-color: #F59E0B;">PCB Design</span>
+          <span class="skills-glance-tag" style="border-color: #F59E0B;">Microcontrollers</span>
+          <span class="skills-glance-tag" style="border-color: #F59E0B;">BLE</span>
+          <span class="skills-glance-tag" style="border-color: #F59E0B;">Biosensors</span>
+          <span class="skills-glance-tag" style="border-color: #F59E0B;">MATLAB/Simulink</span>
+        </div>
+      </div>
+      <div class="skills-glance-group">
+        <span class="skills-glance-label" style="color: #3B82F6;">Software / iOS</span>
+        <div class="skills-glance-tags">
+          <span class="skills-glance-tag" style="border-color: #3B82F6;">Python</span>
+          <span class="skills-glance-tag" style="border-color: #3B82F6;">Swift</span>
+          <span class="skills-glance-tag" style="border-color: #3B82F6;">C/C++</span>
+          <span class="skills-glance-tag" style="border-color: #3B82F6;">SQL</span>
+          <span class="skills-glance-tag" style="border-color: #3B82F6;">FastAPI</span>
+        </div>
+      </div>
+      <div class="skills-glance-group">
+        <span class="skills-glance-label" style="color: #8B5CF6;">ML / Data</span>
+        <div class="skills-glance-tags">
+          <span class="skills-glance-tag" style="border-color: #8B5CF6;">PyTorch</span>
+          <span class="skills-glance-tag" style="border-color: #8B5CF6;">RAG Architecture</span>
+          <span class="skills-glance-tag" style="border-color: #8B5CF6;">Transfer Learning</span>
+          <span class="skills-glance-tag" style="border-color: #8B5CF6;">Azure LLMs</span>
+          <span class="skills-glance-tag" style="border-color: #8B5CF6;">Signal Processing</span>
+        </div>
+      </div>
+    </div>
     <div class="skill-search-container">
       <input type="text" id="skill-search" class="skill-search-input" placeholder="Find a skill (e.g. Python, iOS, CAD...)">
       <div class="skill-search-results" id="skill-search-results"></div>
@@ -348,6 +393,73 @@
       <div class="legend-item"><span class="legend-dot" style="background: #8B5CF6;"></span>ML/Data</div>
     </div>
     <div class="skills-mobile-fallback" id="skills-mobile"></div>
+  </section>
+
+  <!-- Experience -->
+  <section class="section" id="experience">
+    <h2 class="section-heading">Experience</h2>
+
+    <div class="experience-timeline">
+      <div class="experience-item">
+        <div class="experience-date">Aug 2025 &ndash; Present</div>
+        <div class="experience-body">
+          <h3 class="experience-role">Product Engineer</h3>
+          <span class="experience-company">BeatRite</span>
+          <p class="experience-desc">I was brought on as the engineering lead for a pre-seed biomedical startup building a multi-sensor wearable for heart failure prediction. I started by designing PCBs and iterating on our prototype, then transitioned to hiring and managing an electrical engineer as the scope grew. Now I sit between software, hardware, and the CEO, translating clinical needs into engineering requirements.</p>
+        </div>
+      </div>
+
+      <div class="experience-item">
+        <div class="experience-date">Aug 2025 &ndash; Dec 2025</div>
+        <div class="experience-body">
+          <h3 class="experience-role">Applied AI Engineer (Contract)</h3>
+          <span class="experience-company">GE HealthCare</span>
+          <p class="experience-desc">Promoted from Co-op to lead development of financial AI tools, using LLMs to automate company-wide budget allocations. Continued building on the AI ARC OPS platform I had developed during my co-op.</p>
+        </div>
+      </div>
+
+      <div class="experience-item">
+        <div class="experience-date">Jan 2025 &ndash; Aug 2025</div>
+        <div class="experience-body">
+          <h3 class="experience-role">V&amp;V Automation &amp; Test Tools Engineering Co-op</h3>
+          <span class="experience-company">GE HealthCare</span>
+          <p class="experience-desc">Built automated stress-testing robots and AI-powered data tools for anesthetic equipment. The Monte Carlo testing framework I built ran 100k+ unattended breathing cycles. A separate project, AI ARC OPS, started as one system and evolved into a natural language database query tool that won the CTO's 3 Heartbeats Award.</p>
+        </div>
+      </div>
+
+      <div class="experience-item">
+        <div class="experience-date">Jun 2024 &ndash; Dec 2024</div>
+        <div class="experience-body">
+          <h3 class="experience-role">Mechatronics Engineering Intern</h3>
+          <span class="experience-company">Glass Imaging</span>
+          <p class="experience-desc">Worked on a multidisciplinary project bridging hardware and machine learning for an advanced camera prototype. I designed autonomous optical testing setups using RP2040 microcontrollers, stepper motors, and IMU vibration sensing, which helped reduce experiment duration by 30%.</p>
+        </div>
+      </div>
+
+      <div class="experience-item">
+        <div class="experience-date">Nov 2022 &ndash; May 2024</div>
+        <div class="experience-body">
+          <h3 class="experience-role">Undergraduate Researcher</h3>
+          <span class="experience-company">Madison Machine Interaction Lab</span>
+          <p class="experience-desc">Explored a novel method of using layer jammers as actuators for VR haptic feedback devices. I designed, fabricated, and tested the S.E.S.H. Glove system and published the results as First Author at IEEE Haptics Symposium 2024.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="experience-education">
+      <div class="experience-item">
+        <div class="experience-date">Expected Dec 2026</div>
+        <div class="experience-body">
+          <h3 class="experience-role">BS Mechanical Engineering</h3>
+          <span class="experience-company">University of Wisconsin-Madison</span>
+          <p class="experience-desc">3.83 GPA &middot; 5x Dean's List</p>
+        </div>
+      </div>
+    </div>
+
+    <a href="docs/Ben_Levy_Resume_1_22.pdf" target="_blank" rel="noopener" class="btn resume-download-btn">
+      Download Resume (PDF) &nearr;
+    </a>
   </section>
 
   <!-- About -->
@@ -436,7 +548,7 @@
         description: `
           <div class="modal-section">
             <h4>The Challenge</h4>
-            <blockquote>First application of layer jamming to wearable haptics. No prior work to build on.</blockquote>
+            <blockquote>Layer jamming had never been used in wearable haptics before. With no prior work to reference, I designed and built the full system from the ground up.</blockquote>
           </div>
 
           <div class="modal-section">
@@ -485,7 +597,7 @@
 
           <div class="modal-section">
             <h4>Outcome</h4>
-            <p>IEEE Haptics Symposium 2024, First Author. Led the full design cycle from concept through CAD, fabrication, electronics integration, Unity VR demo, and user validation.</p>
+            <p>Published as First Author at IEEE Haptics Symposium 2024. I worked through every phase: concept, CAD, fabrication, electronics integration, a Unity VR demo, and a user study. This project taught me what it takes to go from an idea to a peer-reviewed result.</p>
           </div>
         `,
         skills: ["SolidWorks", "3D Printing", "Vacuum Systems", "Arduino", "C++", "Unity", "User Studies", "LaTeX", "IEEE Publishing", "Beam Theory", "Experimental Design"],
@@ -498,8 +610,8 @@
         images: [],
         description: `
           <div class="modal-section">
-            <h4>The Problem</h4>
-            <blockquote>Heart failure patients hospitalized when early warning signs are missed. Continuous multi-modal monitoring could catch decompensation before ER visits.</blockquote>
+            <h4>The Challenge</h4>
+            <blockquote>I was brought on to a pre-seed startup working on a real problem: heart failure patients getting hospitalized because early warning signs go undetected. The goal is a wearable that catches decompensation before an ER visit.</blockquote>
           </div>
 
           <div class="modal-section">
@@ -557,7 +669,7 @@
 
           <div class="modal-section">
             <h4>My Role</h4>
-            <p>Lead Engineer: architecture, HW-SW integration, iOS app. Now: manage MVP developer, coordinate HW/SW teams, report to CEO.</p>
+            <p>I started by designing PCBs and iterating on prototypes, then transitioned to hiring and managing an electrical engineer as the project grew. I built the iOS companion app in Swift and designed the BLE data pipeline. Now I coordinate between software, hardware, and the CEO, translating clinical needs into engineering work.</p>
           </div>
         `,
         skills: ["PCB Design", "BLE", "Swift", "iOS", "Signal Processing", "Python", "Biosensors", "Firmware", "Pan-Tompkins"],
@@ -568,8 +680,8 @@
         images: [],
         description: `
           <div class="modal-section">
-            <h4>The Problem</h4>
-            <blockquote>Only a few people knew how to query the workforce database. Managers waited 45 minutes for data they needed in meetings.</blockquote>
+            <h4>The Challenge</h4>
+            <blockquote>Managers waited 45 minutes for workforce data because only a few people knew how to query the database. I started building another system that evolved into a tool letting anyone ask questions in plain English.</blockquote>
           </div>
 
           <div class="modal-section">
@@ -600,7 +712,7 @@
 
           <div class="modal-section">
             <h4>The Build</h4>
-            <blockquote>Built entire system from scratch. Started with spreadsheet, ended with production website.</blockquote>
+            <blockquote>I built the system from a spreadsheet to a production website, learning LangChain, vector databases, and Azure LLM APIs along the way.</blockquote>
           </div>
 
           <div class="modal-section">
@@ -614,7 +726,7 @@
 
           <div class="modal-section">
             <h4>Outcome</h4>
-            <p>Promoted Co-op → Contract to lead financial AI tools for company-wide budget allocations.</p>
+            <p>Promoted from Co-op to Contract to continue building financial AI tools for company-wide budget allocations.</p>
           </div>
         `,
         skills: ["Python", "LangChain", "RAG", "Vector Databases", "OpenAI API", "Flask", "SQL", "Enterprise AI", "Azure"],
@@ -626,7 +738,7 @@
         description: `
           <div class="modal-section">
             <h4>The Challenge</h4>
-            <blockquote>Stress-test anesthetic vaporizers with 100,000+ cycles to surface rare failure modes before FDA submission</blockquote>
+            <blockquote>The team needed to find rare failure modes in anesthetic vaporizers before FDA submission. I built a robot that could run 100,000+ stress-test cycles without human intervention.</blockquote>
           </div>
 
           <div class="modal-section">
@@ -700,8 +812,8 @@
         images: [],
         description: `
           <div class="modal-section">
-            <h4>The Goal</h4>
-            <blockquote>One automated system replacing multiple lab setups. Programmable camera positioning eliminates need for separate rigs per test case.</blockquote>
+            <h4>The Challenge</h4>
+            <blockquote>The team needed to replace multiple manual lab setups with a single automated system. I designed a programmable camera positioning rig that eliminated the need for separate hardware per test case.</blockquote>
           </div>
 
           <div class="modal-section">
@@ -768,8 +880,8 @@
         images: ["assets/Brittle-Ductile-Images.jpg", "assets/Res-net-results.jpg"],
         description: `
           <div class="modal-section">
-            <h4>The Problem</h4>
-            <blockquote>Classify SEM fracture images as brittle or ductile with limited data (1,818 images)</blockquote>
+            <h4>The Challenge</h4>
+            <blockquote>For a class project, I worked on classifying SEM fracture images as brittle or ductile with only 1,818 images, far too few for training a model from scratch.</blockquote>
           </div>
 
           <div class="modal-section">
@@ -795,7 +907,7 @@
 
           <div class="modal-section">
             <h4>Key Insight</h4>
-            <blockquote>Architecture choice > hyperparameter tuning when data is limited. Transfer learning wins.</blockquote>
+            <blockquote>The main takeaway: when data is scarce, architecture choice matters far more than hyperparameter tuning. Transfer learning was the clear winner.</blockquote>
           </div>
 
           <div class="modal-section">
@@ -815,8 +927,8 @@
         images: ["assets/Berr_exo_mockup.jpg"],
         description: `
           <div class="modal-section">
-            <h4>The Application</h4>
-            <blockquote>Elbow exoskeleton for physical therapy and strength training. Programmable position-based resistance.</blockquote>
+            <h4>The Challenge</h4>
+            <blockquote>Our team is designing an elbow exoskeleton for physical therapy and strength training. The key innovation is programmable position-based resistance that adapts as the user moves.</blockquote>
           </div>
 
           <div class="modal-section">
@@ -842,12 +954,12 @@
 
           <div class="modal-section">
             <h4>The Challenge</h4>
-            <blockquote>Mechanical constraints: fitting motor + linkage in a wearable form factor</blockquote>
+            <blockquote>Fitting a motor, linkage, and electronics into a form factor someone could actually wear. A mechanical puzzle that required creative packaging and tight tolerances.</blockquote>
           </div>
 
           <div class="modal-section">
             <h4>My Role</h4>
-            <p>Led mechanical design (SolidWorks) AND controls (BLDC + PID) for the team.</p>
+            <p>I handle both the mechanical design in SolidWorks and the BLDC motor control system with PID tuning for the team.</p>
           </div>
 
           <div class="modal-section">
@@ -867,8 +979,8 @@
         images: ["assets/us4her-homepage.jpg"],
         description: `
           <div class="modal-section">
-            <h4>The Purpose</h4>
-            <blockquote>Safety/harassment incident reporting app with anonymous reporting and map visualization</blockquote>
+            <h4>The Challenge</h4>
+            <blockquote>In high school, I built a safety incident reporting app so people could report harassment anonymously and see patterns in their community.</blockquote>
           </div>
 
           <div class="modal-section">
@@ -902,7 +1014,7 @@
 
           <div class="modal-section">
             <h4>Context</h4>
-            <p>Built solo in high school, published to App Store. Self-taught Swift, Firebase, and iOS development.</p>
+            <p>Built solo. I taught myself Swift, Firebase, and iOS development to make it happen. Publishing to the App Store was my first experience shipping a real product.</p>
           </div>
         `,
         skills: ["Swift", "iOS", "Firebase", "UI/UX Design", "REST APIs", "Full-Stack", "SwiftUI", "MapKit"],
@@ -913,8 +1025,8 @@
         images: ["assets/Full-Frame_hand-glove.jpg"],
         description: `
           <div class="modal-section">
-            <h4>The Origin Story</h4>
-            <blockquote>The project that started the engineering path</blockquote>
+            <h4>The Challenge</h4>
+            <blockquote>I wanted to build something that moved in response to my hand. A potentiometer glove controlling a servo-driven robotic hand. This is where my engineering path began.</blockquote>
           </div>
 
           <div class="modal-section">
@@ -949,7 +1061,7 @@
 
           <div class="modal-section">
             <h4>What It Shows</h4>
-            <p><strong>Self-starter</strong> · <strong>Long-term passion</strong> · <strong>System builder</strong><br/>Been building complete systems since high school.</p>
+            <p>I taught myself Arduino, PCB design, soldering, and 3D printing to make this work. Looking back, the instinct to build complete systems was already there.</p>
           </div>
         `,
         skills: ["Arduino", "Servo Motors", "PCB Design", "Soldering", "C++", "3D Printing"],
