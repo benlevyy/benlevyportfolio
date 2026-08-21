@@ -28,11 +28,11 @@
     <div class="hero-content">
       <p class="hero-label">Full-Stack Hardware Engineer</p>
       <h1 class="hero-title">Ben Levy</h1>
-      <p class="hero-sub">Mechanical design. Embedded firmware. iOS apps. ML models. I build complete systems, not just pieces, from first prototype to production.</p>
+      <p class="hero-sub">I work at the seams of hardware, electrical, and software. I've carried products from mechanical design and custom PCB through firmware bring-up, motion control, automated test, and manufacturing handoff, in both pre-seed and regulated medical environments.</p>
       <div class="hero-links">
         <a href="https://linkedin.com/in/go-ben" target="_blank" rel="noopener" class="btn">LinkedIn ↗</a>
         <a href="mailto:blevy5@wisc.edu" class="btn">Email ↗</a>
-        <a href="docs/Ben_Levy_Resume_1_22.pdf" target="_blank" rel="noopener" class="btn">Resume ↗</a>
+        <a href="docs/Ben_Levy_Resume_8_13.pdf" target="_blank" rel="noopener" class="btn">Resume ↗</a>
       </div>
     </div>
     <div class="hero-visual">
@@ -128,11 +128,11 @@
         <div class="featured-card-body">
           <span class="tag">Medical Device · Pre-Seed Startup</span>
           <h3>BeatRite</h3>
-          <p>Lead engineer for a multi-sensor wearable predicting heart failure. Full pipeline from raw biosignals through BLE to a companion iOS app.</p>
+          <p>Sole technical lead on a wearable ECG/PPG/IMU remote patient monitoring platform. I own the system architecture and the end-to-end data path: custom PCB, embedded firmware, iOS app, and backend services.</p>
           <div class="stats">
-            <div class="stat"><span class="stat-val">5</span> sensor modalities</div>
-            <div class="stat"><span class="stat-val">BLE</span> data pipeline</div>
-            <div class="stat"><span class="stat-val">iOS</span> companion app</div>
+            <div class="stat"><span class="stat-val">4-layer</span> custom PCB</div>
+            <div class="stat"><span class="stat-val">ECG/PPG/IMU</span> sensing</div>
+            <div class="stat"><span class="stat-val">DFM</span> to pilot build</div>
           </div>
         </div>
       </div>
@@ -144,6 +144,32 @@
     <h2 class="section-heading">All Projects</h2>
 
     <div class="project-grid">
+
+      <div class="project-card">
+        <div class="svg-thumb">
+          <svg viewBox="0 0 320 180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="BERR EXO elbow exoskeleton">
+            <title>Elbow exoskeleton with programmable resistance</title>
+            <!-- Stylized arm with exoskeleton -->
+            <path d="M80 140 Q80 100 100 80 L140 50" fill="none" stroke="#9CA3AF" stroke-width="8" stroke-linecap="round"/>
+            <path d="M140 50 L200 30" fill="none" stroke="#9CA3AF" stroke-width="6" stroke-linecap="round"/>
+            <!-- Exoskeleton frame -->
+            <path d="M85 135 Q90 100 110 78" fill="none" stroke="#3B82F6" stroke-width="3" stroke-linecap="round"/>
+            <path d="M130 58 L185 38" fill="none" stroke="#3B82F6" stroke-width="3" stroke-linecap="round"/>
+            <!-- Motor at elbow joint -->
+            <circle cx="120" cy="68" r="18" fill="none" stroke="#3B82F6" stroke-width="2.5"/>
+            <circle cx="120" cy="68" r="10" fill="none" stroke="#3B82F6" stroke-width="1.5" opacity="0.6"/>
+            <circle cx="120" cy="68" r="4" fill="#3B82F6"/>
+            <!-- Resistance indicator arcs -->
+            <path d="M100 68 A20 20 0 0 1 120 48" fill="none" stroke="#3B82F6" stroke-width="2" opacity="0.4"/>
+            <path d="M140 68 A20 20 0 0 1 120 88" fill="none" stroke="#3B82F6" stroke-width="2" opacity="0.4"/>
+            <!-- Bottom label -->
+            <text x="160" y="168" text-anchor="middle" fill="#9CA3AF" font-size="8" font-family="Inter, sans-serif" letter-spacing="0.08em">PROGRAMMABLE RESISTANCE</text>
+          </svg>
+        </div>
+        <span class="tag">Mechatronics · Senior Design</span>
+        <h3>BERR EXO</h3>
+        <p>Portable active-resistance elbow exoskeleton. Leading a 4-person team on the mechanical and control architecture; torque varies with joint position at 50 Hz. Won both top awards at the UW–Madison senior design expo ($6,000 total).</p>
+      </div>
 
       <div class="project-card">
         <div class="svg-thumb">
@@ -169,7 +195,7 @@
         </div>
         <span class="tag">Enterprise AI · GE HealthCare</span>
         <h3>AI ARC OPS</h3>
-        <p>Dual-channel RAG architecture generating SQL from natural language. Won CTO's "3 Heartbeats" Award; promoted from Co-op to Contract.</p>
+        <p>Retrieval-augmented tool that turns plain-English questions into SQL. Cut workforce database query time from 45 minutes to under 10 seconds and unblocked 12+ managers' decision workflows. Won the CTO's "3 Heartbeats" Award.</p>
       </div>
 
       <div class="project-card">
@@ -196,7 +222,7 @@
         </div>
         <span class="tag">Robotics · GE HealthCare</span>
         <h3>Monte Carlo Testing Robot</h3>
-        <p>24/7 automated anesthesia stress testing. 100k+ simulated breathing cycles with 3D-printed physical interfaces.</p>
+        <p>24/7 simulation and test framework for anesthetic delivery equipment. 100k+ simulated breathing cycles driven through 3D-printed hardware interfaces for unattended stress and regression testing.</p>
       </div>
 
       <div class="project-card">
@@ -224,9 +250,9 @@
             <text x="160" y="165" text-anchor="middle" fill="#9CA3AF" font-size="8" font-family="Inter, sans-serif" letter-spacing="0.08em">PRECISION OPTICAL AUTOMATION</text>
           </svg>
         </div>
-        <span class="tag">Automation · Glass Imaging</span>
-        <h3>Autonomous Optical Testing</h3>
-        <p>Modular robotic positioning system. RP2040 + MicroPython + IMU vibration sensing. Reduced experiment duration by 30%.</p>
+        <span class="tag">Imaging Hardware · Glass Imaging</span>
+        <h3>Camera Prototypes &amp; Optical Test Automation</h3>
+        <p>Built a working security camera prototype from off-the-shelf hardware to validate the imaging pipeline ahead of custom optics, designed lens housings for unreleased optics, and automated the photo data collection rig — cutting experiment duration by 30%.</p>
       </div>
 
       <div class="project-card">
@@ -252,32 +278,6 @@
         <span class="tag">Machine Learning · MSE 361</span>
         <h3>ML Fracture Classification</h3>
         <p>Binary SEM fracture classification comparing 4 architectures. ResNet50 achieved 98% accuracy, pruned to 97.8%.</p>
-      </div>
-
-      <div class="project-card">
-        <div class="svg-thumb">
-          <svg viewBox="0 0 320 180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="BERR EXO elbow exoskeleton">
-            <title>Elbow exoskeleton with programmable resistance</title>
-            <!-- Stylized arm with exoskeleton -->
-            <path d="M80 140 Q80 100 100 80 L140 50" fill="none" stroke="#9CA3AF" stroke-width="8" stroke-linecap="round"/>
-            <path d="M140 50 L200 30" fill="none" stroke="#9CA3AF" stroke-width="6" stroke-linecap="round"/>
-            <!-- Exoskeleton frame -->
-            <path d="M85 135 Q90 100 110 78" fill="none" stroke="#3B82F6" stroke-width="3" stroke-linecap="round"/>
-            <path d="M130 58 L185 38" fill="none" stroke="#3B82F6" stroke-width="3" stroke-linecap="round"/>
-            <!-- Motor at elbow joint -->
-            <circle cx="120" cy="68" r="18" fill="none" stroke="#3B82F6" stroke-width="2.5"/>
-            <circle cx="120" cy="68" r="10" fill="none" stroke="#3B82F6" stroke-width="1.5" opacity="0.6"/>
-            <circle cx="120" cy="68" r="4" fill="#3B82F6"/>
-            <!-- Resistance indicator arcs -->
-            <path d="M100 68 A20 20 0 0 1 120 48" fill="none" stroke="#3B82F6" stroke-width="2" opacity="0.4"/>
-            <path d="M140 68 A20 20 0 0 1 120 88" fill="none" stroke="#3B82F6" stroke-width="2" opacity="0.4"/>
-            <!-- Bottom label -->
-            <text x="160" y="168" text-anchor="middle" fill="#9CA3AF" font-size="8" font-family="Inter, sans-serif" letter-spacing="0.08em">PROGRAMMABLE RESISTANCE</text>
-          </svg>
-        </div>
-        <span class="tag">Mechatronics · Senior Design · In progress</span>
-        <h3>BERR EXO</h3>
-        <p>Resistive arm exoskeleton with BLDC motor control and real-time Python loops. $3,000 Brogden Competition winner.</p>
       </div>
 
       <div class="project-card">
@@ -341,40 +341,44 @@
         <span class="skills-glance-label" style="color: #10B981;">Hardware / Mechanical</span>
         <div class="skills-glance-tags">
           <span class="skills-glance-tag" style="border-color: #10B981;">SolidWorks</span>
+          <span class="skills-glance-tag" style="border-color: #10B981;">CREO</span>
+          <span class="skills-glance-tag" style="border-color: #10B981;">GD&amp;T</span>
           <span class="skills-glance-tag" style="border-color: #10B981;">DFM/DFA</span>
-          <span class="skills-glance-tag" style="border-color: #10B981;">3D Printing</span>
           <span class="skills-glance-tag" style="border-color: #10B981;">FEA</span>
           <span class="skills-glance-tag" style="border-color: #10B981;">CNC Machining</span>
+          <span class="skills-glance-tag" style="border-color: #10B981;">3D Printing</span>
         </div>
       </div>
       <div class="skills-glance-group">
         <span class="skills-glance-label" style="color: #F59E0B;">Electrical / Embedded</span>
         <div class="skills-glance-tags">
-          <span class="skills-glance-tag" style="border-color: #F59E0B;">PCB Design</span>
+          <span class="skills-glance-tag" style="border-color: #F59E0B;">KiCad PCB Design</span>
+          <span class="skills-glance-tag" style="border-color: #F59E0B;">SPI / I2C / UART</span>
           <span class="skills-glance-tag" style="border-color: #F59E0B;">Microcontrollers</span>
           <span class="skills-glance-tag" style="border-color: #F59E0B;">BLE</span>
           <span class="skills-glance-tag" style="border-color: #F59E0B;">Biosensors</span>
-          <span class="skills-glance-tag" style="border-color: #F59E0B;">MATLAB/Simulink</span>
+          <span class="skills-glance-tag" style="border-color: #F59E0B;">Bench Debug</span>
         </div>
       </div>
       <div class="skills-glance-group">
         <span class="skills-glance-label" style="color: #3B82F6;">Software / iOS</span>
         <div class="skills-glance-tags">
           <span class="skills-glance-tag" style="border-color: #3B82F6;">Python</span>
-          <span class="skills-glance-tag" style="border-color: #3B82F6;">Swift</span>
           <span class="skills-glance-tag" style="border-color: #3B82F6;">C/C++</span>
+          <span class="skills-glance-tag" style="border-color: #3B82F6;">Swift</span>
           <span class="skills-glance-tag" style="border-color: #3B82F6;">SQL</span>
-          <span class="skills-glance-tag" style="border-color: #3B82F6;">FastAPI</span>
+          <span class="skills-glance-tag" style="border-color: #3B82F6;">MATLAB/Simulink</span>
+          <span class="skills-glance-tag" style="border-color: #3B82F6;">Automated Test</span>
         </div>
       </div>
       <div class="skills-glance-group">
         <span class="skills-glance-label" style="color: #8B5CF6;">ML / Data</span>
         <div class="skills-glance-tags">
+          <span class="skills-glance-tag" style="border-color: #8B5CF6;">Real-Time Signal Processing</span>
           <span class="skills-glance-tag" style="border-color: #8B5CF6;">PyTorch</span>
           <span class="skills-glance-tag" style="border-color: #8B5CF6;">RAG Architecture</span>
           <span class="skills-glance-tag" style="border-color: #8B5CF6;">Transfer Learning</span>
           <span class="skills-glance-tag" style="border-color: #8B5CF6;">Azure LLMs</span>
-          <span class="skills-glance-tag" style="border-color: #8B5CF6;">Signal Processing</span>
         </div>
       </div>
     </div>
@@ -405,7 +409,7 @@
         <div class="experience-body">
           <h3 class="experience-role">Product Engineer</h3>
           <span class="experience-company">BeatRite</span>
-          <p class="experience-desc">I was brought on as the engineering lead for a pre-seed biomedical startup building a multi-sensor wearable for heart failure prediction. I started by designing PCBs and iterating on our prototype, then transitioned to hiring and managing an electrical engineer as the scope grew. Now I sit between software, hardware, and the CEO, translating clinical needs into engineering requirements.</p>
+          <p class="experience-desc">Sole technical lead at a pre-seed medical device startup, owning the system architecture and roadmap for a wearable ECG/PPG/IMU remote patient monitoring platform. I architected the end-to-end data path from wearable to iOS app to cloud, defining the interfaces and handoffs between embedded firmware, mobile, and backend services. On the hardware side I designed a 4-layer custom PCB in KiCad, moving the prototype off breakout boards to surface-mount, resolved sensor front-end signal integrity faults through component placement and trace layout, then ran DFM review and contract manufacturer outreach for pilot builds. I also hired and managed an electrical engineer as scope grew, and sit between engineering and the CEO translating clinical needs into requirements.</p>
         </div>
       </div>
 
@@ -414,7 +418,7 @@
         <div class="experience-body">
           <h3 class="experience-role">Applied AI Engineer (Contract)</h3>
           <span class="experience-company">GE HealthCare</span>
-          <p class="experience-desc">Promoted from Co-op to lead development of financial AI tools, using LLMs to automate company-wide budget allocations. Continued building on the AI ARC OPS platform I had developed during my co-op.</p>
+          <p class="experience-desc">Promoted from co-op to own internal AI tooling, using LLMs to automate company-wide budget allocation. Continued building on the AI ARC OPS platform I developed during the co-op.</p>
         </div>
       </div>
 
@@ -423,7 +427,7 @@
         <div class="experience-body">
           <h3 class="experience-role">V&amp;V Automation &amp; Test Tools Engineering Co-op</h3>
           <span class="experience-company">GE HealthCare</span>
-          <p class="experience-desc">Built automated stress-testing robots and AI-powered data tools for anesthetic equipment. The Monte Carlo testing framework I built ran 100k+ unattended breathing cycles. A separate project, AI ARC OPS, started as one system and evolved into a natural language database query tool that won the CTO's 3 Heartbeats Award.</p>
+          <p class="experience-desc">Built a 24/7 automated Monte Carlo simulation and test framework for anesthetic delivery equipment, running 100k+ simulated breathing cycles through 3D-printed hardware interfaces for unattended stress and regression testing. Separately shipped "AI ARC OPS," a retrieval-augmented generation tool that cut workforce database query time from 45 minutes to under 10 seconds and unblocked 12+ managers' decision workflows — awarded the CTO's 3 Heartbeats Award.</p>
         </div>
       </div>
 
@@ -432,7 +436,7 @@
         <div class="experience-body">
           <h3 class="experience-role">Mechatronics Engineering Intern</h3>
           <span class="experience-company">Glass Imaging</span>
-          <p class="experience-desc">Worked on a multidisciplinary project bridging hardware and machine learning for an advanced camera prototype. I designed autonomous optical testing setups using RP2040 microcontrollers, stepper motors, and IMU vibration sensing, which helped reduce experiment duration by 30%.</p>
+          <p class="experience-desc">Built a working security camera prototype from off-the-shelf hardware to validate the imaging pipeline on real hardware ahead of custom optics. Designed and tested novel lens housings for unreleased optics, iterating mechanical concepts against the ML team's imaging requirements. Also built an automated photo data collection system, instrumenting the rig with sensors to monitor capture conditions and enforce dataset quality, which cut experiment duration by 30%.</p>
         </div>
       </div>
 
@@ -441,7 +445,7 @@
         <div class="experience-body">
           <h3 class="experience-role">Undergraduate Researcher</h3>
           <span class="experience-company">Madison Machine Interaction Lab</span>
-          <p class="experience-desc">Explored a novel method of using layer jammers as actuators for VR haptic feedback devices. I designed, fabricated, and tested the S.E.S.H. Glove system and published the results as First Author at IEEE Haptics Symposium 2024.</p>
+          <p class="experience-desc">Identified an unmet need in VR haptics and pioneered a novel method of using layer jammers as actuators for feedback devices. I designed, fabricated, and tested the S.E.S.H. Glove system and published the results as First Author at IEEE Haptics Symposium 2024.</p>
         </div>
       </div>
     </div>
@@ -453,11 +457,12 @@
           <h3 class="experience-role">BS Mechanical Engineering</h3>
           <span class="experience-company">University of Wisconsin-Madison</span>
           <p class="experience-desc">3.83 GPA &middot; 5x Dean's List</p>
+          <p class="experience-desc">Coursework: Mechatronics, Instrumentation &amp; Measurements, Advanced CAD, Metals and Polymer Manufacturing.</p>
         </div>
       </div>
     </div>
 
-    <a href="docs/Ben_Levy_Resume_1_22.pdf" target="_blank" rel="noopener" class="btn resume-download-btn">
+    <a href="docs/Ben_Levy_Resume_8_13.pdf" target="_blank" rel="noopener" class="btn resume-download-btn">
       Download Resume (PDF) &nearr;
     </a>
   </section>
@@ -470,8 +475,8 @@
         <img src="assets/headshot.jpeg" alt="Ben Levy headshot" class="headshot">
       </div>
       <div class="about-text">
-        <p class="about-lead">I build complete systems (mechanical, electrical, firmware, and software), not just individual pieces.</p>
-        <p>From a robotic hand in high school to IEEE-published haptics research to leading medical device development. I'm drawn to problems that require the full stack to solve.</p>
+        <p class="about-lead">I work at the seams of hardware, electrical, and software — the places where a project stops being anyone's clear responsibility.</p>
+        <p>I've carried products from mechanical design and custom PCB through firmware bring-up, motion control, automated test, and manufacturing handoff, in both pre-seed and regulated medical environments. From a robotic hand in high school to IEEE-published haptics research to sole technical lead on a medical wearable, I'm drawn to problems that need the whole stack to solve.</p>
         <p>Currently finishing my BS in Mechanical Engineering at UW–Madison (Dec 2026). Originally from the Bay Area.</p>
         <div class="about-details">
           <div class="detail">
@@ -480,11 +485,15 @@
           </div>
           <div class="detail">
             <span class="detail-label">Location</span>
-            <span>Bay Area ↔ Madison, WI</span>
+            <span>Sunnyvale, CA ↔ Madison, WI</span>
           </div>
           <div class="detail">
             <span class="detail-label">Leadership</span>
             <span>Theta Tau Xi, Exec Board. $4,000+ sponsorships secured</span>
+          </div>
+          <div class="detail">
+            <span class="detail-label">Languages</span>
+            <span>Hebrew (native), English (native)</span>
           </div>
           <div class="detail">
             <span class="detail-label">Outside of Work</span>
@@ -499,7 +508,7 @@
   <footer class="footer">
     <span class="footer-name">Ben Levy · 2026</span>
     <div class="footer-links">
-      <a href="https://linkedin.com/in/ben-levy" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://linkedin.com/in/go-ben" target="_blank" rel="noopener">LinkedIn</a>
       <a href="mailto:blevy5@wisc.edu">Email</a>
     </div>
   </footer>
@@ -611,7 +620,7 @@
         description: `
           <div class="modal-section">
             <h4>The Challenge</h4>
-            <blockquote>I was brought on to a pre-seed startup working on a real problem: heart failure patients getting hospitalized because early warning signs go undetected. The goal is a wearable that catches decompensation before an ER visit.</blockquote>
+            <blockquote>Heart failure patients get hospitalized because early warning signs go undetected between appointments. The goal is a wearable remote monitoring platform that catches decompensation before an ER visit — which means the data path has to be trustworthy from the electrode all the way to the clinician.</blockquote>
           </div>
 
           <div class="modal-section">
@@ -651,28 +660,36 @@
           </div>
 
           <div class="modal-section">
+            <h4>From Breakout Boards to a Real Board</h4>
+            <p>The prototype started as breakout boards on a bench. I designed a 4-layer custom PCB in KiCad to move it to surface-mount, then chased down signal integrity faults in the sensor front end — biopotential signals are small enough that placement and trace routing decide whether you are measuring a heartbeat or measuring your own layout. Resolving them came down to component placement and trace layout rather than a firmware fix.</p>
+          </div>
+
+          <div class="modal-section">
             <h4>Technical Challenges</h4>
             <ul>
-              <li>Real-time signal quality: filtering noise from 5 sensors simultaneously</li>
+              <li>Sensor front-end signal integrity on a mixed-signal 4-layer board</li>
+              <li>Real-time signal quality: filtering noise across ECG, PPG, and IMU streams</li>
               <li>Multi-sensor time synchronization for accurate data fusion</li>
+              <li>Defining clean interfaces and handoffs between firmware, mobile, and backend</li>
             </ul>
           </div>
 
           <div class="modal-section">
             <h4>Progress</h4>
             <div class="modal-stats">
-              <div class="modal-stat-box"><span class="stat-value">5</span><span class="stat-label">Modalities</span></div>
-              <div class="modal-stat-box"><span class="stat-value">3</span><span class="stat-label">Prototypes</span></div>
-              <div class="modal-stat-box"><span class="stat-value">MVP</span><span class="stat-label">Building</span></div>
+              <div class="modal-stat-box"><span class="stat-value">4-layer</span><span class="stat-label">Custom PCB (KiCad)</span></div>
+              <div class="modal-stat-box"><span class="stat-value">ECG/PPG/IMU</span><span class="stat-label">Sensing</span></div>
+              <div class="modal-stat-box"><span class="stat-value">DFM</span><span class="stat-label">Review Complete</span></div>
+              <div class="modal-stat-box"><span class="stat-value">Pilot</span><span class="stat-label">CM Outreach</span></div>
             </div>
           </div>
 
           <div class="modal-section">
             <h4>My Role</h4>
-            <p>I started by designing PCBs and iterating on prototypes, then transitioned to hiring and managing an electrical engineer as the project grew. I built the iOS companion app in Swift and designed the BLE data pipeline. Now I coordinate between software, hardware, and the CEO, translating clinical needs into engineering work.</p>
+            <p>Sole technical lead. I own the system architecture and roadmap: the custom PCB, the end-to-end data path from wearable through iOS to cloud, and the interfaces between embedded firmware, mobile, and backend services. I ran DFM review and contract manufacturer outreach to get the design ready for pilot builds, hired and managed an electrical engineer as scope grew, and sit between engineering and the CEO translating clinical needs into requirements.</p>
           </div>
         `,
-        skills: ["PCB Design", "BLE", "Swift", "iOS", "Signal Processing", "Python", "Biosensors", "Firmware", "Pan-Tompkins"],
+        skills: ["KiCad", "PCB Design", "DFM/DFA", "BLE", "Swift", "iOS", "Signal Processing", "Python", "Biosensors", "Firmware", "System Architecture", "Pan-Tompkins"],
         links: []
       },
       "AI ARC OPS": {
@@ -718,8 +735,8 @@
           <div class="modal-section">
             <h4>Impact</h4>
             <div class="modal-stats">
-              <div class="modal-stat-box"><span class="stat-value">45min → 10s</span><span class="stat-label">Query Time</span></div>
-              <div class="modal-stat-box"><span class="stat-value">12+</span><span class="stat-label">Daily Users</span></div>
+              <div class="modal-stat-box"><span class="stat-value">45min → &lt;10s</span><span class="stat-label">Query Time</span></div>
+              <div class="modal-stat-box"><span class="stat-value">12+</span><span class="stat-label">Managers Unblocked</span></div>
               <div class="modal-stat-box"><span class="stat-value">CTO Award</span><span class="stat-label">3 Heartbeats</span></div>
             </div>
           </div>
@@ -807,13 +824,23 @@
         skills: ["Python", "3D Printing", "SolidWorks", "Arduino", "Automation", "Data Logging", "Robotics", "V&V", "FDA Compliance", "MQTT"],
         links: []
       },
-      "Autonomous Optical Testing": {
-        tag: "Automation · Glass Imaging",
+      "Camera Prototypes & Optical Test Automation": {
+        tag: "Imaging Hardware · Glass Imaging",
         images: [],
         description: `
           <div class="modal-section">
             <h4>The Challenge</h4>
-            <blockquote>The team needed to replace multiple manual lab setups with a single automated system. I designed a programmable camera positioning rig that eliminated the need for separate hardware per test case.</blockquote>
+            <blockquote>Glass Imaging builds computational camera systems where the optics and the ML model are co-designed. That creates a chicken-and-egg problem: the ML team needs real image data before the custom optics exist, and the optics team needs imaging requirements before they can commit to a design.</blockquote>
+          </div>
+
+          <div class="modal-section">
+            <h4>Unblocking the Imaging Pipeline</h4>
+            <p>I built a working security camera prototype out of off-the-shelf hardware so the imaging pipeline could be validated on real hardware ahead of the custom optics. That gave the ML team real captures to work against months before final hardware existed. In parallel I designed and tested novel lens housings for unreleased optics, iterating mechanical concepts directly against the ML team's imaging requirements.</p>
+          </div>
+
+          <div class="modal-section">
+            <h4>Automating Data Collection</h4>
+            <blockquote>Hand-collected image datasets drift: lighting shifts, the rig gets bumped, and nobody notices until the model trains on bad data. I automated the capture rig and instrumented it to police its own conditions.</blockquote>
           </div>
 
           <div class="modal-section">
@@ -860,19 +887,24 @@
           </div>
 
           <div class="modal-section">
-            <h4>The Challenge</h4>
-            <blockquote>System integration: stepper + camera + IMU + RP2040 all working reliably together</blockquote>
+            <h4>Technical Challenges</h4>
+            <ul>
+              <li>System integration: stepper, camera, IMU, and RP2040 working reliably unattended</li>
+              <li>Sensing capture conditions well enough to reject bad frames automatically</li>
+              <li>Designing housings for optics whose specs were still moving</li>
+            </ul>
           </div>
 
           <div class="modal-section">
             <h4>Impact</h4>
             <div class="modal-stats">
-              <div class="modal-stat-box"><span class="stat-value">30%</span><span class="stat-label">Faster Experiments</span></div>
-              <div class="modal-stat-box"><span class="stat-value">ML-Ready</span><span class="stat-label">Data Output</span></div>
+              <div class="modal-stat-box"><span class="stat-value">30%</span><span class="stat-label">Shorter Experiments</span></div>
+              <div class="modal-stat-box"><span class="stat-value">Pre-Optics</span><span class="stat-label">Pipeline Validation</span></div>
+              <div class="modal-stat-box"><span class="stat-value">Enforced</span><span class="stat-label">Dataset Quality</span></div>
             </div>
           </div>
         `,
-        skills: ["MicroPython", "RP2040", "SolidWorks", "Stepper Motors", "Optical Systems", "PCB Design", "Automation", "Data Pipeline", "CNN Support", "IMU"],
+        skills: ["MicroPython", "RP2040", "SolidWorks", "Stepper Motors", "Optical Systems", "Lens Housing Design", "Rapid Prototyping", "PCB Design", "Automation", "Data Pipeline", "CNN Support", "IMU"],
         links: []
       },
       "ML Fracture Classification": {
@@ -923,55 +955,65 @@
         links: []
       },
       "BERR EXO": {
-        tag: "Mechatronics · Senior Design · In progress",
-        images: ["assets/Berr_exo_mockup.jpg"],
+        tag: "Mechatronics · Senior Design",
+        images: ["assets/berr-exo-worn.jpg", "assets/berr-exo-detail.jpg", "assets/berr-exo-dashboard.jpg", "assets/berr-exo-cad.jpg", "assets/berr-exo-torque-curve.jpg"],
         description: `
           <div class="modal-section">
             <h4>The Challenge</h4>
-            <blockquote>Our team is designing an elbow exoskeleton for physical therapy and strength training. The key innovation is programmable position-based resistance that adapts as the user moves.</blockquote>
+            <blockquote>A free weight applies the same load through the whole range of motion, but a joint is not equally strong at every angle. We set out to build a portable elbow exoskeleton that varies resistance as a function of joint position, so a therapist or athlete can define the curve instead of the dumbbell defining it.</blockquote>
+          </div>
+
+          <div class="modal-section">
+            <h4>The Core Mechanical Problem</h4>
+            <p>Mounting a rigid actuated joint to a human limb. The elbow is not a fixed pin joint: its center translates as the arm flexes, so a motor bolted to a rigid frame drifts out of alignment mid-rep and fights the user. I solved this by designing the linkage so the motor axis stays aligned with the moving elbow center through flexion, and made it adjustable across user body sizes rather than fitting a single person.</p>
           </div>
 
           <div class="modal-section">
             <h4>System Architecture</h4>
             <div class="modal-diagram">
-              <svg viewBox="0 0 500 90" xmlns="http://www.w3.org/2000/svg">
+              <svg viewBox="0 0 520 110" xmlns="http://www.w3.org/2000/svg">
                 <rect x="10" y="25" width="100" height="35" rx="4" fill="none" stroke="#3B82F6" stroke-width="1.5"/>
-                <text x="60" y="48" text-anchor="middle" fill="#3B82F6" font-size="9" font-family="Inter, sans-serif" font-weight="600">Encoder (position)</text>
+                <text x="60" y="42" text-anchor="middle" fill="#3B82F6" font-size="9" font-family="Inter, sans-serif" font-weight="600">Joint Encoder</text>
+                <text x="60" y="53" text-anchor="middle" fill="#9CA3AF" font-size="7.5" font-family="Inter, sans-serif">position feedback</text>
                 <line x1="115" y1="42" x2="145" y2="42" stroke="#D1D5DB" stroke-width="1.5"/>
                 <polygon points="143,38 151,42 143,46" fill="#D1D5DB"/>
                 <rect x="155" y="25" width="130" height="35" rx="4" fill="none" stroke="#3B82F6" stroke-width="1.5"/>
-                <text x="220" y="48" text-anchor="middle" fill="#3B82F6" font-size="9" font-family="Inter, sans-serif" font-weight="600">Python Control + PID</text>
+                <text x="220" y="42" text-anchor="middle" fill="#3B82F6" font-size="9" font-family="Inter, sans-serif" font-weight="600">Raspberry Pi · 50 Hz</text>
+                <text x="220" y="53" text-anchor="middle" fill="#9CA3AF" font-size="7.5" font-family="Inter, sans-serif">torque = f(joint angle)</text>
                 <line x1="290" y1="42" x2="320" y2="42" stroke="#D1D5DB" stroke-width="1.5"/>
                 <polygon points="318,38 326,42 318,46" fill="#D1D5DB"/>
-                <rect x="330" y="25" width="120" height="35" rx="4" fill="none" stroke="#3B82F6" stroke-width="1.5"/>
-                <text x="390" y="48" text-anchor="middle" fill="#3B82F6" font-size="9" font-family="Inter, sans-serif" font-weight="600">BLDC Motor (UART)</text>
-                <!-- Position-based resistance note -->
+                <rect x="330" y="25" width="130" height="35" rx="4" fill="none" stroke="#3B82F6" stroke-width="1.5"/>
+                <text x="395" y="42" text-anchor="middle" fill="#3B82F6" font-size="9" font-family="Inter, sans-serif" font-weight="600">ODrive Pro</text>
+                <text x="395" y="53" text-anchor="middle" fill="#9CA3AF" font-size="7.5" font-family="Inter, sans-serif">BLDC motor</text>
                 <line x1="220" y1="65" x2="220" y2="80" stroke="#D1D5DB" stroke-width="1"/>
-                <text x="220" y="95" text-anchor="middle" fill="#9CA3AF" font-size="8" font-family="Inter, sans-serif">Position-based resistance: torque varies with arm angle</text>
+                <polygon points="216,78 220,86 224,78" fill="#D1D5DB"/>
+                <text x="220" y="102" text-anchor="middle" fill="#9CA3AF" font-size="8" font-family="Inter, sans-serif">Remote telemetry &#8594; live dashboard</text>
               </svg>
             </div>
           </div>
 
           <div class="modal-section">
-            <h4>The Challenge</h4>
-            <blockquote>Fitting a motor, linkage, and electronics into a form factor someone could actually wear. A mechanical puzzle that required creative packaging and tight tolerances.</blockquote>
+            <h4>Control Architecture</h4>
+            <p>The controller closes a loop at 50 Hz that reads joint position and commands torque from a curve, so resistance follows a defined shape through the range of motion instead of a fixed load. Selectable profiles (flat, ramp, bell, eccentric) let the operator set where the rep is hardest — a bell curve peaks the load mid-flexion, where the joint has the most leverage. A Raspberry Pi drives an ODrive Pro brushless motor and streams telemetry to a live dashboard: commanded vs. estimated torque, position, velocity, power, motor temperature, and per-session work and time under tension.</p>
           </div>
 
           <div class="modal-section">
             <h4>My Role</h4>
-            <p>I handle both the mechanical design in SolidWorks and the BLDC motor control system with PID tuning for the team.</p>
+            <p>Leading a 4-person team on the mechanical and control architecture. I own the SolidWorks design of the linkage and joint mounting, the control loop and torque-curve system, and the telemetry dashboard.</p>
           </div>
 
           <div class="modal-section">
             <h4>Outcome</h4>
             <div class="modal-stats">
-              <div class="modal-stat-box"><span class="stat-value">$3,000</span><span class="stat-label">Prize</span></div>
-              <div class="modal-stat-box"><span class="stat-value">Brogden</span><span class="stat-label">Design Competition</span></div>
-              <div class="modal-stat-box"><span class="stat-value">UW–Madison</span><span class="stat-label">Senior Design</span></div>
+              <div class="modal-stat-box"><span class="stat-value">$3,000</span><span class="stat-label">Juan Blanco Medical Innovation Award</span></div>
+              <div class="modal-stat-box"><span class="stat-value">$3,000</span><span class="stat-label">Borgden Design Competition</span></div>
+              <div class="modal-stat-box"><span class="stat-value">50 Hz</span><span class="stat-label">Position-Based Torque Loop</span></div>
+              <div class="modal-stat-box"><span class="stat-value">4</span><span class="stat-label">Person Team, Led</span></div>
             </div>
+            <p>Won the two top awards at the UW&ndash;Madison senior design expo.</p>
           </div>
         `,
-        skills: ["BLDC Motors", "UART", "Python", "PID Control", "SolidWorks", "3D Printing", "Embedded Systems", "Mechatronics", "Power Electronics"],
+        skills: ["SolidWorks", "BLDC Motors", "ODrive", "Raspberry Pi", "Python", "Real-Time Control", "Motion Control", "Telemetry", "3D Printing", "Mechatronics", "Power Electronics", "Human-Centered Design"],
         links: []
       },
       "Us4Her": {
