@@ -128,7 +128,7 @@
         <div class="featured-card-body">
           <span class="tag">Medical Device · Pre-Seed Startup</span>
           <h3>BeatRite</h3>
-          <p>Sole technical lead at a pre-seed medical wearable startup — the only engineering voice in the room. I own the architecture and the roadmap, which means most days the real work is translating between what the clinical and business side needs and what the hardware can actually do.</p>
+          <p>I am the entire engineering function at a pre-seed medical wearable startup. I took the prototype from breakout boards to a custom 4-layer PCB, and I own the tradeoff the company keeps running into: better signal costs parts, power, and time we don't have.</p>
           <div class="stats">
             <div class="stat"><span class="stat-val">Sole</span> technical lead</div>
             <div class="stat"><span class="stat-val">Roadmap</span> + architecture</div>
@@ -408,7 +408,7 @@
         <div class="experience-body">
           <h3 class="experience-role">Product Engineer</h3>
           <span class="experience-company">BeatRite</span>
-          <p class="experience-desc">Sole technical lead at a pre-seed medical device startup, owning the system architecture and roadmap for a wearable remote patient monitoring platform. The technical work was real — I architected the end-to-end data path from wearable to iOS app to cloud, and designed a 4-layer custom PCB in KiCad that moved the prototype off breakout boards to surface-mount — but the part of the job that mattered most sat one level up. As the only engineer at the table, I was the translation layer between what the clinical and business side wanted and what was actually buildable on our runway: scoping features against burn, making build-vs-buy calls, running vendor and contract manufacturer conversations, hiring and managing our first electrical engineer, and telling the CEO when a roadmap date was not real. Engineering judgment was most valuable when it showed up as a business argument.</p>
+          <p class="experience-desc">Sole technical lead at a pre-seed medical device startup — the entire engineering function — owning the system architecture and roadmap for a wearable remote patient monitoring platform. I designed a 4-layer custom PCB in KiCad that moved the prototype off breakout boards to surface-mount and resolved sensor front-end signal integrity faults, worked on the iOS app and BLE data path, and hired and managed our first electrical engineer. Being the only engineer meant the harder half was translating what our clinical side needed into buildable requirements, arguing signal fidelity against very limited resources, and defending those tradeoffs to investors.</p>
         </div>
       </div>
 
@@ -618,12 +618,12 @@
         images: [],
         description: `
           <div class="modal-section">
-            <h4>The Challenge</h4>
-            <blockquote>Heart failure patients get hospitalized because early warning signs go undetected between appointments. The goal is a wearable remote monitoring platform that catches decompensation before an ER visit. At a pre-seed company that is only half an engineering problem — the other half is deciding what to build with the runway you have.</blockquote>
+            <h4>The Only Engineer at the Company</h4>
+            <blockquote>BeatRite is a pre-seed startup building a wearable that catches heart failure decompensation before it becomes an ER visit. I am the entire engineering function — which means every technical decision is also a decision about what a company with very little money should spend it on.</blockquote>
           </div>
 
           <div class="modal-section">
-            <h4>System Architecture</h4>
+            <h4>What I Built</h4>
             <div class="modal-diagram">
               <svg viewBox="0 0 520 140" xmlns="http://www.w3.org/2000/svg">
                 <!-- BME Sensor Board -->
@@ -656,34 +656,15 @@
                 <text x="440" y="65" text-anchor="middle" fill="#3B82F6" font-size="9" font-family="Inter, sans-serif" font-weight="600">+ ML</text>
               </svg>
             </div>
+            <p>The prototype started as breakout boards on a bench. I designed a 4-layer custom PCB in KiCad to move it to surface-mount, then chased down signal integrity faults in the sensor front end — the signals we care about are small enough that component placement and trace routing decide whether you are measuring the patient or measuring your own layout, so the fix was in the layout, not in firmware. I also worked on the iOS app and the BLE data path off the device, and hired and managed our first electrical engineer as the scope outgrew one person.</p>
           </div>
 
           <div class="modal-section">
-            <h4>From Breakout Boards to a Real Board</h4>
-            <p>The prototype started as breakout boards on a bench. I designed a 4-layer custom PCB in KiCad to move it to surface-mount, then chased down signal integrity faults in the sensor front end. The signals we care about are small enough that component placement and trace routing decide whether you are measuring the patient or measuring your own layout — so the fix was in the layout, not in firmware.</p>
-          </div>
-
-          <div class="modal-section">
-            <h4>Technical Challenges</h4>
-            <ul>
-              <li>Sensor front-end signal integrity on a mixed-signal 4-layer board</li>
-              <li>Real-time signal quality: pulling clean data off a body in motion</li>
-              <li>Multi-sensor time synchronization for accurate data fusion</li>
-              <li>Defining clean interfaces and handoffs between firmware, mobile, and backend</li>
-            </ul>
-          </div>
-
-          <div class="modal-section">
-            <h4>Where the Job Actually Was</h4>
-            <p>Being the only engineer at a pre-seed company means the hardest calls are rarely technical ones. What does the prototype need to prove before the next raise, and what can wait? Is a feature the clinical side is asking for worth a board respin, or is it a firmware change nobody has scoped yet? Do we hire, or do we buy? I sat between the CEO, the clinical side, and the build, and my job was to turn their language into requirements and turn engineering constraints back into arguments a non-engineer could act on — including telling the CEO when a roadmap date was not real.</p>
-          </div>
-
-          <div class="modal-section">
-            <h4>My Role</h4>
-            <p>Sole technical lead. I own the system architecture and roadmap: the custom PCB, the end-to-end data path from wearable through iOS to cloud, and the interfaces between embedded firmware, mobile, and backend services. Alongside that I scoped features against runway, made build-vs-buy calls, ran vendor and contract manufacturer conversations, and hired and managed our first electrical engineer as scope grew.</p>
+            <h4>The Half That Isn't Engineering</h4>
+            <p>Two things took as much of my time as the hardware. The first is translation: our clinical side describes what they need to see in a patient, and someone has to turn that into a requirement, or say plainly that it is not buildable yet. The second is money. The recurring argument at BeatRite is signal fidelity versus resources — better data almost always exists, and it almost always costs parts, board space, power, or time we do not have. My job is to find the version that clears the clinical bar at a price the company can survive, and then to be able to defend that reasoning to investors who are deciding whether we can actually build this.</p>
           </div>
         `,
-        skills: ["KiCad", "PCB Design", "BLE", "Swift", "iOS", "Signal Processing", "Python", "Biosensors", "Firmware", "System Architecture", "Product Roadmapping", "Vendor Management", "Technical Hiring"],
+        skills: ["KiCad", "PCB Design", "Signal Processing", "BLE", "Swift", "iOS", "Firmware", "Biosensors", "Python", "System Architecture", "Product Roadmapping", "Technical Hiring"],
         links: []
       },
       "AI ARC OPS": {
