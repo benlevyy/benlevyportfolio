@@ -1689,3 +1689,47 @@ body.modal-open {
     display: block;
   }
 }
+
+/* ============================================
+   Mobile Refinements
+   These live at the end of the file on purpose: the earlier
+   @media (max-width: 900px) block sits above the base rules it
+   tries to override, so equal-specificity selectors defined later
+   were winning and the overrides never applied.
+   ============================================ */
+
+/* "Ben Levy" was wrapping to two lines and colliding with the nav links */
+.nav-logo {
+  white-space: nowrap;
+}
+
+/* Anchor jumps were landing section headings underneath the fixed nav */
+section[id] {
+  scroll-margin-top: 5rem;
+}
+
+@media (max-width: 900px) {
+  .skills-glance {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .nav {
+    padding: 0.875rem var(--page-padding);
+  }
+
+  .nav-links {
+    gap: 1.125rem;
+    font-size: 0.8125rem;
+  }
+
+  /* Contact overflowed the viewport; email is in the hero and footer already */
+  .nav-links a[href^="mailto:"] {
+    display: none;
+  }
+
+  .hero {
+    padding-top: 7rem;
+  }
+}
