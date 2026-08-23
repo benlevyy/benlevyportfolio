@@ -204,7 +204,7 @@
         </div>
         <span class="tag">Personal Product · iOS + watchOS</span>
         <h3>BenLift</h3>
-        <p>An AI lifting coach with exactly one user: me. Claude Code means anyone can build anything, so building isn't the interesting part anymore — deciding what to build, and knowing whether it's any good, is. This is where I work that out on something I actually use.</p>
+        <p>An AI fitness tool built around how I actually train. My Apple Watch already tracks every ride, run, and climb along with sleep and HRV, so BenLift uses that to plan what I should do in the gym, adjusts during the session, and learns my tendencies over time.</p>
       </div>
 
       <div class="project-card">
@@ -1033,65 +1033,75 @@
         images: ["assets/benlift-today.png", "assets/benlift-training.png"],
         description: `
           <div class="modal-section">
-            <h4>Why This Exists</h4>
-            <blockquote>Claude Code means anyone can build anything. Building stopped being the constraint, so what's left is deciding what's worth building and knowing whether it's any good. BenLift is where I practice both, on something I built for myself.</blockquote>
+            <h4>The Challenge</h4>
+            <blockquote>My Apple Watch already knows more about my training than I do — every ride, run, and climb, plus sleep, resting heart rate, and HRV. None of it was reaching the decision where it would actually help: what to do in the gym that day. BenLift is an AI fitness tool I built to close that gap, shaped around how I train rather than around a generic program.</blockquote>
           </div>
 
           <div class="modal-section">
             <h4>System Architecture</h4>
             <div class="modal-diagram">
-              <svg viewBox="0 0 520 190" xmlns="http://www.w3.org/2000/svg">
-                <rect x="8" y="18" width="92" height="38" rx="5" fill="none" stroke="#9CA3AF" stroke-width="1.5"/>
-                <text x="54" y="34" text-anchor="middle" fill="#9CA3AF" font-size="8.5" font-family="Inter, sans-serif" font-weight="600">Calendar</text>
-                <text x="54" y="47" text-anchor="middle" fill="#9CA3AF" font-size="7" font-family="Inter, sans-serif">picks the muscle</text>
-                <line x1="104" y1="37" x2="128" y2="37" stroke="#D1D5DB" stroke-width="1.2"/>
-                <polygon points="126,33 134,37 126,41" fill="#D1D5DB"/>
-                <rect x="138" y="18" width="104" height="38" rx="5" fill="none" stroke="#9CA3AF" stroke-width="1.5"/>
-                <text x="190" y="34" text-anchor="middle" fill="#9CA3AF" font-size="8.5" font-family="Inter, sans-serif" font-weight="600">Swift planner</text>
-                <text x="190" y="47" text-anchor="middle" fill="#9CA3AF" font-size="7" font-family="Inter, sans-serif">instant, no model</text>
-                <line x1="246" y1="37" x2="268" y2="37" stroke="#D1D5DB" stroke-width="1.2"/>
-                <polygon points="266,33 274,37 266,41" fill="#D1D5DB"/>
-                <polygon points="300,16 328,37 300,58 272,37" fill="none" stroke="#9CA3AF" stroke-width="1.5"/>
-                <text x="300" y="40" text-anchor="middle" fill="#9CA3AF" font-size="6.5" font-family="Inter, sans-serif">GOOD?</text>
-                <line x1="328" y1="37" x2="356" y2="37" stroke="#D1D5DB" stroke-width="1.2"/>
-                <polygon points="354,33 362,37 354,41" fill="#D1D5DB"/>
-                <rect x="366" y="20" width="66" height="34" rx="5" fill="none" stroke="#9CA3AF" stroke-width="1.5"/>
-                <text x="399" y="41" text-anchor="middle" fill="#9CA3AF" font-size="8" font-family="Inter, sans-serif" font-weight="600">Render</text>
-                <line x1="300" y1="58" x2="300" y2="86" stroke="#3B82F6" stroke-width="1.2" stroke-dasharray="4 3"/>
-                <polygon points="296,84 300,92 304,84" fill="#3B82F6"/>
-                <text x="316" y="76" fill="#3B82F6" font-size="7" font-family="Inter, sans-serif">no: escalate</text>
-                <rect x="246" y="94" width="108" height="34" rx="5" fill="none" stroke="#3B82F6" stroke-width="1.5"/>
-                <text x="300" y="108" text-anchor="middle" fill="#3B82F6" font-size="8.5" font-family="Inter, sans-serif" font-weight="600">LLM plan</text>
-                <text x="300" y="120" text-anchor="middle" fill="#3B82F6" font-size="7" font-family="Inter, sans-serif">injury · readiness</text>
-                <path d="M366 111 H400 V58" fill="none" stroke="#D1D5DB" stroke-width="1.2"/>
-                <polygon points="396,60 400,52 404,60" fill="#D1D5DB"/>
-                <rect x="66" y="140" width="300" height="36" rx="5" fill="none" stroke="#9CA3AF" stroke-width="1.5" stroke-dasharray="5 3"/>
-                <text x="216" y="155" text-anchor="middle" fill="#9CA3AF" font-size="8.5" font-family="Inter, sans-serif" font-weight="600">User Intelligence — compressed profile</text>
-                <text x="216" y="168" text-anchor="middle" fill="#9CA3AF" font-size="7" font-family="Inter, sans-serif">refreshes after 7 days or 5 sessions</text>
-                <line x1="190" y1="140" x2="190" y2="60" stroke="#D1D5DB" stroke-width="1" stroke-dasharray="3 3"/>
-                <polygon points="186,62 190,54 194,62" fill="#D1D5DB"/>
-                <line x1="300" y1="140" x2="300" y2="130" stroke="#D1D5DB" stroke-width="1" stroke-dasharray="3 3"/>
-                <polygon points="296,132 300,124 304,132" fill="#D1D5DB"/>
+              <svg viewBox="0 0 540 200" xmlns="http://www.w3.org/2000/svg">
+                <rect x="8" y="20" width="112" height="38" rx="5" fill="none" stroke="#9CA3AF" stroke-width="1.5"/>
+                <text x="64" y="36" text-anchor="middle" fill="#9CA3AF" font-size="8.5" font-family="Inter, sans-serif" font-weight="600">Apple Watch</text>
+                <text x="64" y="49" text-anchor="middle" fill="#9CA3AF" font-size="7" font-family="Inter, sans-serif">activity · sleep · HRV</text>
+                <line x1="124" y1="39" x2="146" y2="39" stroke="#D1D5DB" stroke-width="1.2"/>
+                <polygon points="144,35 152,39 144,43" fill="#D1D5DB"/>
+                <rect x="156" y="20" width="110" height="38" rx="5" fill="none" stroke="#9CA3AF" stroke-width="1.5"/>
+                <text x="211" y="36" text-anchor="middle" fill="#9CA3AF" font-size="8.5" font-family="Inter, sans-serif" font-weight="600">Baseline plan</text>
+                <text x="211" y="49" text-anchor="middle" fill="#9CA3AF" font-size="7" font-family="Inter, sans-serif">Swift, instant</text>
+                <line x1="270" y1="39" x2="288" y2="39" stroke="#D1D5DB" stroke-width="1.2"/>
+                <polygon points="286,35 294,39 286,43" fill="#D1D5DB"/>
+                <polygon points="330,18 362,39 330,60 298,39" fill="none" stroke="#9CA3AF" stroke-width="1.5"/>
+                <text x="330" y="42" text-anchor="middle" fill="#9CA3AF" font-size="6.5" font-family="Inter, sans-serif">ADJUST?</text>
+                <line x1="362" y1="39" x2="392" y2="39" stroke="#D1D5DB" stroke-width="1.2"/>
+                <polygon points="390,35 398,39 390,43" fill="#D1D5DB"/>
+                <rect x="402" y="20" width="128" height="38" rx="5" fill="none" stroke="#9CA3AF" stroke-width="1.5"/>
+                <text x="466" y="36" text-anchor="middle" fill="#9CA3AF" font-size="8.5" font-family="Inter, sans-serif" font-weight="600">Today's session</text>
+                <text x="466" y="49" text-anchor="middle" fill="#9CA3AF" font-size="7" font-family="Inter, sans-serif">logged on the Watch</text>
+                <line x1="330" y1="60" x2="330" y2="88" stroke="#3B82F6" stroke-width="1.2" stroke-dasharray="4 3"/>
+                <polygon points="326,86 330,94 334,86" fill="#3B82F6"/>
+                <text x="346" y="78" fill="#3B82F6" font-size="7" font-family="Inter, sans-serif">injury · readiness · feel</text>
+                <rect x="274" y="96" width="112" height="34" rx="5" fill="none" stroke="#3B82F6" stroke-width="1.5"/>
+                <text x="330" y="117" text-anchor="middle" fill="#3B82F6" font-size="8.5" font-family="Inter, sans-serif" font-weight="600">LLM adjusts</text>
+                <path d="M390 113 H466 V62" fill="none" stroke="#D1D5DB" stroke-width="1.2"/>
+                <polygon points="462,64 466,56 470,64" fill="#D1D5DB"/>
+                <rect x="86" y="152" width="330" height="38" rx="5" fill="none" stroke="#9CA3AF" stroke-width="1.5" stroke-dasharray="5 3"/>
+                <text x="251" y="168" text-anchor="middle" fill="#9CA3AF" font-size="8.5" font-family="Inter, sans-serif" font-weight="600">Learned profile — patterns, strength, recovery</text>
+                <text x="251" y="181" text-anchor="middle" fill="#9CA3AF" font-size="7" font-family="Inter, sans-serif">rebuilt after 7 days or 5 sessions</text>
+                <line x1="211" y1="152" x2="211" y2="62" stroke="#D1D5DB" stroke-width="1" stroke-dasharray="3 3"/>
+                <polygon points="207,64 211,56 215,64" fill="#D1D5DB"/>
+                <line x1="330" y1="152" x2="330" y2="134" stroke="#D1D5DB" stroke-width="1" stroke-dasharray="3 3"/>
+                <polygon points="326,136 330,128 334,136" fill="#D1D5DB"/>
               </svg>
             </div>
-            <p>A calendar engine picks the day's target muscle; a deterministic Swift planner builds the session from my rotation and current strength numbers, instantly and with no model involved. The LLM is called only when that answer isn't good enough — injury, low readiness, a conflict with yesterday.</p>
-            <p>Underneath sits a persistent user profile. Rather than replaying full history into every prompt, a periodic refresh compresses it into structured sections — training patterns, strength, recovery, preferences — and each call gets that compact version. It marks itself stale after seven days or five sessions, then regenerates.</p>
+            <p>A calendar engine picks the day's target muscle and a deterministic Swift planner builds the session from my rotation and current numbers — instant, no model involved. The LLM is called only when that baseline isn't good enough.</p>
           </div>
 
           <div class="modal-section">
-            <h4>Deciding What the Model Should Do</h4>
-            <p>The first version had Claude do all of it on every render — mostly calendar math Swift does for free, which drove the split. Then I reversed the other half: I had been tuning model selection per touchpoint to hold cost down, correct for a product with users and wrong for an app with one. Five model knobs became one model with extended thinking. The architecture wasn't wrong on the merits, it was answering a question this product never asked.</p>
+            <h4>Three Layers of Adaptation</h4>
+            <p><strong>What I should be able to do.</strong> Activity, sleep, resting heart rate, and HRV come out of HealthKit and set the day's ceiling. A long ride yesterday on five hours of sleep is a different day than a rest day on eight, and the plan reflects that before I open the app.</p>
+            <p><strong>What I can actually do today.</strong> I log how I feel and how much time I have, then sets go in as I lift. This is the layer that catches the gap between what the data predicted and what my body is doing, so the session can move instead of being fixed at the start.</p>
+            <p><strong>What I tend to do.</strong> A persistent profile compresses my history into structured sections — training patterns, strength, recovery, preferences — and rebuilds when it goes stale at seven days or five sessions. Without it, every session starts from scratch and nothing learns my habits.</p>
           </div>
 
           <div class="modal-section">
-            <h4>Knowing Whether It's Any Good</h4>
-            <p>Generated training advice is easy to make convincing and hard to verify. The eval harness is an offline prompt-development tool, not something that runs per query: fixtures, versioned prompts, and a judge scoring against a rubric for specificity, safety, and dosing. Four versions went through it, and the app's prompt builder mirrors the winning files line-for-line so the two don't drift.</p>
-            <p>One problem shaped it: a model grading another model's output rewards what models already believe, so scores drift toward plausibility. The judge has to ground contested claims in outside literature via web search before scoring — otherwise it measures agreement, not quality. Specificity moved most; early versions produced confident paragraphs that could have been about anyone.</p>
+            <h4>Technical Challenges</h4>
+            <ul>
+              <li>Splitting the work: calendar logic and arithmetic belong in deterministic Swift, not in a model call on every render</li>
+              <li>Compressing long training history into prompt-sized context without dropping what matters</li>
+              <li>Verifying advice that is easy to make convincing and hard to check</li>
+              <li>Keeping shipped prompts in sync with the versions I evaluated offline</li>
+            </ul>
           </div>
 
           <div class="modal-section">
-            <h4>Building It for Real</h4>
-            <p>The Watch runs a live <code>HKWorkoutSession</code> and writes a real workout to HealthKit, marking each exercise as a lap segment; sleep, resting heart rate, and HRV come back out as planning inputs. Plans sync over WatchConnectivity, and a widget puts the day's session on the home screen.</p>
+            <h4>Checking the Advice</h4>
+            <p>Generated training advice reads well whether or not it is right, so I built an offline eval harness for prompt development: fixtures, versioned prompts, and a judge scoring against a rubric for specificity, safety, and dosing. Four versions went through it. One catch shaped the design — a model grading another model rewards what models already believe, so the judge has to ground contested claims in outside literature before scoring, or it measures agreement rather than quality.</p>
+          </div>
+
+          <div class="modal-section">
+            <h4>The iOS Stack</h4>
+            <p>The Watch runs a live <code>HKWorkoutSession</code> and writes a real workout back to HealthKit, marking each exercise as a lap segment. Plans sync over WatchConnectivity, a widget puts the day's session on the home screen, and history persists through SwiftData.</p>
           </div>
         `,
         skills: ["Swift", "SwiftUI", "SwiftData", "iOS", "watchOS", "HealthKit", "WatchConnectivity", "WidgetKit", "Claude API", "Prompt Engineering", "LLM Evals", "Context Engineering", "Product Design", "Python"],
