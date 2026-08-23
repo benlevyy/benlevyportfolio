@@ -173,6 +173,42 @@
 
       <div class="project-card">
         <div class="svg-thumb">
+          <svg viewBox="0 0 320 180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="BenLift: phone and watch feeding a planner that escalates to an LLM only when needed">
+            <title>Deterministic planner with LLM escalation</title>
+            <!-- iPhone -->
+            <rect x="18" y="52" width="42" height="70" rx="7" fill="none" stroke="#9CA3AF" stroke-width="1.5"/>
+            <rect x="24" y="60" width="30" height="50" rx="2" fill="none" stroke="#D1D5DB" stroke-width="1"/>
+            <!-- Apple Watch -->
+            <rect x="74" y="66" width="30" height="38" rx="7" fill="none" stroke="#9CA3AF" stroke-width="1.5"/>
+            <path d="M82 66 v-8 h14 v8" fill="none" stroke="#D1D5DB" stroke-width="1.2"/>
+            <path d="M82 104 v8 h14 v-8" fill="none" stroke="#D1D5DB" stroke-width="1.2"/>
+            <!-- feed arrow -->
+            <line x1="112" y1="85" x2="140" y2="85" stroke="#D1D5DB" stroke-width="1.2"/>
+            <polygon points="138,81 146,85 138,89" fill="#D1D5DB"/>
+            <!-- decision gate -->
+            <polygon points="172,60 200,85 172,110 144,85" fill="none" stroke="#9CA3AF" stroke-width="1.5"/>
+            <text x="172" y="88" text-anchor="middle" fill="#9CA3AF" font-size="7" font-family="Inter, sans-serif">GATE</text>
+            <!-- default path: deterministic Swift -->
+            <line x1="200" y1="85" x2="228" y2="60" stroke="#D1D5DB" stroke-width="1.2"/>
+            <polygon points="224,58 232,56 228,64" fill="#D1D5DB"/>
+            <rect x="234" y="42" width="66" height="26" rx="5" fill="none" stroke="#9CA3AF" stroke-width="1.5"/>
+            <text x="267" y="59" text-anchor="middle" fill="#9CA3AF" font-size="8" font-family="Inter, sans-serif" font-weight="600">Swift</text>
+            <!-- escalation path: LLM -->
+            <line x1="200" y1="85" x2="228" y2="110" stroke="#3B82F6" stroke-width="1.2" stroke-dasharray="4 3"/>
+            <polygon points="224,112 232,114 228,106" fill="#3B82F6"/>
+            <rect x="234" y="102" width="66" height="26" rx="5" fill="none" stroke="#3B82F6" stroke-width="1.5"/>
+            <text x="267" y="119" text-anchor="middle" fill="#3B82F6" font-size="8" font-family="Inter, sans-serif" font-weight="600">Opus</text>
+            <!-- Bottom label -->
+            <text x="160" y="165" text-anchor="middle" fill="#9CA3AF" font-size="8" font-family="Inter, sans-serif" letter-spacing="0.08em">BUILT FOR EXACTLY ONE USER</text>
+          </svg>
+        </div>
+        <span class="tag">Personal Product · iOS + watchOS</span>
+        <h3>BenLift</h3>
+        <p>An AI training coach built for exactly one user: me. Claude Code made the building cheap — the scarce part is deciding what is worth building and telling whether the output is any good. My testbed for where an LLM earns its place and where a plain Swift function beats it.</p>
+      </div>
+
+      <div class="project-card">
+        <div class="svg-thumb">
           <svg viewBox="0 0 320 180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AI ARC OPS: Natural language to database">
             <title>Natural language to database query system</title>
             <!-- Abstract brain/AI icon -->
@@ -990,6 +1026,35 @@
           </div>
         `,
         skills: ["SolidWorks", "BLDC Motors", "ODrive", "Raspberry Pi", "Python", "Real-Time Control", "Motion Control", "Telemetry", "3D Printing", "Mechatronics", "Power Electronics", "Human-Centered Design"],
+        links: []
+      },
+      "BenLift": {
+        tag: "Personal Product · iOS + watchOS",
+        images: [],
+        description: `
+          <div class="modal-section">
+            <h4>Why This Exists</h4>
+            <blockquote>In the age of Claude Code, anyone can build anything. Building stopped being the bottleneck, so the interesting work moved: deciding what is actually worth building, and being able to tell whether what came out is any good. BenLift is my exercise in that — a training system built to work the way I want it to work, used daily, and a place to find out first-hand where LLMs help and where they get in the way.</blockquote>
+          </div>
+
+          <div class="modal-section">
+            <h4>Where the LLM Earns Its Place</h4>
+            <p>The first version had Claude do everything on every render — pick the muscle, justify it, plan the session. That is the obvious build and it is the wrong one: most of what it was doing was arithmetic and calendar logic that Swift does deterministically, instantly, and for free. So I split it. A calendar engine and a baseline planner in Swift own the common path, and the model is called only when the deterministic answer isn't good enough — active injury, low readiness, a conflict with what you trained yesterday.</p>
+            <p>Then I reversed part of it. I had tuned per-touchpoint model selection to hold inference cost down, which is the right instinct for a product with users and the wrong one for an app with exactly one. For a single user the monthly cost is rounding-error money, so I deleted five model-selection knobs, put every call on one model with extended thinking, and bought precision with money that was never really at stake. The lesson I actually wanted from this project: the correct LLM architecture is not a fixed pattern, it's a function of who the user is.</p>
+          </div>
+
+          <div class="modal-section">
+            <h4>How I Know the Advice Is Any Good</h4>
+            <p>Generated training advice is easy to make convincing and hard to verify, which makes it exactly the case where vibes are not enough. I built a Python eval harness alongside the app: fixtures describing user states, versioned prompts, and a judge that scores output against a written rubric for specificity, safety, and dosing. Four prompt versions have been through it.</p>
+            <p>The part I care about most is a trap I had to design around. A model grading another model's output tends to reward what models already believe, so the loop converges on plausibility instead of correctness. The judge is therefore required to ground contested claims — dose-response, contraindications, effect sizes — in outside literature via web search before it scores, with citations in its output. Pointing the iteration at reality rather than at the grader's priors is the whole reason the harness is worth having.</p>
+          </div>
+
+          <div class="modal-section">
+            <h4>The iOS Surface Area</h4>
+            <p>The other half of the exercise was learning the toolkits properly rather than reading about them. The Watch app runs a live <code>HKWorkoutSession</code>, marks each exercise as a lap segment, and saves a real workout to HealthKit with heart rate and calories, so sessions land in Health like any first-party workout. Sleep, resting heart rate, and HRV come back out of HealthKit as planning inputs. Plans and results move between phone and watch over WatchConnectivity, and a widget extension surfaces the day's session on the home screen.</p>
+          </div>
+        `,
+        skills: ["Swift", "SwiftUI", "iOS", "watchOS", "HealthKit", "WatchConnectivity", "WidgetKit", "Claude API", "Prompt Engineering", "LLM Evals", "Product Design", "Python"],
         links: []
       },
       "Us4Her": {
