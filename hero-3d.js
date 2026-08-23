@@ -321,13 +321,22 @@ function animate() {
     renderer.render(scene, camera);
 }
 
-window.addEventListener('resize', () => {
+function resizeRenderer() {
     const parent = canvas.parentElement;
-    if (parent) {
-        camera.aspect = parent.clientWidth / parent.clientHeight;
-        camera.updateProjectionMatrix();
-        renderer.setSize(parent.clientWidth, parent.clientHeight);
-    }
-});
+    if (!parent) return;
+    // Fall back to the canvas box if the parent hasn't been laid out yet.
+    const w = parent.clientWidth || canvas.clientWidth;
+    const h = parent.clientHeight || canvas.clientHeight;
+    if (!w || !h) return;
+    camera.aspect = w / h;
+    camera.updateProjectionMatrix();
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setSize(w, h, false);
+}
 
+window.addEventListener('resize', resizeRenderer);
+
+// Size the drawing buffer before the first frame. Without this the canvas keeps
+// its default 300x150 buffer and gets stretched to fill the container.
+resizeRenderer();
 animate();
