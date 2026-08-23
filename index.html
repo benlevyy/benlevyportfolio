@@ -1030,11 +1030,11 @@
       },
       "BenLift": {
         tag: "Personal Product · iOS + watchOS",
-        images: [],
+        images: ["assets/benlift-today.png", "assets/benlift-training.png"],
         description: `
           <div class="modal-section">
             <h4>Why This Exists</h4>
-            <blockquote>Claude Code means anyone can build anything. Building stopped being the constraint, so the work that still matters is deciding what's worth building and knowing whether what came out is any good. BenLift is where I practice both, on a tool I use every week.</blockquote>
+            <blockquote>Claude Code means anyone can build anything. Building stopped being the constraint, so the work that still matters is deciding what's worth building and knowing whether what came out is any good. BenLift is where I practice both, on something I built for myself rather than for a portfolio.</blockquote>
           </div>
 
           <div class="modal-section">
@@ -1046,6 +1046,7 @@
           <div class="modal-section">
             <h4>Knowing Whether It's Any Good</h4>
             <p>Generated training advice is easy to make convincing and hard to verify. I built an eval harness so I could tell the difference: fixtures describing user states, versioned prompts, and a judge scoring output against a written rubric for specificity, safety, and dosing. Four prompt versions have been through it.</p>
+            <p>Specificity is the dimension that moved most. A plan is only useful if it references your actual numbers, so the rubric scores whether every prescription traces back to real history rather than generic advice. In the screenshots the reasoning reads "Machine Press was already in your 2026-04-28 chest rotation, and a fixed-path machine is the lowest-risk way to reload pressing volume after a 107-day layoff" — a specific date, a specific gap, and a stated reason for the exercise choice. Early prompt versions produced confident paragraphs that could have been about anyone.</p>
             <p>One problem shaped the design. A model grading another model's output rewards what models already believe, so scores drift toward plausibility instead of correctness. The judge has to ground contested claims — dose-response, contraindications, effect sizes — in outside literature via web search before scoring, and cite what it used. Without that, the harness measures agreement rather than quality.</p>
           </div>
 
