@@ -204,7 +204,7 @@
         </div>
         <span class="tag">Personal Product · iOS + watchOS</span>
         <h3>BenLift</h3>
-        <p>An AI training coach built for exactly one user: me. Claude Code made the building cheap — the scarce part is deciding what is worth building and telling whether the output is any good. My testbed for where an LLM earns its place and where a plain Swift function beats it.</p>
+        <p>An AI lifting coach with exactly one user: me. Claude Code means anyone can build anything, so building isn't the interesting part anymore — deciding what to build, and knowing whether it's any good, is. This is where I work that out on something I actually use.</p>
       </div>
 
       <div class="project-card">
@@ -1034,24 +1034,24 @@
         description: `
           <div class="modal-section">
             <h4>Why This Exists</h4>
-            <blockquote>In the age of Claude Code, anyone can build anything. Building stopped being the bottleneck, so the interesting work moved: deciding what is actually worth building, and being able to tell whether what came out is any good. BenLift is my exercise in that — a training system built to work the way I want it to work, used daily, and a place to find out first-hand where LLMs help and where they get in the way.</blockquote>
+            <blockquote>Claude Code means anyone can build anything. Building stopped being the constraint, so the work that still matters is deciding what's worth building and knowing whether what came out is any good. BenLift is where I practice both, on a tool I use every week.</blockquote>
           </div>
 
           <div class="modal-section">
-            <h4>Where the LLM Earns Its Place</h4>
-            <p>The first version had Claude do everything on every render — pick the muscle, justify it, plan the session. That is the obvious build and it is the wrong one: most of what it was doing was arithmetic and calendar logic that Swift does deterministically, instantly, and for free. So I split it. A calendar engine and a baseline planner in Swift own the common path, and the model is called only when the deterministic answer isn't good enough — active injury, low readiness, a conflict with what you trained yesterday.</p>
-            <p>Then I reversed part of it. I had tuned per-touchpoint model selection to hold inference cost down, which is the right instinct for a product with users and the wrong one for an app with exactly one. For a single user the monthly cost is rounding-error money, so I deleted five model-selection knobs, put every call on one model with extended thinking, and bought precision with money that was never really at stake. The lesson I actually wanted from this project: the correct LLM architecture is not a fixed pattern, it's a function of who the user is.</p>
+            <h4>Deciding What the Model Should Do</h4>
+            <p>The first version had Claude do everything on every render — pick the muscle, justify it, plan the session. That's the obvious build and it's the wrong one. Most of what the model was doing was calendar logic and arithmetic that Swift does deterministically, instantly, and for free. So I split it: a calendar engine and a baseline planner own the common path, and the model is called only when the deterministic answer isn't good enough — active injury, low readiness, a conflict with what I trained yesterday.</p>
+            <p>Then I reversed half of it. I had been tuning model selection at every touchpoint to hold inference cost down, which is correct for a product with users and wrong for an app with one. I deleted five model-selection knobs and put every call on a single model with extended thinking. The cost I was optimizing didn't exist at my scale. That's the part worth keeping: the architecture wasn't wrong on the merits, it was answering a question this product never asked.</p>
           </div>
 
           <div class="modal-section">
-            <h4>How I Know the Advice Is Any Good</h4>
-            <p>Generated training advice is easy to make convincing and hard to verify, which makes it exactly the case where vibes are not enough. I built a Python eval harness alongside the app: fixtures describing user states, versioned prompts, and a judge that scores output against a written rubric for specificity, safety, and dosing. Four prompt versions have been through it.</p>
-            <p>The part I care about most is a trap I had to design around. A model grading another model's output tends to reward what models already believe, so the loop converges on plausibility instead of correctness. The judge is therefore required to ground contested claims — dose-response, contraindications, effect sizes — in outside literature via web search before it scores, with citations in its output. Pointing the iteration at reality rather than at the grader's priors is the whole reason the harness is worth having.</p>
+            <h4>Knowing Whether It's Any Good</h4>
+            <p>Generated training advice is easy to make convincing and hard to verify. I built an eval harness so I could tell the difference: fixtures describing user states, versioned prompts, and a judge scoring output against a written rubric for specificity, safety, and dosing. Four prompt versions have been through it.</p>
+            <p>One problem shaped the design. A model grading another model's output rewards what models already believe, so scores drift toward plausibility instead of correctness. The judge has to ground contested claims — dose-response, contraindications, effect sizes — in outside literature via web search before scoring, and cite what it used. Without that, the harness measures agreement rather than quality.</p>
           </div>
 
           <div class="modal-section">
-            <h4>The iOS Surface Area</h4>
-            <p>The other half of the exercise was learning the toolkits properly rather than reading about them. The Watch app runs a live <code>HKWorkoutSession</code>, marks each exercise as a lap segment, and saves a real workout to HealthKit with heart rate and calories, so sessions land in Health like any first-party workout. Sleep, resting heart rate, and HRV come back out of HealthKit as planning inputs. Plans and results move between phone and watch over WatchConnectivity, and a widget extension surfaces the day's session on the home screen.</p>
+            <h4>Building It for Real</h4>
+            <p>None of that judgment counts unless the thing actually works, so the app is real rather than a demo. The Watch runs a live <code>HKWorkoutSession</code>, marks each exercise as a lap segment, and saves a proper workout to HealthKit with heart rate and calories. Sleep, resting heart rate, and HRV come back out as planning inputs. Plans and results sync over WatchConnectivity, and a widget puts the day's session on the home screen. Learning these toolkits by shipping something I depend on teaches more than reading about them.</p>
           </div>
         `,
         skills: ["Swift", "SwiftUI", "iOS", "watchOS", "HealthKit", "WatchConnectivity", "WidgetKit", "Claude API", "Prompt Engineering", "LLM Evals", "Product Design", "Python"],
